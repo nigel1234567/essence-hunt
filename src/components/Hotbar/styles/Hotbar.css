@@ -1,0 +1,62 @@
+.hotbar {
+  background-color: slateblue;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 16px;
+  height: 15vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 4fr;
+      grid-template-columns: 1fr 4fr;
+}
+
+.hotbar .info {
+  border: 3px solid darkslateblue;
+  padding: 0.5em 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 8px;
+}
+
+.hotbar .main {
+  padding: 0.5em 1em;
+  border: 3px solid darkslateblue;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+}
+
+.hotbar .main .btn {
+  -webkit-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  border: 3px solid darkslategray;
+  border-radius: 16px;
+  padding: 1rem;
+  width: 15rem;
+  font-size: 1.5rem;
+  background-color: slategray;
+  color: white;
+  font-weight: bold;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+}
+
+.hotbar .main .btn:hover {
+  cursor: pointer;
+  background-color: darkgray;
+}
+
+.hotbar .main .btn:focus {
+  background-color: darkslateblue;
+}
+/*# sourceMappingURL=Hotbar.css.map */

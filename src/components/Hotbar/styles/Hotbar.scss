@@ -1,0 +1,44 @@
+.hotbar {
+  background-color: slateblue;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 16px;
+  height: 15vh;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  .info {
+    border: 3px solid darkslateblue;
+    padding: 0.5em 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .main {
+    padding: 0.5em 1em;
+    border: 3px solid darkslateblue;
+    display: flex;
+    gap: 2rem;
+    .btn {
+      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+      border: 3px solid darkslategray;
+      border-radius: 16px;
+      padding: 1rem;
+      width: 15rem;
+      font-size: 1.5rem;
+      background-color: slategray;
+      color: white;
+      font-weight: bold;
+      transition: 0.2s;
+      transition-timing-function: ease-in-out;
+      &:hover {
+        cursor: pointer;
+        background-color: darkgray;
+      }
+      &:focus {
+        background-color: darkslateblue;
+      }
+    }
+  }
+}

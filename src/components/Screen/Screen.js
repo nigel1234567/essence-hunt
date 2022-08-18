@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './styles/Screen.css'
 
 const Screen = () => {
 
   return (
-    <div className='screen'>Screen</div>
+    <div className='screen'>
+      Screen
+    </div>
   )
 }
 

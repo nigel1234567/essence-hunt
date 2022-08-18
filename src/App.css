@@ -1,4 +1,35 @@
 body {
   background-color: lavender;
 }
+
+.popup {
+  position: fixed;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  height: 70%;
+  background-color: lightgray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.popup .popup-inner {
+  position: relative;
+  padding: 32px;
+  width: 100%;
+  background-color: darkgray;
+}
+
+.popup .popup-inner .close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
 /*# sourceMappingURL=App.css.map */

@@ -1,7 +1,38 @@
+// Screen
 .screen {
   border: 3px solid darkgray;
   background-color: white;
   margin: 16px;
   height: 73vh;
-  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  .column {
+    border: 1px solid black;
+    padding: 24px;
+  }
+}
+
+// Equipment
+.equipment {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  .equipment-slots {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: space-evenly;
+    align-items: center;
+    .equipment-item {
+      border: 3px solid black;
+      border-radius: 16px;
+      width: 8rem;
+      height: 8rem;
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }

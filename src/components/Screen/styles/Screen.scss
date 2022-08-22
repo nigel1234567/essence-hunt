@@ -36,3 +36,26 @@
     }
   }
 }
+
+// Map
+.map {
+  display: flex;
+  flex-direction: column;
+  .seed-info {
+    border: 3px solid black;
+    border-radius: 16px;
+    padding: 8px;
+    display: flex;
+    gap: 8px;
+    .seed-item {
+      border: 3px solid black;
+      border-radius: 16px;
+      width: 2rem;
+      height: 2rem;
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

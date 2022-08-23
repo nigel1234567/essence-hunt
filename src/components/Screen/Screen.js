@@ -12,8 +12,7 @@ const Screen = () => {
   const [startingSeed, setStartingSeed] = useState()
   const [seeds, setSeeds] = useState([])
   const [seedSlots, setSeedSlots] = useState()
-
-  let grid = <Grid level={level}/>
+  const [gridItemsArray, setGridItemsArray] = useState([])
 
   // Player info
   const [startingEnergy, setStartingEnergy] = useState(5)
@@ -22,6 +21,30 @@ const Screen = () => {
   // Log window
 
   // Functions
+  // Durstenfeld shuffle
+  function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+
+  // Items array
+  // Levels
+  let currentLevel = level + 2
+  const maxLevel = 10
+  useEffect(()=>{
+    // Set currentLevel (limited by maxLevel)
+    if (level < maxLevel - 2) {
+      currentLevel= level + 2
+    } else {
+      currentLevel = maxLevel
+    }
+  }, [level])
+
+  let gridItems = []
 
   // Use Effect hooks
   // Set starting seed
@@ -36,17 +59,30 @@ const Screen = () => {
     
   }, [level])
 
-  // Set seedArray and seeds
+  // Set gridItems, seedArray and seeds
   useEffect(() => {
-    let seedArray = []
+    // Loop creating of gridItems array
+    for (let i=0; i < currentLevel * currentLevel; i++) {
+      // Add in the loot on the first row
+      if (i < currentLevel) {
+        gridItems.push('loot')
+      } else {
+        // Add in empty for remaining rows
+        gridItems.push('empty')
+      }
+      // Shuffle gridItems array
+      shuffleArray(gridItems)
+    }
+    console.log(gridItems)
+    setGridItemsArray(gridItems)
 
     // Generating starting seeds
+    let seedArray = []
     for (let i = 0; i < startingSeed; i++) {
       // Insert seed data here (to create seed generator)
       let seed = {key: i, name: `Seed ${i+1}`}
       seedArray.push(seed)
       }
-
     setSeeds(seedArray)
   }, [startingSeed])
 
@@ -63,6 +99,9 @@ const Screen = () => {
       })
     )
   }, [seeds])
+
+  // Create grid
+  let grid = <Grid level={level} items={gridItemsArray}/>
 
 
   // Increase level

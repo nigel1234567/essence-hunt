@@ -108,6 +108,10 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   border: 3px solid black;
   padding: 16px;
   -webkit-box-pack: center;
@@ -120,18 +124,18 @@
   gap: 1px;
 }
 
-.grid .grid-col {
+.grid .grid-row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
   gap: 1px;
 }
 
-.grid .grid-col .grid-cell {
+.grid .grid-row .grid-cell {
   border: 3px solid darkslategray;
   padding: 10px;
   width: 2.5rem;
@@ -146,8 +150,16 @@
           justify-content: center;
 }
 
-.grid .grid-col .grid-cell:hover {
+.grid .grid-row .grid-cell:hover {
   background-color: lightgrey;
   cursor: pointer;
+}
+
+.grid .grid-row .empty {
+  background-color: brown;
+}
+
+.grid .grid-row .loot {
+  background-color: lightgreen;
 }
 /*# sourceMappingURL=Screen.css.map */

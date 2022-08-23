@@ -9,9 +9,11 @@ const Screen = () => {
 
   // Map info
   const [level, setLevel] = useState(1)
-  const [startingSeed, setStartingSeed] = useState(level + 2)
+  const [startingSeed, setStartingSeed] = useState()
   const [seeds, setSeeds] = useState([])
-  const [seedsRemaining, setSeedsRemaining] = useState()
+  const [seedSlots, setSeedSlots] = useState()
+
+  let grid = <Grid level={level}/>
 
   // Player info
   const [startingEnergy, setStartingEnergy] = useState(5)
@@ -20,22 +22,48 @@ const Screen = () => {
   // Log window
 
   // Functions
-  // Generating starting seeds
-  for (let i = 0; i < startingSeed; i++) {
-    let seed = {key: i, name: `Seed ${i}`}
-    seeds.push(seed)
-  }
 
-  // Seed slots shown in window
-  const seedSlots = seeds.map(item => {
-    console.log(item.key)
+  // Use Effect hooks
+  // Set starting seed
+  useEffect(() => {
+    // Reset startingSeed and seedArray
+    // Max seed = 10
+    if (level > 8) {
+      setStartingSeed(10)
+    } else {
+      setStartingSeed(level + 2)
+    }
+    
+  }, [level])
+
+  // Set seedArray and seeds
+  useEffect(() => {
+    let seedArray = []
+
+    // Generating starting seeds
+    for (let i = 0; i < startingSeed; i++) {
+      // Insert seed data here (to create seed generator)
+      let seed = {key: i, name: `Seed ${i+1}`}
+      seedArray.push(seed)
+      }
+
+    setSeeds(seedArray)
+  }, [startingSeed])
+
+  // Set SeedSlot components
+  useEffect(() => {
+    // Seed slots shown in window
+    setSeedSlots(seeds.map(item => {
       return (
         <SeedSlot
           key={item.key}
           name={item.name}
           />
-      )
-  })
+        )
+      })
+    )
+  }, [seeds])
+
 
   // Increase level
   const increaseLevel = () => {
@@ -54,7 +82,7 @@ const Screen = () => {
       </div>
       <div className='column map'>
         <h3>Area Name</h3>
-        <Grid level={level}/>
+        {grid}
         <div className='player-info'>
           <p><strong>Energy: </strong>{energy}</p>
           <p><strong>Level: </strong>{level}</p>

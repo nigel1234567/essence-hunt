@@ -3,7 +3,7 @@
   border: 3px solid darkgray;
   background-color: white;
   margin: 16px;
-  height: 73vh;
+  height: 80vh;
   display: grid;
   grid-template-columns: 1fr 4fr 1fr;
   .column {
@@ -44,18 +44,49 @@
   .seed-info {
     border: 3px solid black;
     border-radius: 16px;
-    padding: 8px;
+    padding: 10px;
     display: flex;
-    gap: 8px;
+    justify-content: center;
+    gap: 2rem;
     .seed-item {
       border: 3px solid black;
       border-radius: 16px;
-      width: 2rem;
-      height: 2rem;
+      width: 1.5rem;
+      height: 1.5rem;
       padding: 12px;
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+  }
+}
+
+// Grid
+.grid {
+  display: flex;
+  border: 3px solid black;
+  padding: 16px;
+  justify-content: center;
+  align-items: center;
+  height: 25rem;
+  gap: 1px;
+  .grid-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    .grid-cell {
+      border: 3px solid darkslategray;
+      padding: 10px;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 8px;
+      background-color: slategray;
+      display: flex;
+      justify-content: center;
+      &:hover {
+        background-color: lightgrey;
+        cursor: pointer;
+      }
     }
   }
 }

@@ -13,6 +13,7 @@ const Screen = () => {
   const [seeds, setSeeds] = useState([])
   const [seedSlots, setSeedSlots] = useState()
   const [gridItemsArray, setGridItemsArray] = useState([])
+  const [grid, setGrid] = useState()
 
   // Player info
   const [startingEnergy, setStartingEnergy] = useState(5)
@@ -59,6 +60,7 @@ const Screen = () => {
     
   }, [level])
 
+
   // Set gridItems, seedArray and seeds
   useEffect(() => {
     // Loop creating of gridItems array
@@ -73,7 +75,6 @@ const Screen = () => {
       // Shuffle gridItems array
       shuffleArray(gridItems)
     }
-    console.log(gridItems)
     setGridItemsArray(gridItems)
 
     // Generating starting seeds
@@ -84,7 +85,11 @@ const Screen = () => {
       seedArray.push(seed)
       }
     setSeeds(seedArray)
-  }, [startingSeed])
+  }, [startingSeed, currentLevel])
+
+  useEffect(() => {
+    setGrid(<Grid level={level} items={gridItemsArray}/>)
+  }, [gridItemsArray])
 
   // Set SeedSlot components
   useEffect(() => {
@@ -99,10 +104,6 @@ const Screen = () => {
       })
     )
   }, [seeds])
-
-  // Create grid
-  let grid = <Grid level={level} items={gridItemsArray}/>
-
 
   // Increase level
   const increaseLevel = () => {

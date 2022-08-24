@@ -13,8 +13,8 @@ const Hotbar = () => {
     setPopup('inventory')
   }
 
-  const showFruitpedia = () => {
-    setPopup('fruitpedia')
+  const showGarden = () => {
+    setPopup('garden')
   }
 
   return (
@@ -27,7 +27,7 @@ const Hotbar = () => {
       <div className='main'>
         <button className='btn news' onClick={showNews}>News</button>
         <button className='btn inventory' onClick={showInventory}>Inventory</button>
-        <button className='btn fruitpedia' onClick={showFruitpedia}>Fruitpedia</button>
+        <button className='btn garden' onClick={showGarden}>Garden</button>
         <button className='btn end'>End Day</button>
       </div>
     </div>

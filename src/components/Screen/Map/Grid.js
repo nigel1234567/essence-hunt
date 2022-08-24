@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import GridCell from './GridCell'
-import { apple } from './Items/Items'
+import { seedGenerator } from './Seeds/Seeds'
 
 const Grid = (props) => {
   // Grid display (Depends on Map)
   const [gridDisplay, setGridDisplay] = useState()
   const maxLevel = 10
-  console.log(props.items)
-  console.log(props.items[0])
 
   // Grid Cells (Contain GridItem)
   let grid = []
@@ -23,7 +21,6 @@ const Grid = (props) => {
     }
   }, [props.level])
 
-
   // Show grid display
   useEffect(() => {
     // To indicate current iteration of loop
@@ -36,9 +33,11 @@ const Grid = (props) => {
         let item = 'empty'
         // Get from gridItems array if current cell contains loot
         if (props.items[loopPosition] === 'loot') {
-          item = apple
+          // To add randomiser
+          item = seedGenerator()
+          console.log(item)
         }
-        gridRow.push(<GridCell item={item}/>)
+        gridRow.push(<GridCell key={loopPosition} item={item}/>)
         // Increment of 1 for loopPosition
         loopPosition += 1
       }
@@ -46,18 +45,20 @@ const Grid = (props) => {
       grid.push(gridRow)
     }
       // Generate Grid Display
+      let rowNum = 0
       setGridDisplay(grid.map(row => {
         let newRow = row.map(cell => {
+          rowNum+=1
           return (cell)
         })
         return (
-          <div className='grid-row'>
+          <div className='grid-row' key={rowNum}>
             {newRow}
           </div>
         )
       }))
 
-  }, [currentLevel])
+  }, [currentLevel, props.items])
 
 
   return (

@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import GridCell from './GridCell'
-import { seedGenerator } from './Seeds/Seeds'
+import { EnergyContext } from '../EnergyContext'
 
 const Grid = (props) => {
   // Grid display (Depends on Map)
   const [gridDisplay, setGridDisplay] = useState()
+  const currentEnergy = useContext(EnergyContext)
   const maxLevel = 10
+
 
   // Grid Cells (Contain GridItem)
   let grid = []
@@ -32,12 +34,11 @@ const Grid = (props) => {
       for (let j=0; j < currentLevel; j++) {
         let item = 'empty'
         // Get from gridItems array if current cell contains loot
-        if (props.items[loopPosition] === 'loot') {
+        if (props.items[loopPosition] !== 'empty') {
           // To add randomiser
-          item = seedGenerator()
-          console.log(item)
+          item = props.items[loopPosition]
         }
-        gridRow.push(<GridCell key={loopPosition} item={item}/>)
+        gridRow.push(<GridCell key={loopPosition} item={item} />)
         // Increment of 1 for loopPosition
         loopPosition += 1
       }

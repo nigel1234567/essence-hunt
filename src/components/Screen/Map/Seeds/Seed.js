@@ -1,5 +1,5 @@
 class Seed {
-  constructor(name, type, rarity) {
+  constructor(name, type, rarity, key) {
     // Name of seed
     this.name = name;
     this.type = type;

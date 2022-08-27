@@ -4,6 +4,7 @@ import Grid from './Map/Grid'
 import SeedSlot from './Map/SeedSlot'
 import { seedGenerator } from './Map/Seeds/Seeds'
 import { EnergyContext } from './EnergyContext'
+import { LootContext } from './LootContext'
 import './styles/Screen.css'
 
 const Screen = () => {
@@ -20,6 +21,7 @@ const Screen = () => {
   // Player info
   const [startingEnergy, setStartingEnergy] = useState(5)
   const [currentEnergy, setCurrentEnergy] = useState(startingEnergy)
+  const [loot, setLoot] = useState([])
   
   // Log window
 
@@ -50,7 +52,6 @@ const Screen = () => {
   let gridItems = []
 
   // Use Effect hooks
-  console.log(currentEnergy)
 
   // Set starting seed
   useEffect(() => {
@@ -86,11 +87,12 @@ const Screen = () => {
 
   useEffect(() => {
     // Generating seed slots
-    // Push seeds from gridItemsArray into seedArray
     let seedArray = []
+    // Push seeds from gridItemsArray into seedArray
     for (let item in gridItemsArray) {
-      if (gridItemsArray[item] !== 'empty') {
-        seedArray.push(gridItemsArray[item])
+      let currentItem = gridItemsArray[item]
+      if (currentItem !== 'empty') {
+        seedArray.push(currentItem)
       }
     }
     setSeeds(seedArray)
@@ -100,12 +102,19 @@ const Screen = () => {
 
   // Set SeedSlot components
   useEffect(() => {
+    // Record positions of seeds
+    let lootSeedsArray = []
+    for (let pos in gridItemsArray) {
+      if (gridItemsArray[pos] !== 'empty') {
+        let lootSeed = { key: pos,  name: gridItemsArray[pos].name}
+        lootSeedsArray.push(lootSeed)
+      }
+    }
     // Seed slots shown in window
-    setSeedSlots(seeds.map(item => {
+    setSeedSlots(lootSeedsArray.map(item => {
       return (
         <SeedSlot
-          key={item.key}
-          name={item.name}
+          seed={item}
           />
         )
       })
@@ -129,15 +138,17 @@ const Screen = () => {
       </div>
       <div className='column map'>
         <EnergyContext.Provider value={{currentEnergy, setCurrentEnergy}}>
-          <h3>Area Name</h3>
-          {grid}
-          <div className='player-info'>
-              <p><strong>Energy: </strong>{currentEnergy}</p>
-            <p><strong>Level: </strong>{level}</p>
-          </div>
-          <div className='seed-info'>
-            {seedSlots}
-          </div>
+          <LootContext.Provider value={{loot, setLoot}}>
+            <h3>Area Name</h3>
+            {grid}
+            <div className='player-info'>
+                <p><strong>Energy: </strong>{currentEnergy}</p>
+              <p><strong>Level: </strong>{level}</p>
+            </div>
+            <div className='seed-info'>
+              {seedSlots}
+            </div>
+          </LootContext.Provider>
           <button onClick={increaseLevel}>Increase Level</button>
         </EnergyContext.Provider>
       </div>

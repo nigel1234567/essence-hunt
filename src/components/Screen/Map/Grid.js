@@ -38,7 +38,7 @@ const Grid = (props) => {
           // To add randomiser
           item = props.items[loopPosition]
         }
-        gridRow.push(<GridCell key={loopPosition} item={item} />)
+        gridRow.push(<GridCell key={loopPosition} item={item} position={loopPosition}/>)
         // Increment of 1 for loopPosition
         loopPosition += 1
       }

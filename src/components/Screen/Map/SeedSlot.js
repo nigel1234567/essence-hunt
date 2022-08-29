@@ -4,11 +4,12 @@ import { LootContext } from '../LootContext'
 const SeedSlot = (props) => {
   const {loot, setLoot} = useContext(LootContext)
   const [name, setName] = useState('Undug')
-  const position = parseInt(props.pos) // Need to convert string to number (diff type)
+  const position = parseInt(props.seed.key) // Need to convert string to number (diff type)
 
-  // Not working
   useEffect(() => {
 
+    console.log(props)
+    console.log(props.key)
     if (loot.includes(position)) {
       setName(props.seed.name)
     }

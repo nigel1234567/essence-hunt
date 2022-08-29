@@ -34,7 +34,7 @@ const Screen = () => {
         array[i] = array[j];
         array[j] = temp;
     }
-}
+  }
 
   // Items array
   // Levels

@@ -1,9 +1,10 @@
 class Seed {
-  constructor(name, type, rarity, key) {
+  constructor(name, type, rarity, image) {
     // Name of seed
     this.name = name;
     this.type = type;
-    this.rarity = rarity
+    this.rarity = rarity;
+    this.image = image
   }
 }
 

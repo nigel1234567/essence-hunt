@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
 import GridCell from './GridCell'
-import { EnergyContext } from '../EnergyContext'
+import { EnergyContext } from '../../Contexts/PlayerContext'
 
 const Grid = (props) => {
   // Grid display (Depends on Map)

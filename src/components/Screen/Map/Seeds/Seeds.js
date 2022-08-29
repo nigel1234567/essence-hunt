@@ -1,13 +1,17 @@
-import Seed from "./Seed";
+import Seed from "./Seed"
+import opple_img from '../../../../images/opple.png'
+import pearmerald_img from '../../../../images/pearmerald.png'
+import strawruby_img from '../../../../images/strawruby.png'
+import diamelon_img from '../../../../images/diamelon.png'
 
 // ********* CREATE A JS TEST *********
 
 // Seeds Data
 // Gem seeds
-let apple = new Seed('Opple', 'gem', 'common')
-let pear = new Seed('Pearmerald', 'gem', 'uncommon')
-let strawberry = new Seed('Strawruby', 'gem', 'rare')
-let melon = new Seed('Diamelon', 'gem', 'mythical')
+let apple = new Seed('Opple', 'gem', 'common', opple_img)
+let pear = new Seed('Pearmerald', 'gem', 'uncommon', pearmerald_img)
+let strawberry = new Seed('Strawruby', 'gem', 'rare', strawruby_img)
+let melon = new Seed('Diamelon', 'gem', 'mythical', diamelon_img)
 
 // Swamp seeds
 let mud = new Seed('Mud Fruit', 'swamp', 'common')

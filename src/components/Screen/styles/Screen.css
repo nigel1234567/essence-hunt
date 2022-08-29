@@ -148,6 +148,9 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .grid .grid-row .grid-cell:hover {
@@ -160,6 +163,6 @@
 }
 
 .grid .grid-row .loot {
-  background-color: lightgreen;
+  background-color: white;
 }
 /*# sourceMappingURL=Screen.css.map */

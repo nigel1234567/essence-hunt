@@ -1,10 +1,13 @@
-import React, { useContext } from 'react'
-import { EnergyContext } from '../EnergyContext'
-import { LootContext } from '../LootContext'
+import React, { useContext, useState } from 'react'
+import { EnergyContext } from '../../Contexts/PlayerContext'
+import { LootContext } from '../../Contexts/LootContext'
+import { InventoryContext } from '../../Contexts/PlayerContext'
 
 const GridCell = (props) => {
   let {currentEnergy, setCurrentEnergy} = useContext(EnergyContext)
   let {loot, setLoot} = useContext(LootContext)
+  let {inventory, setInventory} = useContext(InventoryContext)
+  const [preview, setPreview] = useState()
 
   const handleChange = (e) => {
     // Check if sufficient energy and className is closed
@@ -12,11 +15,16 @@ const GridCell = (props) => {
       // When cell is clicked to dig
       console.log(props.item)
       let updatedLoot = [...loot]
+      let updatedInventory = [...inventory]
       if (props.item !== 'empty') {
-        e.target.innerHTML = props.item.name
+        // If cell contains loot
+        setPreview(<img src={props.item.image} alt={props.item.name} className='seed-image-mini'></img>)
         e.target.className='grid-cell loot'
         updatedLoot.push(props.position)
         setLoot(updatedLoot)
+        // Update inventory
+        updatedInventory.push(props.item)
+        setInventory(updatedInventory)
       } else {
         e.target.innerHTML = 'X'
         e.target.className='grid-cell empty'
@@ -28,7 +36,7 @@ const GridCell = (props) => {
   }
 
   return (
-    <button onClick={handleChange} className='grid-cell closed'>Cell</button>
+    <button onClick={handleChange} className='grid-cell closed'>{preview}</button>
   )
 }
 

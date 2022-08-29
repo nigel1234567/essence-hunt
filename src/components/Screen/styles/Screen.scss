@@ -84,6 +84,7 @@
       background-color: slategray;
       display: flex;
       justify-content: center;
+      align-items: center;
       &:hover {
         background-color: lightgrey;
         cursor: pointer;
@@ -94,7 +95,7 @@
       background-color: brown;
     }
     .loot {
-      background-color: lightgreen;
+      background-color: white;
     }
   }
 }

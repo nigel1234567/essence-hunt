@@ -1,24 +1,22 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { LootContext } from '../LootContext'
+import { LootContext } from '../../Contexts/LootContext'
 
 const SeedSlot = (props) => {
   const {loot, setLoot} = useContext(LootContext)
-  const [name, setName] = useState('Undug')
+  const [preview, setPreview] = useState('?')
   const position = parseInt(props.seed.key) // Need to convert string to number (diff type)
 
   useEffect(() => {
-
-    console.log(props)
-    console.log(props.key)
+    console.log(props.seed.image)
     if (loot.includes(position)) {
-      setName(props.seed.name)
+      setPreview(<img src={props.seed.image} alt={props.seed.name} className='seed-image'></img>)
     }
   }, [loot])
 
   return (
     <div className='seed-item'>
       <div>{props.seed.key}</div>
-      <div>{name}</div>
+      {preview}
     </div>
   )
 }

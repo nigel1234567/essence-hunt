@@ -2,25 +2,49 @@ body {
   background-color: lavender;
 }
 
+img {
+  max-width: inherit;
+  max-height: inherit;
+}
+
+.seed-image {
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+}
+
+.seed-image-mini {
+  width: 2rem;
+  height: 2rem;
+}
+
 .popup {
   position: fixed;
   top: 5%;
   left: 5%;
-  width: 90%;
   height: 70%;
-  background-color: lightgray;
+  width: 90%;
+  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
   .popup-inner {
     position: relative;
-    padding: 32px;
+    padding: 6px;
     width: 100%;
-    background-color: darkgray;
+    background-color: darkslateblue;
     .close-btn {
       position: absolute;
       top: 16px;
       right: 16px;
+      background-color: darkslategray;
+      color: white;
+      font-weight: bold;
+      &:hover {
+        cursor: pointer;
+        background-color: lightslategray;
+        color: black;
+      }
     }
   }
 }

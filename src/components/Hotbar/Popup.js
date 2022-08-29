@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import News from './News'
-import Inventory from './Inventory'
+import Inventory from './Inventory/Inventory'
 import Garden from './Garden'
 
 const Popup = (props) => {
   const [currentPopup, setCurrentPopup] = useState()
   
   useEffect(() => {
-    console.log(props.trigger)
     if (props.trigger === 'news') {
       setCurrentPopup(<News />)
     } 
@@ -25,7 +24,7 @@ const Popup = (props) => {
       <div className='popup'>
         <div className='popup-inner'>
           {currentPopup}
-          <button className='close-btn' onClick={() => props.setTrigger(null)}>Close</button>
+          <button className='close-btn' onClick={() => props.setTrigger(null)}>X</button>
         </div>
       </div>
     )

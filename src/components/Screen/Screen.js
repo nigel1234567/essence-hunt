@@ -3,8 +3,8 @@ import EquipmentSlot from './Equipment/EquipmentSlot'
 import Grid from './Map/Grid'
 import SeedSlot from './Map/SeedSlot'
 import { seedGenerator } from './Map/Seeds/Seeds'
-import { EnergyContext } from './EnergyContext'
-import { LootContext } from './LootContext'
+import { EnergyContext } from '../Contexts/PlayerContext'
+import { LootContext } from '../Contexts/LootContext'
 import './styles/Screen.css'
 
 const Screen = () => {
@@ -106,7 +106,8 @@ const Screen = () => {
     let lootSeedsArray = []
     for (let pos in gridItemsArray) {
       if (gridItemsArray[pos] !== 'empty') {
-        let lootSeed = { key: pos,  name: gridItemsArray[pos].name}
+        let lootSeed = { key: pos,  name: gridItemsArray[pos].name, image: gridItemsArray[pos].image}
+        console.log(lootSeed)
         lootSeedsArray.push(lootSeed)
       }
     }

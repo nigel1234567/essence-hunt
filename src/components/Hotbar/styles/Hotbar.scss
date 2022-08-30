@@ -58,8 +58,8 @@
     gap: 2rem;
     .inventory-slot {
       border: 3px solid darkslateblue;
-      width: 4rem;
-      height: 4rem;
+      width: 4.5rem;
+      height: 4.5rem;
       border-radius: 16px;
       background-color: slategray;
       color: white;
@@ -74,14 +74,31 @@
     .item {
       background-color: white;
       color: darkslateblue;
+      .item-name {
+        font-size: 1.2rem;
+      }
+      .Common {
+        color: yellow;
+      }
+      .Uncommon {
+        color: greenyellow;
+      }
+      .Rare {
+        color: lightsteelblue;
+      }
+      .Mythical {
+        color: violet;
+      }
       .tooltip {
         visibility: hidden;
-        width: 5rem;
+        max-width: 12rem;
         background-color: black;
         color: #fff;
         text-align: center;
         border-radius: 6px;
-        padding: 5px 0;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
       
         /* Position the tooltip */
         position: absolute;
@@ -92,11 +109,18 @@
         cursor: pointer;
         background-color: white;
         color: black;
-        font-weight: bold;
         .tooltip {
           visibility: visible;
         }
       }
     }
   }
+}
+
+// Log
+.log-display {
+  border: 3px solid black;
+  padding: 8px;
+  height: 85%;
+  overflow-y: scroll;
 }

@@ -7,7 +7,6 @@ const SeedSlot = (props) => {
   const position = parseInt(props.seed.key) // Need to convert string to number (diff type)
 
   useEffect(() => {
-    console.log(props.seed.image)
     if (loot.includes(position)) {
       setPreview(<img src={props.seed.image} alt={props.seed.name} className='seed-image'></img>)
     }

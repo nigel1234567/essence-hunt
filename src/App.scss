@@ -3,8 +3,7 @@ body {
 }
 
 img {
-  max-width: inherit;
-  max-height: inherit;
+  size: inherit;
 }
 
 .seed-image {
@@ -14,8 +13,9 @@ img {
 }
 
 .seed-image-mini {
-  width: 2rem;
-  height: 2rem;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  position: relative;
 }
 
 .popup {

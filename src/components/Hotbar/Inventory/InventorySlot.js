@@ -9,7 +9,11 @@ const InventorySlot = (props) => {
       setSlot(
         <button className='inventory-slot item'>
           <img src={props.item.image} alt={props.item.name}></img>
-          <span className='tooltip'>{props.item.name}</span>
+          <div className='tooltip'>
+            <span className='item-name'><strong>{props.item.name}</strong></span>
+            <strong className={props.item.rarity}>{props.item.rarity}</strong>
+            <span><strong>Type: </strong>{props.item.type}</span>
+          </div>
         </button>
       )
     }

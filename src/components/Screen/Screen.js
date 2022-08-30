@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react'
 import EquipmentSlot from './Equipment/EquipmentSlot'
 import Grid from './Map/Grid'
 import SeedSlot from './Map/SeedSlot'
+import LogDisplay from '../Hotbar/Log/LogDisplay'
 import { seedGenerator } from './Map/Seeds/Seeds'
 import { EnergyContext } from '../Contexts/PlayerContext'
 import { LootContext } from '../Contexts/LootContext'
+import { LogContext } from '../Contexts/LogContext'
 import './styles/Screen.css'
 
 const Screen = () => {
@@ -23,7 +25,8 @@ const Screen = () => {
   const [currentEnergy, setCurrentEnergy] = useState(startingEnergy)
   const [loot, setLoot] = useState([])
   
-  // Log window
+  // Log
+  const [log, setLog] = useState([])
 
   // Functions
   // Durstenfeld shuffle
@@ -107,7 +110,6 @@ const Screen = () => {
     for (let pos in gridItemsArray) {
       if (gridItemsArray[pos] !== 'empty') {
         let lootSeed = { key: pos,  name: gridItemsArray[pos].name, image: gridItemsArray[pos].image}
-        console.log(lootSeed)
         lootSeedsArray.push(lootSeed)
       }
     }
@@ -137,25 +139,28 @@ const Screen = () => {
           <EquipmentSlot/>
         </div>
       </div>
+      <LogContext.Provider value={{log, setLog}}>
       <div className='column map'>
         <EnergyContext.Provider value={{currentEnergy, setCurrentEnergy}}>
           <LootContext.Provider value={{loot, setLoot}}>
-            <h3>Area Name</h3>
-            {grid}
-            <div className='player-info'>
-                <p><strong>Energy: </strong>{currentEnergy}</p>
-              <p><strong>Level: </strong>{level}</p>
-            </div>
-            <div className='seed-info'>
-              {seedSlots}
-            </div>
+              <h3>Area Name</h3>
+              {grid}
+              <div className='player-info'>
+                  <p><strong>Energy: </strong>{currentEnergy}</p>
+                <p><strong>Level: </strong>{level}</p>
+              </div>
+              <div className='seed-info'>
+                {seedSlots}
+              </div>
           </LootContext.Provider>
           <button onClick={increaseLevel}>Increase Level</button>
         </EnergyContext.Provider>
       </div>
       <div className='column log'>
-        Log
+        <h3>Log</h3>
+        <LogDisplay/>
       </div>
+      </LogContext.Provider>
     </div>
   )
 }

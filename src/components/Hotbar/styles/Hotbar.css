@@ -89,8 +89,8 @@
 
 .inventory-main .inventory-grid .inventory-slot {
   border: 3px solid darkslateblue;
-  width: 4rem;
-  height: 4rem;
+  width: 4.5rem;
+  height: 4.5rem;
   border-radius: 16px;
   background-color: slategray;
   color: white;
@@ -119,14 +119,41 @@
   color: darkslateblue;
 }
 
+.inventory-main .inventory-grid .item .item-name {
+  font-size: 1.2rem;
+}
+
+.inventory-main .inventory-grid .item .Common {
+  color: yellow;
+}
+
+.inventory-main .inventory-grid .item .Uncommon {
+  color: greenyellow;
+}
+
+.inventory-main .inventory-grid .item .Rare {
+  color: lightsteelblue;
+}
+
+.inventory-main .inventory-grid .item .Mythical {
+  color: violet;
+}
+
 .inventory-main .inventory-grid .item .tooltip {
   visibility: hidden;
-  width: 5rem;
+  max-width: 12rem;
   background-color: black;
   color: #fff;
   text-align: center;
   border-radius: 6px;
-  padding: 5px 0;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   /* Position the tooltip */
   position: absolute;
   top: 80%;
@@ -137,10 +164,16 @@
   cursor: pointer;
   background-color: white;
   color: black;
-  font-weight: bold;
 }
 
 .inventory-main .inventory-grid .item:hover .tooltip {
   visibility: visible;
+}
+
+.log-display {
+  border: 3px solid black;
+  padding: 8px;
+  height: 85%;
+  overflow-y: scroll;
 }
 /*# sourceMappingURL=Hotbar.css.map */

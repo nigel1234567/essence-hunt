@@ -7,22 +7,45 @@ import { PlayerContext } from './components/Contexts/PlayerContext'
 const App = () => {
   const [player, setPlayer] = useState({
     inventory: [],
+    inventoryLevel: 1,
+    inventoryFull: false,
     startingEnergy: 5,
     currentEnergy: 5,
     day: 1,
     log: []
   })
+  const [inventory, setInventory] = useState(player.inventory)
+  const [inventoryLevel, setInventoryLevel] = useState(player.inventoryLevel)
+  const [log, setLog] = useState(player.log)
+  let updatedPlayer = {...player}
+  let updatedLog = [...log]
 
   // Starting new day
   useEffect(() => {
-    let updatedPlayer = {...player}
-    updatedPlayer.log = [`Started new day! It is now Day ${player.day}.`]
+    updatedPlayer.log = [`Started a new day! It is now Day ${player.day}.`]
     setPlayer(updatedPlayer)
   },[player.day])
 
+  // Refresh
   useEffect(() => {
     console.log(player)
+    setInventory(player.inventory)
+    setLog(player.log)
   }, [player])
+
+
+  // Check if inventory is full
+  useEffect(() => {
+    if (inventory.length === inventoryLevel * 5) {
+      updatedPlayer.inventoryFull = true
+      updatedLog.push('Your inventory is full!')
+      updatedPlayer.log = updatedLog
+      setPlayer(updatedPlayer)
+    } else {
+      updatedPlayer.inventoryFull = false
+      setPlayer(updatedPlayer)
+    }
+  }, [inventory])
 
   return (
     <>

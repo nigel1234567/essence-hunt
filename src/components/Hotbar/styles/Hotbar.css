@@ -199,6 +199,60 @@
   color: white;
 }
 
+.end:focus {
+  background-color: goldenrod;
+  color: white;
+}
+
+.end-day {
+  padding: 1rem;
+  background-color: var(--theme-primary);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.end-day .end-choice {
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.end-day .end-choice .choice-btn {
+  font-size: 24px;
+  font-weight: bold;
+  border: 3px solid var(--grey-2);
+  background-color: var(--grey-1);
+  color: white;
+  border-radius: 8px;
+  padding: 8px;
+  width: 8rem;
+}
+
+.end-day .end-choice .choice-btn:hover {
+  cursor: pointer;
+  background-color: var(--grey-2);
+  color: white;
+}
+
 .question {
   font-size: 2rem;
   font-weight: bold;
@@ -216,10 +270,10 @@
 
 .question:hover {
   cursor: pointer;
-  background-color: var(--theme-primary);
+  background-color: var(--subtheme-1);
 }
 
 .question:focus {
-  background-color: var(--theme-primary);
+  background-color: var(--subtheme-1);
 }
 /*# sourceMappingURL=Hotbar.css.map */

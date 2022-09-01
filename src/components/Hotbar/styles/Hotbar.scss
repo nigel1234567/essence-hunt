@@ -137,7 +137,43 @@
     background-color: goldenrod;
     color: white;
   }
+  &:focus {
+    background-color: goldenrod;
+    color: white;
+  }
 }
+
+.end-day {
+  padding: 1rem;
+  background-color: var(--theme-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .end-choice {
+    padding: 1rem;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    .choice-btn {
+      font-size: 24px;
+      font-weight: bold;
+      border: 3px solid var(--grey-2);
+      background-color: var(--grey-1);
+      color: white;
+      border-radius: 8px;
+      padding: 8px;
+      width: 8rem;
+      &:hover {
+        cursor: pointer;
+        background-color: var(--grey-2);
+        color: white;
+      }
+    }
+  }
+}
+
 .question {
   font-size: 2rem;
   font-weight: bold;
@@ -151,9 +187,9 @@
   transition-timing-function: ease-in-out;
   &:hover {
     cursor: pointer;
-    background-color: var(--theme-primary);
+    background-color: var(--subtheme-1);
   }
   &:focus {
-    background-color: var(--theme-primary);
+    background-color: var(--subtheme-1);
   }
 }

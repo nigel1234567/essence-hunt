@@ -1,8 +1,8 @@
 :root {
   --theme-primary: slateblue;
   --theme-secondary: darkslateblue;
-  --purple-1: rgb(145, 134, 212);
-  --purple-2: rgb(192, 185, 231);
+  --subtheme-1: rgb(145, 134, 212);
+  --subtheme-2: rgb(192, 185, 231);
   --grey-1: slategray;
   --grey-2: darkslategray;
   --font-1: #fff;
@@ -10,7 +10,8 @@
 
 body {
   background-color: lavender;
-  color: var(--grey-2)
+  color: var(--grey-2);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 img {
@@ -44,6 +45,7 @@ img {
     padding: 6px;
     width: 100%;
     background-color: darkslateblue;
+    color: white;
     .close-btn {
       position: absolute;
       top: 16px;

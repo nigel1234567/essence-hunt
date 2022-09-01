@@ -11,7 +11,7 @@
     padding: 24px;
   }
   .map {
-    background-color: var(--purple-2);
+    background-color: var(--subtheme-2);
     .grid {
       background-color: white;
     }
@@ -46,7 +46,7 @@
     }
   }
   .log {
-    background-color: var(--purple-1);
+    background-color: var(--subtheme-1);
     .log-display {
       display: flex;
       flex-direction: column;
@@ -64,7 +64,7 @@
 
 // Equipment
 .equipment {
-  background-color: var(--purple-1);
+  background-color: var(--subtheme-1);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

@@ -39,12 +39,12 @@ const End = (props) => {
 
   return (
     <div className='end-day'>
-      <h2>End Day #</h2>
+      <h2>End Day {day}</h2>
       <div className='end-alert'>
-        <span>Do you want to end day #?</span>
+        <span>Do you want to end day {day}?</span>
         <div className="end-choice">
-          <button onClick={() => setChoice('yes')}>Yes</button>
-          <button onClick={() => setChoice('no')}>No</button>
+          <button className='choice-btn' onClick={() => setChoice('yes')}>Yes</button>
+          <button className='choice-btn' onClick={() => setChoice('no')}>No</button>
         </div>
       </div>
     </div>

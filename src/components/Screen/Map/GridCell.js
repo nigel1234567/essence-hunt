@@ -1,19 +1,23 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { PlayerContext } from '../../Contexts/PlayerContext'
 import { LootContext } from '../../Contexts/LootContext'
-
+import LootAlert from './LootAlert'
 
 const GridCell = (props) => {
   let {loot, setLoot} = useContext(LootContext)
   let {player, setPlayer} = useContext(PlayerContext)
+  const [inventoryFull, setInventoryFull] = useState(player.inventoryFull)
   const [log, setLog] = useState(player.log)
   const [inventory, setInventory] = useState(player.inventory)
   const [preview, setPreview] = useState()
+  const [alert, setAlert] = useState(false)
   let currentEnergy = player.currentEnergy
 
+  // Refresh player object
   useEffect(() => {
     setLog(player.log)
     setInventory(player.inventory)
+    setInventoryFull(player.inventoryFull)
   }, [player])
 
   const handleChange = (e) => {
@@ -30,11 +34,17 @@ const GridCell = (props) => {
         e.target.className='grid-cell loot'
         updatedLoot.push(props.position)
         setLoot(updatedLoot)
-        // Update inventory
-        updatedInventory.push(props.item)
-        updatedPlayer.inventory = updatedInventory
-        // Update log
-        updatedLog.push(`You found x1 ${props.item.rarity} loot: ${props.item.name}! You have ${currentEnergy-1} energy left.`)
+        // Check if inventory is full
+        if (inventoryFull !== true) {
+          // Update inventory
+          updatedInventory.push(props.item)
+          updatedPlayer.inventory = updatedInventory
+          // Update log
+          updatedLog.push(`You found x1 ${props.item.rarity} loot: ${props.item.name}! You have ${currentEnergy-1} energy left.`)
+        } else {
+          updatedLog.push(`You found x1 ${props.item.rarity} loot: ${props.item.name}! You have ${currentEnergy-1} energy left.`)
+          setAlert(true)
+        }
       } else {
         e.target.innerHTML = 'X'
         e.target.className='grid-cell empty'
@@ -51,7 +61,10 @@ const GridCell = (props) => {
   }
 
   return (
-    <button onClick={handleChange} className='grid-cell closed'>{preview}</button>
+    <>
+      <button onClick={handleChange} className='grid-cell closed'>{preview}</button>
+      <LootAlert trigger={alert} setTrigger={setAlert} loot={props.item}/>
+    </>
   )
 }
 

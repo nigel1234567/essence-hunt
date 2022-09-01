@@ -15,8 +15,6 @@ const LogDisplay = () => {
     setLogEntries(logArray)
   }, [log])
 
-  console.log(logEntries)
-
   return (
     <div className='log-display'>
         {logEntries}

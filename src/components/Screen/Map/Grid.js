@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useContext } from 'react'
 import GridCell from './GridCell'
-import { EnergyContext } from '../../Contexts/PlayerContext'
+import { DayContext, EnergyContext } from '../../Contexts/PlayerContext'
 
 const Grid = (props) => {
   // Grid display (Depends on Map)
   const [gridDisplay, setGridDisplay] = useState()
+  const day = useContext(DayContext)
   const currentEnergy = useContext(EnergyContext)
   const maxLevel = 10
 
@@ -21,7 +22,7 @@ const Grid = (props) => {
     } else {
       currentLevel = maxLevel
     }
-  }, [props.level])
+  }, [props.level, day])
 
   // Show grid display
   useEffect(() => {
@@ -59,7 +60,7 @@ const Grid = (props) => {
         )
       }))
 
-  }, [currentLevel, props.items])
+  }, [currentLevel, props.items, day])
 
 
   return (

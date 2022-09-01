@@ -32,6 +32,12 @@
   display: -ms-flexbox;
   display: flex;
   gap: 2rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .hotbar .main .btn {
@@ -132,7 +138,7 @@
 }
 
 .inventory-main .inventory-grid .item .Rare {
-  color: lightsteelblue;
+  color: cyan;
 }
 
 .inventory-main .inventory-grid .item .Mythical {
@@ -170,10 +176,50 @@
   visibility: visible;
 }
 
-.log-display {
-  border: 3px solid black;
-  padding: 8px;
-  height: 85%;
-  overflow-y: scroll;
+.end {
+  -webkit-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+          box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  border: 3px solid darkgoldenrod;
+  border-radius: 50%;
+  padding: 1rem;
+  width: 8rem;
+  font-size: 1.5rem;
+  background-color: gold;
+  color: maroon;
+  font-weight: bold;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+}
+
+.end:hover {
+  cursor: pointer;
+  background-color: goldenrod;
+  color: white;
+}
+
+.question {
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: darkslateblue;
+  color: white;
+  border-radius: 50%;
+  border: 3px solid darkslategray;
+  width: 4rem;
+  height: 4rem;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+}
+
+.question:hover {
+  cursor: pointer;
+  background-color: #9186d4;
+}
+
+.question:focus {
+  background-color: darkslateblue;
 }
 /*# sourceMappingURL=Hotbar.css.map */

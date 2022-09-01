@@ -10,7 +10,7 @@
 }
 
 .screen .column {
-  border: 1px solid black;
+  border: 1px solid darkslateblue;
   padding: 24px;
 }
 
@@ -22,19 +22,53 @@
   background-color: white;
 }
 
-.screen .map .seed-info {
-  background-color: slateblue;
+.screen .map .player-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 1.2rem;
+  color: darkslategray;
 }
 
-.screen .map .seed-info .seed-item {
+.screen .map .seed-info {
+  background-color: slateblue;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 3px;
+}
+
+.screen .map .seed-info .loot-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.screen .map .seed-info .seed-slots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.screen .map .seed-info .seed-slots .seed-item {
   background-color: white;
   font-size: 24px;
   font-weight: bold;
   color: darkslateblue;
-}
-
-.screen .equipment {
-  background-color: #9186d4;
 }
 
 .screen .log {
@@ -62,6 +96,7 @@
 }
 
 .equipment {
+  background-color: #9186d4;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -95,7 +130,7 @@
 }
 
 .equipment .equipment-slots .equipment-item {
-  border: 3px solid black;
+  border: 3px solid darkslateblue;
   border-radius: 16px;
   width: 8rem;
   height: 8rem;
@@ -109,6 +144,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: white;
 }
 
 .map {
@@ -122,7 +158,7 @@
 }
 
 .map .seed-info {
-  border: 3px solid black;
+  border: 3px solid darkslateblue;
   border-radius: 16px;
   padding: 10px;
   display: -webkit-box;
@@ -135,7 +171,7 @@
 }
 
 .map .seed-info .seed-item {
-  border: 3px solid black;
+  border: 3px solid darkslateblue;
   border-radius: 16px;
   width: 1.5rem;
   height: 1.5rem;
@@ -159,7 +195,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border: 3px solid black;
+  border: 3px solid darkslateblue;
   padding: 16px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -201,6 +237,11 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-size: 100%;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
 }
 
 .grid .grid-row .grid-cell:hover {
@@ -214,5 +255,12 @@
 
 .grid .grid-row .loot {
   background-color: white;
+}
+
+.log-display {
+  border: 3px solid black;
+  padding: 8px;
+  height: 85%;
+  overflow-y: scroll;
 }
 /*# sourceMappingURL=Screen.css.map */

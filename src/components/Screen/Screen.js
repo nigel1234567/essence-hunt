@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import EquipmentSlot from './Equipment/EquipmentSlot'
 import Grid from './Map/Grid'
 import SeedSlot from './Map/SeedSlot'
 import LogDisplay from '../Hotbar/Log/LogDisplay'
 import { seedGenerator } from './Map/Seeds/Seeds'
-import { EnergyContext } from '../Contexts/PlayerContext'
+import { DayContext, EnergyContext, StartingEnergyContext } from '../Contexts/PlayerContext'
 import { LootContext } from '../Contexts/LootContext'
 import { LogContext } from '../Contexts/LogContext'
 import './styles/Screen.css'
@@ -21,9 +21,10 @@ const Screen = () => {
   const [grid, setGrid] = useState()
 
   // Player info
-  const [startingEnergy, setStartingEnergy] = useState(5)
-  const [currentEnergy, setCurrentEnergy] = useState(startingEnergy)
+  const {startingEnergy, setStartingEnergy} = useContext(StartingEnergyContext)
+  const {currentEnergy, setCurrentEnergy} = useContext(EnergyContext)
   const [loot, setLoot] = useState([])
+  const {day, setDay} = useContext(DayContext)
   
   // Log
   const [log, setLog] = useState([])
@@ -52,10 +53,6 @@ const Screen = () => {
     }
   }, [level])
 
-  let gridItems = []
-
-  // Use Effect hooks
-
   // Set starting seed
   useEffect(() => {
     // Reset startingSeed and seedArray
@@ -68,7 +65,7 @@ const Screen = () => {
     
   }, [level])
 
-
+  let gridItems = []
   // Set gridItems, seedArray and seeds
   useEffect(() => {
     // Loop creating of gridItems array
@@ -86,7 +83,7 @@ const Screen = () => {
     }
     setGridItemsArray(gridItems)
 
-  }, [startingSeed, currentLevel])
+  }, [startingSeed, currentLevel, day])
 
   useEffect(() => {
     // Generating seed slots
@@ -100,8 +97,16 @@ const Screen = () => {
     }
     setSeeds(seedArray)
 
-    setGrid(<Grid level={level} items={gridItemsArray}/>)
+    // Reset LootContext, grid and seedSlots
+    setGrid()
+    setSeedSlots()
+    setLoot([])
   }, [gridItemsArray])
+
+  // Set Grid
+  useEffect(() => {
+    setGrid(<Grid level={level} items={gridItemsArray}/>)
+  }, [seeds, day])
 
   // Set SeedSlot components
   useEffect(() => {
@@ -113,6 +118,8 @@ const Screen = () => {
         lootSeedsArray.push(lootSeed)
       }
     }
+    // Shuffle positions of lootSeedsArray
+    shuffleArray(lootSeedsArray)
     // Seed slots shown in window
     setSeedSlots(lootSeedsArray.map(item => {
       return (
@@ -141,20 +148,21 @@ const Screen = () => {
       </div>
       <LogContext.Provider value={{log, setLog}}>
       <div className='column map'>
-        <EnergyContext.Provider value={{currentEnergy, setCurrentEnergy}}>
-          <LootContext.Provider value={{loot, setLoot}}>
-              <h3>Area Name</h3>
-              {grid}
-              <div className='player-info'>
-                  <p><strong>Energy: </strong>{currentEnergy}</p>
-                <p><strong>Level: </strong>{level}</p>
-              </div>
-              <div className='seed-info'>
+        <LootContext.Provider value={{loot, setLoot}}>
+            <h3>Area Name</h3>
+            {grid}
+            <div className='player-info'>
+              <div><strong>Energy: </strong>{currentEnergy}</div>
+              <div><strong>Level: </strong>{level}</div>
+            </div>
+            <div className='seed-info'>
+              <div className='loot-title'>Loot</div>
+              <div className='seed-slots'>
                 {seedSlots}
               </div>
-          </LootContext.Provider>
-          <button onClick={increaseLevel}>Increase Level</button>
-        </EnergyContext.Provider>
+            </div>
+        </LootContext.Provider>
+        <button onClick={increaseLevel}>Increase Level</button>
       </div>
       <div className='column log'>
         <h3>Log</h3>

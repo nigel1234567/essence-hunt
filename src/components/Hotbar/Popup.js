@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react'
 import News from './News'
 import Inventory from './Inventory/Inventory'
 import Garden from './Garden'
+import Shop from './Shop/Shop'
+import End from './End'
 
 const Popup = (props) => {
   const [currentPopup, setCurrentPopup] = useState()
@@ -15,6 +17,12 @@ const Popup = (props) => {
     }
     else if (props.trigger === 'garden') {
       setCurrentPopup(<Garden />)
+    }
+    else if (props.trigger === 'shop') {
+      setCurrentPopup(<Shop />)
+    }
+    else if (props.trigger === 'end') {
+      setCurrentPopup(<End trigger = {props.trigger} setTrigger={props.setTrigger}/>)
     }
   }, [props.trigger])
 

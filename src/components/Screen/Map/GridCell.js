@@ -1,24 +1,29 @@
-import React, { useContext, useState } from 'react'
-import { EnergyContext } from '../../Contexts/PlayerContext'
+import React, { useContext, useState, useEffect } from 'react'
+import { PlayerContext } from '../../Contexts/PlayerContext'
 import { LootContext } from '../../Contexts/LootContext'
-import { InventoryContext } from '../../Contexts/PlayerContext'
-import { LogContext } from '../../Contexts/LogContext'
+
 
 const GridCell = (props) => {
-  let {currentEnergy, setCurrentEnergy} = useContext(EnergyContext)
   let {loot, setLoot} = useContext(LootContext)
-  let {log, setLog} = useContext(LogContext)
-  let {inventory, setInventory} = useContext(InventoryContext)
+  let {player, setPlayer} = useContext(PlayerContext)
+  const [log, setLog] = useState(player.log)
+  const [inventory, setInventory] = useState(player.inventory)
   const [preview, setPreview] = useState()
+  let currentEnergy = player.currentEnergy
+
+  useEffect(() => {
+    setLog(player.log)
+    setInventory(player.inventory)
+  }, [player])
 
   const handleChange = (e) => {
     // Check if sufficient energy and className is closed
     if (currentEnergy > 0 && e.target.className === 'grid-cell closed') {
       // When cell is clicked to dig
-      console.log(props.item)
       let updatedLoot = [...loot]
       let updatedInventory = [...inventory]
       let updatedLog = [...log]
+      let updatedPlayer = {...player}
       if (props.item !== 'empty') {
         // If cell contains loot
         setPreview(<img src={props.item.image} alt={props.item.name} className='seed-image-mini'></img>)
@@ -27,20 +32,21 @@ const GridCell = (props) => {
         setLoot(updatedLoot)
         // Update inventory
         updatedInventory.push(props.item)
-        setInventory(updatedInventory)
+        updatedPlayer.inventory = updatedInventory
         // Update log
         updatedLog.push(`You found x1 ${props.item.rarity} loot: ${props.item.name}! You have ${currentEnergy-1} energy left.`)
-        setLog(updatedLog)
       } else {
         e.target.innerHTML = 'X'
         e.target.className='grid-cell empty'
         // Update log
         updatedLog.push(`You found nothing. You have ${currentEnergy-1} energy left.`)
-        setLog(updatedLog)
       }
-      setCurrentEnergy(currentEnergy - 1)
+      currentEnergy -= 1
+      updatedPlayer.currentEnergy = currentEnergy
+      updatedPlayer.log = updatedLog
+      // Update Player Object
+      setPlayer(updatedPlayer)
     }
-    console.log(loot)
 
   }
 

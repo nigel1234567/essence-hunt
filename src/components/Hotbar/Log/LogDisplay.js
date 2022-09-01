@@ -1,11 +1,17 @@
 import React, {useState, useEffect, useContext} from 'react'
-import { LogContext } from '../../Contexts/LogContext'
+import { PlayerContext } from '../../Contexts/PlayerContext'
 import LogEntry from './LogEntry'
 
 const LogDisplay = () => {
-  const {log, setLog} = useContext(LogContext)
+  const {player, setPlayer} = useContext(PlayerContext)
+  const [log, setLog] = useState(player.log)
   const [logEntries, setLogEntries] = useState()
   
+  // Update log whenever player object changes
+  useEffect(() => {
+    setLog(player.log)
+  }, [player])
+
   useEffect(() => {
     let logNum = 0
     let logArray = log.map(entry => {

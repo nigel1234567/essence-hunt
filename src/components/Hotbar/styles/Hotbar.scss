@@ -1,5 +1,5 @@
 .hotbar {
-  background-color: slateblue;
+  background-color: var(--theme-primary);
   color: white;
   font-size: 1.5rem;
   font-weight: bold;
@@ -9,7 +9,7 @@
   display: grid;
   grid-template-columns: 1fr 4fr;
   .info {
-    border: 3px solid darkslateblue;
+    border: 3px solid var(--theme-secondary);
     padding: 0.5em 1em;
     display: flex;
     flex-direction: column;
@@ -17,7 +17,7 @@
   }
   .main {
     padding: 0.5em 1em;
-    border: 3px solid darkslateblue;
+    border: 3px solid var(--theme-secondary);
     display: flex;
     gap: 2rem;
     justify-content: center;
@@ -39,7 +39,7 @@
         background-color: darkgray;
       }
       &:focus {
-        background-color: darkslateblue;
+        background-color: var(--theme-secondary);
       }
     }
   }
@@ -47,7 +47,7 @@
 
 // Inventory
 .inventory-main {
-  background-color: slateblue;
+  background-color: var(--theme-primary);
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -59,7 +59,7 @@
     grid-template-columns: repeat(5, 1fr);
     gap: 2rem;
     .inventory-slot {
-      border: 3px solid darkslateblue;
+      border: 3px solid var(--theme-secondary);
       width: 4.5rem;
       height: 4.5rem;
       border-radius: 16px;
@@ -75,7 +75,7 @@
     }
     .item {
       background-color: white;
-      color: darkslateblue;
+      color: var(--theme-secondary);
       .item-name {
         font-size: 1.2rem;
       }
@@ -141,19 +141,19 @@
 .question {
   font-size: 2rem;
   font-weight: bold;
-  background-color: darkslateblue;
+  background-color: var(--theme-secondary);
   color: white;
   border-radius: 50%;
-  border: 3px solid darkslategray;
+  border: 3px solid var(--grey-2);
   width: 4rem;
   height: 4rem;
   transition: 0.2s;
   transition-timing-function: ease-in-out;
   &:hover {
     cursor: pointer;
-    background-color: rgb(145, 134, 212);
+    background-color: var(--theme-primary);
   }
   &:focus {
-    background-color: darkslateblue;
+    background-color: var(--theme-primary);
   }
 }

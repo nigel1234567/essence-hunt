@@ -1,20 +1,23 @@
 import React, {useState, useEffect, useContext} from 'react'
-import { DayContext, EnergyContext, StartingEnergyContext } from '../Contexts/PlayerContext'
+import { PlayerContext } from '../Contexts/PlayerContext'
 
 const End = (props) => {
   const [choice, setChoice] = useState()
-  const {day, setDay} = useContext(DayContext)
-  const {currentEnergy, setCurrentEnergy} = useContext(EnergyContext)
-  const {startingEnergy, setStartingEnergy} = useContext(StartingEnergyContext)
+  const {player, setPlayer} = useContext(PlayerContext)
+  const [day, setDay] = useState(player.day)
+  const [startingEnergy, setStartingEnergy] = useState(player.startingEnergy)
+
+  let updatedPlayer = {...player}
 
   useEffect(() => {
-    console.log(choice)
     if (choice === 'yes') {
       // Increase day
       let updatedDay = day + 1
-      setDay(updatedDay)
+      updatedPlayer.day = updatedDay
       // Refresh energy
-      setCurrentEnergy(startingEnergy)
+      updatedPlayer.currentEnergy = startingEnergy
+      // Refresh log
+      updatedPlayer.log = []
       // Close popup and refresh choice
       props.setTrigger(null)
       setChoice(null)
@@ -23,6 +26,9 @@ const End = (props) => {
       props.setTrigger(null)
       setChoice(null)
     }
+
+    // Update player
+    setPlayer(updatedPlayer)
   }, [choice])
 
   const choiceYes = () => {

@@ -4,9 +4,8 @@ import Grid from './Map/Grid'
 import SeedSlot from './Map/SeedSlot'
 import LogDisplay from '../Hotbar/Log/LogDisplay'
 import { seedGenerator } from './Map/Seeds/Seeds'
-import { DayContext, EnergyContext, StartingEnergyContext } from '../Contexts/PlayerContext'
+import { PlayerContext } from '../Contexts/PlayerContext'
 import { LootContext } from '../Contexts/LootContext'
-import { LogContext } from '../Contexts/LogContext'
 import './styles/Screen.css'
 
 const Screen = () => {
@@ -21,13 +20,12 @@ const Screen = () => {
   const [grid, setGrid] = useState()
 
   // Player info
-  const {startingEnergy, setStartingEnergy} = useContext(StartingEnergyContext)
-  const {currentEnergy, setCurrentEnergy} = useContext(EnergyContext)
+  const {player, setPlayer} = useContext(PlayerContext)
+  const [startingEnergy, setStartingEnergy] = useState(player.startingEnergy)
+  const [currentEnergy, setCurrentEnergy] = useState(player.currentEnergy)
   const [loot, setLoot] = useState([])
-  const {day, setDay} = useContext(DayContext)
-  
-  // Log
-  const [log, setLog] = useState([])
+  const [day, setDay] = useState(player.day)
+
 
   // Functions
   // Durstenfeld shuffle
@@ -39,6 +37,13 @@ const Screen = () => {
         array[j] = temp;
     }
   }
+
+  // Update energy and day whenever player object changes
+  useEffect(() => {
+    setCurrentEnergy(player.currentEnergy)
+    setStartingEnergy(player.startingEnergy)
+    setDay(player.day)
+  }, [player])
 
   // Items array
   // Levels
@@ -146,7 +151,6 @@ const Screen = () => {
           <EquipmentSlot/>
         </div>
       </div>
-      <LogContext.Provider value={{log, setLog}}>
       <div className='column map'>
         <LootContext.Provider value={{loot, setLoot}}>
             <h3>Area Name</h3>
@@ -168,7 +172,6 @@ const Screen = () => {
         <h3>Log</h3>
         <LogDisplay/>
       </div>
-      </LogContext.Provider>
     </div>
   )
 }

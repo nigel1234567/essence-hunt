@@ -2,30 +2,34 @@ import React, {useEffect, useState} from 'react'
 import './App.css'
 import Hotbar from './components/Hotbar/Hotbar'
 import Screen from './components/Screen/Screen'
-import { EnergyContext, InventoryContext, StartingEnergyContext, DayContext } from './components/Contexts/PlayerContext'
+import { PlayerContext } from './components/Contexts/PlayerContext'
 
 const App = () => {
-  const [inventory, setInventory] = useState([])
-  const [startingEnergy, setStartingEnergy] = useState(5)
-  const [currentEnergy, setCurrentEnergy] = useState(5)
-  const [day, setDay] = useState(1)
+  const [player, setPlayer] = useState({
+    inventory: [],
+    startingEnergy: 5,
+    currentEnergy: 5,
+    day: 1,
+    log: []
+  })
+
+  // Starting new day
+  useEffect(() => {
+    let updatedPlayer = {...player}
+    updatedPlayer.log = [`Started new day! It is now Day ${player.day}.`]
+    setPlayer(updatedPlayer)
+  },[player.day])
 
   useEffect(() => {
-    console.log(day)
-  }, [day])
+    console.log(player)
+  }, [player])
 
   return (
     <>
-    <InventoryContext.Provider value={{inventory, setInventory}}>
-      <StartingEnergyContext.Provider value={{startingEnergy, setStartingEnergy}}>
-        <EnergyContext.Provider value={{currentEnergy, setCurrentEnergy}}>
-          <DayContext.Provider value={{day, setDay}}>
-          <Screen />
-          <Hotbar />
-          </DayContext.Provider>
-        </EnergyContext.Provider>
-      </StartingEnergyContext.Provider>
-    </InventoryContext.Provider>
+    <PlayerContext.Provider value={{player, setPlayer}}>
+      <Screen />
+      <Hotbar />
+    </PlayerContext.Provider>
     </>
   )
 }

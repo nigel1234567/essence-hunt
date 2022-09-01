@@ -1,12 +1,14 @@
 import React, {useEffect, useState, useContext} from 'react'
 import InventorySlot from './InventorySlot'
-import { InventoryContext } from '../../Contexts/PlayerContext'
+import { InventoryContext, PlayerContext } from '../../Contexts/PlayerContext'
 
 const Inventory = () => {
   const [inventoryLevel, setInventoryLevel] = useState(1)
   const [inventoryGrid, setInventoryGrid] = useState()
-  const {inventory, setInventory} = useContext(InventoryContext)
+  const {player, setPlayer} = useContext(PlayerContext)
+  const [inventory, setInventory] = useState(player.inventory)
 
+  console.log(player)
   useEffect(() => {
     // Array to be pushed to inventoryGrid
     let inventoryGridArray = []

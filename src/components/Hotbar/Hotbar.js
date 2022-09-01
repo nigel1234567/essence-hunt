@@ -1,11 +1,16 @@
 import React, {useContext, useEffect, useState} from 'react'
 import './styles/Hotbar.css'
 import Popup from './Popup'
-import { DayContext } from '../Contexts/PlayerContext'
+import { PlayerContext } from '../Contexts/PlayerContext'
 
 const Hotbar = () => {
+  let {player, setPlayer} = useContext(PlayerContext)
   const [popup, setPopup] = useState(null)
-  const {day, setDay} = useContext(DayContext)
+  const [day, setDay] = useState(player.day)
+
+  useEffect(() => {
+    setDay(player.day)
+  }, [player])
 
   const showNews = () => {
     setPopup('news')

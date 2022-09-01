@@ -1,5 +1,5 @@
 .hotbar {
-  background-color: slateblue;
+  background-color: var(--theme-primary);
   color: white;
   font-size: 1.5rem;
   font-weight: bold;
@@ -13,7 +13,7 @@
 }
 
 .hotbar .info {
-  border: 3px solid darkslateblue;
+  border: 3px solid var(--theme-secondary);
   padding: 0.5em 1em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -27,7 +27,7 @@
 
 .hotbar .main {
   padding: 0.5em 1em;
-  border: 3px solid darkslateblue;
+  border: 3px solid var(--theme-secondary);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -63,11 +63,11 @@
 }
 
 .hotbar .main .btn:focus {
-  background-color: darkslateblue;
+  background-color: var(--theme-secondary);
 }
 
 .inventory-main {
-  background-color: slateblue;
+  background-color: var(--theme-primary);
   padding: 16px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -94,7 +94,7 @@
 }
 
 .inventory-main .inventory-grid .inventory-slot {
-  border: 3px solid darkslateblue;
+  border: 3px solid var(--theme-secondary);
   width: 4.5rem;
   height: 4.5rem;
   border-radius: 16px;
@@ -122,7 +122,7 @@
 
 .inventory-main .inventory-grid .item {
   background-color: white;
-  color: darkslateblue;
+  color: var(--theme-secondary);
 }
 
 .inventory-main .inventory-grid .item .item-name {
@@ -202,10 +202,10 @@
 .question {
   font-size: 2rem;
   font-weight: bold;
-  background-color: darkslateblue;
+  background-color: var(--theme-secondary);
   color: white;
   border-radius: 50%;
-  border: 3px solid darkslategray;
+  border: 3px solid var(--grey-2);
   width: 4rem;
   height: 4rem;
   -webkit-transition: 0.2s;
@@ -216,10 +216,10 @@
 
 .question:hover {
   cursor: pointer;
-  background-color: #9186d4;
+  background-color: var(--theme-primary);
 }
 
 .question:focus {
-  background-color: darkslateblue;
+  background-color: var(--theme-primary);
 }
 /*# sourceMappingURL=Hotbar.css.map */

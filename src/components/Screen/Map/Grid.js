@@ -1,14 +1,18 @@
 import React, { useEffect, useState, useContext } from 'react'
 import GridCell from './GridCell'
-import { DayContext, EnergyContext } from '../../Contexts/PlayerContext'
+import { PlayerContext } from '../../Contexts/PlayerContext'
 
 const Grid = (props) => {
   // Grid display (Depends on Map)
   const [gridDisplay, setGridDisplay] = useState()
-  const day = useContext(DayContext)
-  const currentEnergy = useContext(EnergyContext)
+  const {player, setPlayer} = useContext(PlayerContext)
+  const [day, setDay] = useState(player.day)
   const maxLevel = 10
 
+  // Update day when player object changes
+  useEffect(() => {
+    setDay(player.day)
+  }, [player])
 
   // Grid Cells (Contain GridItem)
   let grid = []

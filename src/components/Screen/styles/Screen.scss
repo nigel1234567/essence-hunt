@@ -1,17 +1,17 @@
 // Screen
 .screen {
-  border: 3px solid darkslateblue;
+  border: 3px solid var(--theme-secondary);
   background-color: white;
   margin: 16px;
   height: 80vh;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   .column {
-    border: 1px solid darkslateblue;
+    border: 1px solid var(--theme-secondary);
     padding: 24px;
   }
   .map {
-    background-color: rgb(192, 185, 231);
+    background-color: var(--purple-2);
     .grid {
       background-color: white;
     }
@@ -23,7 +23,7 @@
       color: darkslategray;
     }
     .seed-info {
-      background-color: slateblue;
+      background-color: var(--theme-primary);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -40,18 +40,18 @@
           background-color: white;
           font-size: 24px;
           font-weight: bold;
-          color: darkslateblue;
+          color: var(--theme-secondary);
         }
       }
     }
   }
   .log {
-    background-color: rgb(145, 134, 212);
+    background-color: var(--purple-1);
     .log-display {
       display: flex;
       flex-direction: column;
       .log-entry {
-        color: white;
+        color: var(--font-1);
         font-size: 1.2rem;
         .turn {
           font-size: 1.2rem;
@@ -64,7 +64,7 @@
 
 // Equipment
 .equipment {
-  background-color: rgb(145, 134, 212);
+  background-color: var(--purple-1);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -76,7 +76,7 @@
     justify-content: space-evenly;
     align-items: center;
     .equipment-item {
-      border: 3px solid darkslateblue;
+      border: 3px solid var(--theme-secondary);
       border-radius: 16px;
       width: 8rem;
       height: 8rem;
@@ -94,14 +94,14 @@
   display: flex;
   flex-direction: column;
   .seed-info {
-    border: 3px solid darkslateblue;
+    border: 3px solid var(--theme-secondary);
     border-radius: 16px;
     padding: 10px;
     display: flex;
     justify-content: center;
     gap: 2rem;
     .seed-item {
-      border: 3px solid darkslateblue;
+      border: 3px solid var(--theme-secondary);
       border-radius: 16px;
       width: 1.5rem;
       height: 1.5rem;
@@ -117,7 +117,7 @@
 .grid {
   display: flex;
   flex-direction: column;
-  border: 3px solid darkslateblue;
+  border: 3px solid var(--theme-secondary);
   padding: 16px;
   justify-content: center;
   align-items: center;

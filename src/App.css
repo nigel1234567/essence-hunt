@@ -1,6 +1,16 @@
+:root {
+  --theme-primary: slateblue;
+  --theme-secondary: darkslateblue;
+  --purple-1: rgb(145, 134, 212);
+  --purple-2: rgb(192, 185, 231);
+  --grey-1: slategray;
+  --grey-2: darkslategray;
+  --font-1: #fff;
+}
+
 body {
   background-color: lavender;
-  color: darkslategray;
+  color: var(--grey-2);
 }
 
 img {

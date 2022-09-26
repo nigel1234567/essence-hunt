@@ -40,8 +40,11 @@ function priceGenerator(seed) {
 
     // Set price changes
     seed.priceChange = newPrice - seed.price
-    seed.priceChangePercentage = Math.floor(risePercent * 100)
-    seed.previousPrice = seed.price
+    if (seed.price === 0) {
+      seed.priceChangePercentage = Math.floor((seed.priceChange / 1) * 100)
+    } else {
+      seed.priceChangePercentage = Math.floor((seed.priceChange / seed.price) * 100)
+    }    seed.previousPrice = seed.price
     seed.price = newPrice
 
   }
@@ -53,7 +56,12 @@ function priceGenerator(seed) {
     let newPrice = Math.floor(seed.price * (1 - fallPercent))
     // Set price changes
     seed.priceChange = newPrice - seed.price
-    seed.priceChangePercentage = Math.floor(fallPercent * -100)
+    // Check if seed price is 0
+    if (seed.price === 0) {
+      seed.priceChangePercentage = Math.floor((seed.priceChange / 1) * 100)
+    } else {
+      seed.priceChangePercentage = Math.floor((seed.priceChange / seed.price) * 100)
+    }
     seed.previousPrice = seed.price
     seed.price = newPrice
   }

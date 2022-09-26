@@ -176,6 +176,122 @@
   visibility: visible;
 }
 
+.garden-main {
+  background-color: green;
+  padding: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 12px;
+}
+
+.garden-main .garden-grid {
+  max-width: 50rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+}
+
+.garden-main .garden-grid .garden-slot {
+  border: 3px solid maroon;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 16px;
+  background-color: brown;
+  color: white;
+  font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+}
+
+.garden-main .garden-grid .garden-slot:hover {
+  cursor: pointer;
+  background-color: #e03d3d;
+}
+
+.garden-main .garden-grid .item {
+  background-color: darkorange;
+  color: var(--theme-secondary);
+}
+
+.garden-main .garden-grid .item .item-name {
+  font-size: 1.2rem;
+}
+
+.garden-main .garden-grid .item .Common {
+  color: yellow;
+}
+
+.garden-main .garden-grid .item .Uncommon {
+  color: greenyellow;
+}
+
+.garden-main .garden-grid .item .Rare {
+  color: cyan;
+}
+
+.garden-main .garden-grid .item .Mythical {
+  color: violet;
+}
+
+.garden-main .garden-grid .item .tooltip {
+  visibility: hidden;
+  max-width: 12rem;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  /* Position the tooltip */
+  position: absolute;
+  top: 80%;
+  z-index: 1;
+}
+
+.garden-main .garden-grid .item:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+
+.garden-main .garden-grid .item:hover .tooltip {
+  visibility: visible;
+}
+
 .end {
   -webkit-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
           box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
@@ -259,7 +375,7 @@
   background-color: var(--theme-secondary);
   color: white;
   border-radius: 50%;
-  border: 3px solid var(--grey-2);
+  border: 3px solid var(--subtheme-2);
   width: 4rem;
   height: 4rem;
   -webkit-transition: 0.2s;
@@ -275,5 +391,32 @@
 
 .question:focus {
   background-color: var(--subtheme-1);
+}
+
+.discard-window .slot {
+  border: 3px solid var(--theme-secondary);
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 16px;
+  background-color: white;
+  color: white;
+  font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
 }
 /*# sourceMappingURL=Hotbar.css.map */

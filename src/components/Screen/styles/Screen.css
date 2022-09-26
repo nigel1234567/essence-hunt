@@ -83,16 +83,17 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-color: white;
 }
 
 .screen .log .log-display .log-entry {
-  color: var(--font-1);
+  color: var(--theme-primary);
   font-size: 1.2rem;
 }
 
 .screen .log .log-display .log-entry .turn {
   font-size: 1.2rem;
-  color: darkslategray;
+  color: var(--grey-2);
 }
 
 .equipment {

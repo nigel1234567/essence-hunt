@@ -12,7 +12,9 @@ const App = () => {
     startingEnergy: 5,
     currentEnergy: 5,
     day: 1,
-    log: []
+    log: [],
+    garden: [],
+    gardenLevel: 1
   })
   const [inventory, setInventory] = useState(player.inventory)
   const [inventoryLevel, setInventoryLevel] = useState(player.inventoryLevel)

@@ -50,12 +50,13 @@
     .log-display {
       display: flex;
       flex-direction: column;
+      background-color: white;
       .log-entry {
-        color: var(--font-1);
+        color: var(--theme-primary);
         font-size: 1.2rem;
         .turn {
           font-size: 1.2rem;
-          color: darkslategray;
+          color: var(--grey-2);
         }
       }
     }

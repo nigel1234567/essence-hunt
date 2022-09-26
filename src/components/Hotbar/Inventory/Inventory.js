@@ -35,7 +35,7 @@ const Inventory = () => {
       }
     }
     setInventoryGrid(inventoryGridArray)
-  }, [inventoryLevel])
+  }, [inventoryLevel, inventory])
 
   return (
     <div className='inventory-main'>

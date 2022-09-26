@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import News from './News'
 import Inventory from './Inventory/Inventory'
-import Garden from './Garden'
+import Garden from './Garden/Garden'
 import Shop from './Shop/Shop'
 import End from './End'
 

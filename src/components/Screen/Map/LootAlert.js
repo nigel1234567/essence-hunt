@@ -37,7 +37,7 @@ const LootAlert = (props) => {
       }
     }
     setInventoryGrid(inventoryGridArray)
-  }, [inventoryLevel])
+  }, [inventoryLevel, inventory])
 
   if (props.trigger === true) {
     return (
@@ -46,6 +46,9 @@ const LootAlert = (props) => {
           <button className='close-btn' onClick={() => props.setTrigger(false)}>X</button>
           <div className='discard-window'>
             <h2>Your Inventory is Full!</h2>
+            <button className='slot'>
+              <img src={props.loot.image} alt={props.loot.name}></img>
+            </button>
             <span>You have no more space in your inventory to keep the {props.loot.name}! Please choose an item from your inventory to discard or close this window to cancel.</span>
             <div className="inventory-main">
               <div className="inventory-grid">{inventoryGrid}</div>

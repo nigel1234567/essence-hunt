@@ -44,7 +44,7 @@ img {
     position: relative;
     padding: 6px;
     width: 100%;
-    background-color: darkslateblue;
+    background-color: var(--theme-secondary);
     color: white;
     .close-btn {
       position: absolute;
@@ -62,3 +62,12 @@ img {
   }
 }
 
+.discard-window {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--theme-primary);
+  font-size: 18px;
+  padding: 16px;
+}

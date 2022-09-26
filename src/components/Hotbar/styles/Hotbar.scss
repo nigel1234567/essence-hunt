@@ -199,6 +199,40 @@
   }
 }
 
+// Market
+.market-main {
+  display: flex;
+  flex-direction: column;
+  max-height: 70vh;
+  gap: 8px;
+  align-items: center;
+  background-color: slategray;
+  .market-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .seed-list {
+    overflow-y: scroll;
+    .market-seed{
+      font-size: 16px;
+      border: 1px solid slategray;
+      .seed-details {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        align-items: center;
+        padding: 8px;
+        background-color: darkslategray;
+        .seed-image {
+          background-color: white;
+          border: 2px solid darkslategray;
+          border-radius: 8px;
+        }
+      }
+    }
+  }
+}
+
 
 // Other buttons
 .end {

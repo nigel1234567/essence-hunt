@@ -23,16 +23,16 @@ let strawberry = new Seed('Strawruby', 'Gem', 'Rare', strawruby_img, 600, 5, 0.0
 let melon = new Seed('Diamelon', 'Gem', 'Mythical', diamelon_img, 1000, 6, 0.05, 0.03, 0.5)
 
 // Swamp seeds
-let mud = new Seed('Mud Fruit', 'Swamp', 'Common', mudfruit_img, 50, 1, 2, 0.8, 0.5)
-let marsh = new Seed('Marshmelon', 'Swamp', 'Uncommon', marshmelon_img, 80, 1, 2, 0.8, 0.5)
-let swamp = new Seed('Swamproot', 'Swamp', 'Rare', swamproot_img, 100, 1, 2, 0.8, 0.5)
-let monsoon = new Seed('Monsoon Berry', 'Swamp', 'Mythical', monsoonberry_img, 150, 1, 2, 0.8, 0.5)
+let mud = new Seed('Mud Fruit', 'Swamp', 'Common', mudfruit_img, 50, 1, 2, 0.9, 0.5)
+let marsh = new Seed('Marshmelon', 'Swamp', 'Uncommon', marshmelon_img, 80, 1, 2, 0.9, 0.5)
+let swamp = new Seed('Swamproot', 'Swamp', 'Rare', swamproot_img, 100, 1, 2, 0.9, 0.5)
+let monsoon = new Seed('Monsoon Berry', 'Swamp', 'Mythical', monsoonberry_img, 150, 1, 2, 0.9, 0.5)
 
 // Elemental Seeds
-let water = new Seed('Water Fruit', 'Elemental', 'Common', waterfruit_img, 200, 5, 0.5, 0.1, 0.2)
-let earth = new Seed('Earth Fruit', 'Elemental', 'Uncommon', earthfruit_img, 200, 5, 0.75, 0.2, 0.2)
-let fire = new Seed('Fire Fruit', 'Elemental', 'Rare', firefruit_img, 200, 5, 1.25, 0.3, 0.2)
-let air = new Seed('Air Fruit', 'Elemental', 'Mythical', airfruit_img, 200, 5, 2, 0.4, 0.2)
+let water = new Seed('Water Fruit', 'Elemental', 'Common', waterfruit_img, 100, 5, 1, 0.05, 0.2)
+let earth = new Seed('Earth Fruit', 'Elemental', 'Uncommon', earthfruit_img, 100, 5, 1.5, 0.1, 0.2)
+let fire = new Seed('Fire Fruit', 'Elemental', 'Rare', firefruit_img, 100, 5, 2, 0.15, 0.2)
+let air = new Seed('Air Fruit', 'Elemental', 'Mythical', airfruit_img, 100, 5, 3, 0.2, 0.2)
 
 // Function to get random int
 function getRandomInt(max) {

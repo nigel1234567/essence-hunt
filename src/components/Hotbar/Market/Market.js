@@ -1,11 +1,31 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { SeedContext } from '../../Contexts/SeedContext'
+import MarketSeed from './MarketSeed'
 
 const Market = () => {
-  const {seedPrice, setSeedPrice} = useContext(SeedContext)
-  console.log(seedPrice)
+  const {seedPriceList} = useContext(SeedContext)
+  const [seedList, setSeedList] = useState()
+
+  console.log(seedPriceList)
+
+  useEffect(() => {
+    let seedListArray = []
+    // Update seed prices
+    for (let i=0; i < seedPriceList.length; i++) {
+      // Push seed prices into seedListArray
+      seedListArray.push(<MarketSeed key={i} seed={seedPriceList[i]}/>)
+    }
+
+    setSeedList(seedListArray)
+  }, [seedPriceList])
+
   return (
-    <h3>Market</h3>
+    <div className='market-main'>
+      <h3 className='market-title'>Market Prices</h3>
+      <div className='seed-list'>
+        {seedList}
+      </div>
+    </div>
   )
 }
 

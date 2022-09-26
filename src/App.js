@@ -19,7 +19,7 @@ const App = () => {
     gardenLevel: 1
   })
 
-  const [seedPrice, setSeedPrice] = useState(priceList)
+  const [seedPriceList, setSeedPriceList] = useState(priceList)
   const [inventory, setInventory] = useState(player.inventory)
   const [inventoryLevel, setInventoryLevel] = useState(player.inventoryLevel)
   const [log, setLog] = useState(player.log)
@@ -30,9 +30,11 @@ const App = () => {
   useEffect(() => {
     updatedPlayer.log = [`Started a new day! It is now Day ${player.day}.`]
     setPlayer(updatedPlayer)
-    // Set prices of seeds
-    priceListSetter(seedPrice)
-    console.log(seedPrice)
+    // Set prices of seeds (after day 1)
+    if (player.day !== 1) {
+      priceListSetter(seedPriceList)
+    }
+    
   },[player.day])
 
   // Refresh
@@ -59,7 +61,7 @@ const App = () => {
   return (
     <>
     <PlayerContext.Provider value={{player, setPlayer}}>
-      <SeedContext.Provider value={{seedPrice, setSeedPrice}}>
+      <SeedContext.Provider value={{seedPriceList, setSeedPriceList}}>
           <Screen />
           <Hotbar />
       </SeedContext.Provider>

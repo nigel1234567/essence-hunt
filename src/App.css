@@ -51,7 +51,7 @@ img {
 .popup .popup-inner {
   position: relative;
   padding: 6px;
-  width: 100%;
+  max-width: 100%;
   background-color: var(--theme-secondary);
   color: white;
 }

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import PlantOptions from './PlantOptions'
+import HarvestOptions from './HarvestOptions'
 
 const PopupOptions = (props) => {
   const [currentPopup, setCurrentPopup] = useState()
@@ -9,7 +10,7 @@ const PopupOptions = (props) => {
       setCurrentPopup(<PlantOptions />)
     } 
     else if (props.trigger === 'harvest') {
-      
+      setCurrentPopup(<HarvestOptions />)
     }
   }, [props.trigger])
 

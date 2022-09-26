@@ -239,10 +239,10 @@
 .garden-main .garden-grid .options-popup {
   position: fixed;
   top: 25%;
-  left: 40%;
-  height: 20%;
-  width: 20%;
-  background-color: black;
+  left: 35%;
+  height: 25%;
+  background-color: darkorange;
+  border: 3px solid orangered;
   padding: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -250,6 +250,69 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 2;
+}
+
+.garden-main .garden-grid .options-popup .plant-options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 16px;
+}
+
+.garden-main .garden-grid .options-popup .plant-options .plant-grid {
+  max-width: 50rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+}
+
+.garden-main .garden-grid .options-popup .plant-options .plant-grid .inventory-slot {
+  border: 3px solid var(--theme-secondary);
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 16px;
+  background-color: slategray;
+  color: white;
+  font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+}
+
+.garden-main .garden-grid .options-popup .plant-options .plant-grid .item {
+  background-color: white;
+  color: var(--theme-secondary);
+}
+
+.garden-main .garden-grid .options-popup .plant-options .plant-grid .plant {
+  border: 3px solid orangered;
 }
 
 .garden-main .garden-grid .item {

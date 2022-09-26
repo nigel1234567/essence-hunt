@@ -1,14 +1,18 @@
 import React, {useEffect, useState} from 'react'
+import PlantOptions from './PlantOptions'
+import PopupOptions from './PopupOptions'
 
 const GardenSlot = (props) => {
+  const [popup, setPopup] = useState(null)
+
   const gardenOptions = () => {
     // For slots containing seed, open HarvestOptions
     if (props.item !== undefined) {
-      alert('item')
+      setPopup('harvest')
     } 
     // For slots that are empty, open PlantOptions
     else {
-      alert('empty')
+      setPopup('plant')
     }
   }
 
@@ -36,6 +40,7 @@ const GardenSlot = (props) => {
   return (
     <>
       {slot}
+      <PopupOptions trigger={popup} setTrigger={setPopup}></PopupOptions>
     </>
   )
 }

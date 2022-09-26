@@ -236,6 +236,22 @@
   background-color: #e03d3d;
 }
 
+.garden-main .garden-grid .options-popup {
+  position: fixed;
+  top: 25%;
+  left: 40%;
+  height: 20%;
+  width: 20%;
+  background-color: black;
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .garden-main .garden-grid .item {
   background-color: darkorange;
   color: var(--theme-secondary);

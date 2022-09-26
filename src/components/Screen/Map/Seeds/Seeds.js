@@ -19,8 +19,8 @@ import airfruit_img from '../../../../images/airfruit.png'
 // Gem seeds
 let apple = new Seed('Opple', 'Gem', 'Common', opple_img, 200, 3, 0.05, 0.03, 0.5)
 let pear = new Seed('Pearmerald', 'Gem', 'Uncommon', pearmerald_img, 400, 4, 0.05, 0.03, 0.5)
-let strawberry = new Seed('Strawruby', 'Gem', 'Rare', strawruby_img, 600, 5, 0.2, 0.05, 0.03, 0.5)
-let melon = new Seed('Diamelon', 'Gem', 'Mythical', diamelon_img, 1000, 6, 0.2, 0.05, 0.03, 0.5)
+let strawberry = new Seed('Strawruby', 'Gem', 'Rare', strawruby_img, 600, 5, 0.05, 0.03, 0.5)
+let melon = new Seed('Diamelon', 'Gem', 'Mythical', diamelon_img, 1000, 6, 0.05, 0.03, 0.5)
 
 // Swamp seeds
 let mud = new Seed('Mud Fruit', 'Swamp', 'Common', mudfruit_img, 50, 1, 2, 0.8, 0.5)

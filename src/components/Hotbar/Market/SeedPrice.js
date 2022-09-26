@@ -5,7 +5,7 @@ let priceList = []
 // Push name, price, potential and chances of seed
 for (let i=0; i < seedList.length; i++) {
   // Create new seed object with name, price, potential and chances
-  let seed = { name: seedList[i].name, price: seedList[i].price, risePotential: seedList[i].risePotential, fallPotential: seedList[i].fallPotential, riseChance: seedList[i].riseChance}
+  let seed = { name: seedList[i].name, price: seedList[i].price, risePotential: seedList[i].risePotential, fallPotential: seedList[i].fallPotential, riseChance: seedList[i].riseChance, previousPrice: 0, priceChange: 0.0}
   priceList.push(seed)
 }
 
@@ -28,9 +28,14 @@ function priceGenerator(seed) {
     // Rise
     let risePotential = seed.risePotential * 100
     let risePercent = rollChance(risePotential) * 0.01 // Done like this to get % to 2dp
-    // Set new price
+    // Set prev and new price
     let newPrice = Math.floor(seed.price * (1 + risePercent))
+    // Set price changes
+    seed.priceChange = Math.floor(risePercent * seed.price)
+    seed.priceChangePercentage = risePercent * 100
+    seed.previousPrice = seed.price
     seed.price = newPrice
+
   }
   else {
     // Fall
@@ -38,6 +43,10 @@ function priceGenerator(seed) {
     let fallPercent = rollChance(fallPotential) * 0.01
     // Set new price
     let newPrice = Math.floor(seed.price * (1 + fallPercent))
+    // Set price changes
+    seed.priceChange = Math.floor(fallPercent * seed.price)
+    seed.priceChangePercentage = fallPercent * 100
+    seed.previousPrice = seed.price
     seed.price = newPrice
   }
   return seed

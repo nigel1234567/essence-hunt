@@ -104,6 +104,9 @@ function seedGenerator() {
   return selectedSeed
 }
 
+// Create seedList
+let seedList = [apple, pear, strawberry, melon, mud, marsh, swamp, monsoon, water, earth, fire, air]
+
 // Randomly select seed rarity
 
-export { seedGenerator }
+export { seedGenerator, seedList }

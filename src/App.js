@@ -3,6 +3,8 @@ import './App.css'
 import Hotbar from './components/Hotbar/Hotbar'
 import Screen from './components/Screen/Screen'
 import { PlayerContext } from './components/Contexts/PlayerContext'
+import { SeedContext } from './components/Contexts/SeedContext'
+import { priceList, priceListSetter } from './components/Hotbar/Market/SeedPrice'
 
 const App = () => {
   const [player, setPlayer] = useState({
@@ -16,6 +18,8 @@ const App = () => {
     garden: [],
     gardenLevel: 1
   })
+
+  const [seedPrice, setSeedPrice] = useState(priceList)
   const [inventory, setInventory] = useState(player.inventory)
   const [inventoryLevel, setInventoryLevel] = useState(player.inventoryLevel)
   const [log, setLog] = useState(player.log)
@@ -26,6 +30,9 @@ const App = () => {
   useEffect(() => {
     updatedPlayer.log = [`Started a new day! It is now Day ${player.day}.`]
     setPlayer(updatedPlayer)
+    // Set prices of seeds
+    priceListSetter(seedPrice)
+    console.log(seedPrice)
   },[player.day])
 
   // Refresh
@@ -52,8 +59,10 @@ const App = () => {
   return (
     <>
     <PlayerContext.Provider value={{player, setPlayer}}>
-      <Screen />
-      <Hotbar />
+      <SeedContext.Provider value={{seedPrice, setSeedPrice}}>
+          <Screen />
+          <Hotbar />
+      </SeedContext.Provider>
     </PlayerContext.Provider>
     </>
   )

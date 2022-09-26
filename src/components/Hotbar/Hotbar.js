@@ -12,8 +12,8 @@ const Hotbar = () => {
     setDay(player.day)
   }, [player])
 
-  const showNews = () => {
-    setPopup('news')
+  const showMarket = () => {
+    setPopup('market')
   }
 
   const showInventory = () => {
@@ -40,7 +40,7 @@ const Hotbar = () => {
         <div>Essence: </div>
       </div>
       <div className='main'>
-        <button className='btn news' onClick={showNews}>News</button>
+        <button className='btn market' onClick={showMarket}>Market</button>
         <button className='btn inventory' onClick={showInventory}>Inventory</button>
         <button className='btn garden' onClick={showGarden}>Garden</button>
         <button className='btn shop' onClick={showShop}>Shop</button>

@@ -11,6 +11,7 @@ const Hotbar = () => {
 
   useEffect(() => {
     setDay(player.day)
+    setEssence(player.essence)
   }, [player])
 
   const showMarket = () => {

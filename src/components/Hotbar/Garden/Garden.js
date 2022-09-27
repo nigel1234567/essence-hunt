@@ -16,7 +16,6 @@ const Garden = () => {
 
   // Update garden and inventory once player object is updated
   useEffect(() => {
-    console.log('changed')
     setGarden(player.garden)
     setInventory(player.inventory)
     setGardenLevel(player.gardenLevel)
@@ -48,7 +47,7 @@ const Garden = () => {
     <div className='garden-main'>
       <button onClick={showPlayer}>Player</button>
       <h3>Garden</h3>
-      <div>Click on a slot to plant / harvest a seed!</div>
+      <div>Click on a slot to plant / harvest a fruit!</div>
       <div className='garden-grid'>
         {gardenGrid}
       </div>

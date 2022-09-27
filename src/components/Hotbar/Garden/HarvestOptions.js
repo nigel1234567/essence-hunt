@@ -33,7 +33,19 @@ const HarvestOptions = (props) => {
     if (daysLeft > 0) {
       alert('The fruit plant is not matured yet!')
     } else {
-
+      if (window.confirm(`Are you sure you want to harvest ${props.seed.name}?`)) {
+        // Add essence
+        updatedPlayer.essence += seedPrice
+        // Remove seed from garden
+        updatedGarden.splice(props.position, 1)
+        // Update player garden
+        updatedPlayer.garden = updatedGarden
+        // Set updated player
+        setPlayer(updatedPlayer)
+        // Inform player
+        alert(`Successfully harvested ${props.seed.name} for ${seedPrice} essence!`)
+        props.setTrigger(null)
+      }
     }
   }
 
@@ -50,7 +62,6 @@ const HarvestOptions = (props) => {
       // Inform player
       alert(`You destroyed ${props.seed.name}!`)
       props.setTrigger(null)
-      console.log(player)
     }
   }
 

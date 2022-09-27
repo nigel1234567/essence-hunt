@@ -10,6 +10,8 @@ const InventorySlotPlant = (props) => {
     let updatedGarden = [...player.garden]
     let updatedInventory = [...player.inventory]
     let updatedPlayer = {...player}
+    // Add maturity day to seed object
+    props.item.matureDay = player.day + props.item.days
     // Push updated seed into updatedGarden array
     updatedGarden.push(props.item)
     // Remove seed from inventory

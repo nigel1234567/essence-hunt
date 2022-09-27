@@ -7,6 +7,7 @@ const Hotbar = () => {
   let {player, setPlayer} = useContext(PlayerContext)
   const [popup, setPopup] = useState(null)
   const [day, setDay] = useState(player.day)
+  const [essence, setEssence] = useState(player.essence)
 
   useEffect(() => {
     setDay(player.day)
@@ -37,7 +38,7 @@ const Hotbar = () => {
       <Popup trigger={popup} setTrigger={setPopup}></Popup>
       <div className='info'>
         <div>Day: {day}</div>
-        <div>Essence: </div>
+        <div>Essence: {essence}</div>
       </div>
       <div className='main'>
         <button className='btn market' onClick={showMarket}>Market</button>

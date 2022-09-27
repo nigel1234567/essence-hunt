@@ -1,9 +1,11 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import PlantOptions from './PlantOptions'
 import PopupOptions from './PopupOptions'
+import { PlayerContext } from '../../Contexts/PlayerContext'
 
 const GardenSlot = (props) => {
   const [popup, setPopup] = useState(null)
+  const {player, setPlayer} = useContext(PlayerContext)
 
   const gardenOptions = () => {
     // For slots containing seed, open HarvestOptions
@@ -24,12 +26,13 @@ const GardenSlot = (props) => {
     if (props.item !== undefined) {
       console.log(props.item)
       setSlot(
-        <button className='garden-slot item'>
+        <button className='garden-slot item' onClick={gardenOptions}>
           <img src={props.item.image} alt={props.item.name}></img>
           <div className='tooltip'>
             <span className='item-name'><strong>{props.item.name}</strong></span>
             <strong className={props.item.rarity}>{props.item.rarity}</strong>
             <span><strong>Type: </strong>{props.item.type}</span>
+            <span><strong>Days Left: </strong>{props.item.matureDay - player.day}</span>
           </div>
         </button>
       )
@@ -40,7 +43,7 @@ const GardenSlot = (props) => {
   return (
     <>
       {slot}
-      <PopupOptions trigger={popup} setTrigger={setPopup}></PopupOptions>
+      <PopupOptions seed={props.item} trigger={popup} setTrigger={setPopup}></PopupOptions>
     </>
   )
 }

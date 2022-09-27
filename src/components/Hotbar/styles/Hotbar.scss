@@ -156,19 +156,18 @@
       position: fixed;
       top: 25%;
       left: 35%;
-      height: 25%;
-      background-color: orangered;
-      border: 3px solid maroon;
-      padding: 2rem;
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 2;
       .plant-options {
+        padding: 2rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 16px;
+        background-color: orangered;
+        border: 3px solid maroon;
         .plant-grid {
           max-width: 50rem;
           display: grid;
@@ -195,6 +194,52 @@
           }
           .plant {
             border: 3px solid maroon;
+          }
+        }
+      }
+      .harvest-options {
+        background-color: rgb(46, 173, 46);
+        border: 3px solid darkolivegreen;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: -1;
+        .harvest-details {
+          display: flex;
+          flex-direction: column;
+        }
+        .harvest-options-btns {
+          display: flex;
+          padding: 16px;
+          justify-content: space-between;
+          align-items: center;
+          gap: 16px;
+          button {
+            font-size: 24px;
+            padding: 8px;
+            border-radius: 16px;
+            font-weight: bold;
+            color: white;
+            &:hover {
+              cursor: pointer;
+            }
+          }
+          .harvest-btn {
+            background-color: greenyellow;
+            border: 3px solid darkolivegreen;
+            color: darkolivegreen;
+            &:hover {
+              background-color: yellow;
+            }
+          }
+          .destroy-btn {
+            background-color: maroon;
+            border: 3px solid rgb(83, 2, 2);
+            &:hover {
+              background-color: red;
+            }
           }
         }
       }

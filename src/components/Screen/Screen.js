@@ -153,7 +153,7 @@ const Screen = () => {
       </div>
       <div className='column map'>
         <LootContext.Provider value={{loot, setLoot}}>
-            <h3>Area Name</h3>
+            <h3>Hunting Grounds</h3>
             {grid}
             <div className='player-info'>
               <div><strong>Energy: </strong>{currentEnergy}</div>

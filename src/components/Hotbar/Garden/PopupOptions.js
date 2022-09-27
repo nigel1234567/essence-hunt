@@ -7,7 +7,7 @@ const PopupOptions = (props) => {
 
   useEffect(() => {
     if (props.trigger === 'plant') {
-      setCurrentPopup(<PlantOptions />)
+      setCurrentPopup(<PlantOptions setTrigger={props.setTrigger}/>)
     } 
     else if (props.trigger === 'harvest') {
       setCurrentPopup(<HarvestOptions />)

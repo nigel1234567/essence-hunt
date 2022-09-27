@@ -241,8 +241,8 @@
   top: 25%;
   left: 35%;
   height: 25%;
-  background-color: darkorange;
-  border: 3px solid orangered;
+  background-color: orangered;
+  border: 3px solid maroon;
   padding: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -312,7 +312,7 @@
 }
 
 .garden-main .garden-grid .options-popup .plant-options .plant-grid .plant {
-  border: 3px solid orangered;
+  border: 3px solid maroon;
 }
 
 .garden-main .garden-grid .item {

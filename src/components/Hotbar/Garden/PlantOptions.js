@@ -2,7 +2,7 @@ import React, {useContext, useState, useEffect} from 'react'
 import { PlayerContext } from '../../Contexts/PlayerContext'
 import InventorySlotPlant from './InventorySlotPlant'
 
-const PlantOptions = () => {
+const PlantOptions = (props) => {
   const {player, setPlayer} = useContext(PlayerContext)
   const [inventory, setInventory] = useState(player.inventory)
   const [inventoryGrid, setInventoryGrid] = useState()
@@ -21,7 +21,7 @@ const PlantOptions = () => {
       for (let j=0; j < rowCells; j++) {
         if (inventory[inventoryPosition] !== null) {
           // Push slot with item as props
-          inventoryGridArray.push(<InventorySlotPlant key={inventoryPosition} item={inventory[inventoryPosition]}/>)
+          inventoryGridArray.push(<InventorySlotPlant key={inventoryPosition} item={inventory[inventoryPosition]} position={inventoryPosition} setTrigger = {props.setTrigger}/>)
         } else {
           // Push empty slot
           inventoryGridArray.push(<InventorySlotPlant key={inventoryPosition} item={null}/>)

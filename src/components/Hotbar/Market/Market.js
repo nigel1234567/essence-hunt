@@ -6,8 +6,6 @@ const Market = () => {
   const {seedPriceList} = useContext(SeedContext)
   const [seedList, setSeedList] = useState()
 
-  console.log(seedPriceList)
-
   useEffect(() => {
     let seedListArray = []
     // Update seed prices

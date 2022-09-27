@@ -1,9 +1,26 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
+import { PlayerContext } from '../../Contexts/PlayerContext'
 
 const InventorySlotPlant = (props) => {
   const [slot, setSlot] = useState(<button className='inventory-slot plant'></button>)
+  const {player, setPlayer} = useContext(PlayerContext)
+  
   const plant = () => {
-    alert('plant')
+    // Variables to be updated
+    let updatedGarden = [...player.garden]
+    let updatedInventory = [...player.inventory]
+    let updatedPlayer = {...player}
+    // Push updated seed into updatedGarden array
+    updatedGarden.push(props.item)
+    // Remove seed from inventory
+    updatedInventory.splice(props.position, 1)
+    // Update updatedPlayer's garden and inventory
+    updatedPlayer.garden = updatedGarden
+    updatedPlayer.inventory = updatedInventory
+    // Update player context
+    setPlayer(updatedPlayer)
+    // Close window
+    props.setTrigger(null)
   }
 
   useEffect(() => {

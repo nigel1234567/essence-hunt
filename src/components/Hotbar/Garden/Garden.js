@@ -9,8 +9,14 @@ const Garden = () => {
   const [gardenGrid, setGardenGrid] = useState()
   const [inventory, setInventory] = useState(player.inventory)
 
+    // Show player
+    const showPlayer = () => {
+      console.log(player)
+    }
+
   // Update garden and inventory once player object is updated
   useEffect(() => {
+    console.log('changed')
     setGarden(player.garden)
     setInventory(player.inventory)
     setGardenLevel(player.gardenLevel)
@@ -27,7 +33,7 @@ const Garden = () => {
       for (let j=0; j < rowCells; j++) {
         if (garden[gardenPosition] !== null) {
           // Push slot with item as props
-          gardenGridArray.push(<GardenSlot key={gardenPosition} item={garden[gardenPosition]}/>)
+          gardenGridArray.push(<GardenSlot key={gardenPosition} item={garden[gardenPosition]} position={gardenPosition}/>)
         } else {
           // Push empty slot
           gardenGridArray.push(<GardenSlot key={gardenPosition} item={null}/>)
@@ -40,6 +46,7 @@ const Garden = () => {
 
   return (
     <div className='garden-main'>
+      <button onClick={showPlayer}>Player</button>
       <h3>Garden</h3>
       <div>Click on a slot to plant / harvest a seed!</div>
       <div className='garden-grid'>

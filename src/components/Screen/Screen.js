@@ -28,6 +28,11 @@ const Screen = () => {
 
 
   // Functions
+  // Show player
+  const showPlayer = () => {
+    console.log(player)
+  }
+
   // Durstenfeld shuffle
   function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -158,6 +163,7 @@ const Screen = () => {
             <div className='player-info'>
               <div><strong>Energy: </strong>{currentEnergy}</div>
               <div><strong>Level: </strong>{level}</div>
+              <button onClick={showPlayer}>Player</button>
             </div>
             <div className='seed-info'>
               <div className='loot-title'>Loot</div>

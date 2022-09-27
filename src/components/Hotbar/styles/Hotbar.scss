@@ -154,7 +154,7 @@
     }
     .options-popup {
       position: fixed;
-      top: 25%;
+      top: 20%;
       left: 35%;
       display: flex;
       justify-content: center;
@@ -206,9 +206,19 @@
         justify-content: center;
         align-items: center;
         z-index: -1;
+        gap: 2rem;
         .harvest-details {
-          display: flex;
-          flex-direction: column;
+          display: grid;
+          grid-template-rows: 1fr 1fr;
+          grid-template-columns: 3fr 1fr;
+          span {
+            border: 3px solid darkolivegreen;
+            padding: 1rem;
+            margin-top: -3px;
+            margin-left: -3px;
+            background-color: white;
+            color: darkolivegreen;
+          }
         }
         .harvest-options-btns {
           display: flex;

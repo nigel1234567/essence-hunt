@@ -19,7 +19,21 @@ const GardenSlot = (props) => {
   }
 
   const [slot, setSlot] = useState(<button className='garden-slot' onClick={gardenOptions}></button>)
+  let daysLeft
+  let status
   
+  // Update daysLeft and status
+  useEffect(() => {
+    if (props.item !== undefined && props.item.matureDay > player.day) {
+      daysLeft = props.item.matureDay - player.day
+      status = 'Growing'
+    } else {
+      daysLeft = 0
+      status = 'Fully Grown'
+    }
+    
+  }, [player.garden])
+
 
   useEffect(() => {
     // If slot has seed
@@ -32,7 +46,8 @@ const GardenSlot = (props) => {
             <span className='item-name'><strong>{props.item.name}</strong></span>
             <strong className={props.item.rarity}>{props.item.rarity}</strong>
             <span><strong>Type: </strong>{props.item.type}</span>
-            <span><strong>Days Left: </strong>{props.item.matureDay - player.day}</span>
+            <span><strong>Days Left: </strong>{daysLeft}</span>
+            <span><strong>Status: </strong>{status}</span>
           </div>
         </button>
       )
@@ -43,7 +58,7 @@ const GardenSlot = (props) => {
   return (
     <>
       {slot}
-      <PopupOptions seed={props.item} trigger={popup} setTrigger={setPopup}></PopupOptions>
+      <PopupOptions seed={props.item} trigger={popup} position={props.position} setTrigger={setPopup}></PopupOptions>
     </>
   )
 }

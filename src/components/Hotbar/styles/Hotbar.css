@@ -238,7 +238,7 @@
 
 .garden-main .garden-grid .options-popup {
   position: fixed;
-  top: 25%;
+  top: 20%;
   left: 35%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -332,16 +332,25 @@
       -ms-flex-align: center;
           align-items: center;
   z-index: -1;
+  gap: 2rem;
 }
 
 .garden-main .garden-grid .options-popup .harvest-options .harvest-details {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  -ms-grid-columns: 3fr 1fr;
+      grid-template-columns: 3fr 1fr;
+}
+
+.garden-main .garden-grid .options-popup .harvest-options .harvest-details span {
+  border: 3px solid darkolivegreen;
+  padding: 1rem;
+  margin-top: -3px;
+  margin-left: -3px;
+  background-color: white;
+  color: darkolivegreen;
 }
 
 .garden-main .garden-grid .options-popup .harvest-options .harvest-options-btns {

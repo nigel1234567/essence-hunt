@@ -1,5 +1,4 @@
 import React, {useContext, useEffect, useState} from 'react'
-import PlantOptions from './PlantOptions'
 import PopupOptions from './PopupOptions'
 import { PlayerContext } from '../../Contexts/PlayerContext'
 
@@ -24,6 +23,7 @@ const GardenSlot = (props) => {
   
   // Update daysLeft and status
   useEffect(() => {
+    console.log(props.item)
     if (props.item !== undefined && props.item.matureDay > player.day) {
       daysLeft = props.item.matureDay - player.day
       status = 'Growing'
@@ -38,7 +38,6 @@ const GardenSlot = (props) => {
   useEffect(() => {
     // If slot has seed
     if (props.item !== undefined) {
-      console.log(props.item)
       setSlot(
         <button className='garden-slot item' onClick={gardenOptions}>
           <img src={props.item.image} alt={props.item.name}></img>
@@ -51,8 +50,10 @@ const GardenSlot = (props) => {
           </div>
         </button>
       )
+    } else {
+      setSlot(<button className='garden-slot' onClick={gardenOptions}></button>)
     }
-  },[props])
+  }, [props])
 
 
   return (

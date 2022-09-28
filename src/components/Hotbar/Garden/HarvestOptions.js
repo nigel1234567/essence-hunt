@@ -6,17 +6,21 @@ const HarvestOptions = (props) => {
   const {player, setPlayer} = useContext(PlayerContext)
   const {seedPriceList, setSeedPriceList} = useContext(SeedContext)
   const [seedPrice, setSeedPrice] = useState(0)
-  let daysLeft
+  const [daysLeft, setDaysLeft] = useState()
+
   // Updated values of player
   let updatedGarden = [...player.garden]
   let updatedPlayer = {...player}
-  
-  // Set daysLeft
-  if (props.seed.matureDay > player.day) {
-    daysLeft = props.seed.matureDay - player.day
-  } else {
-    daysLeft = 0
-  }
+
+  // Update days left
+  useEffect(() => {
+    // Set daysLeft
+    if (props.seed.matureDay > player.day) {
+      setDaysLeft(props.seed.matureDay - player.day)
+    } else {
+      setDaysLeft(0)
+    }
+  }, [props])
 
   // Set seed price
   useEffect(() => {
@@ -26,7 +30,7 @@ const HarvestOptions = (props) => {
         setSeedPrice(seedPriceList[i].price)
       }
     }
-  }, [seedPriceList])
+  }, [seedPriceList, props])
 
   // Harvest button
   const harvest = () => {
@@ -67,23 +71,24 @@ const HarvestOptions = (props) => {
 
   return (
     <div className='harvest-options'>
-      <h3>Harvest Fruit</h3>
-      <div className='garden-slot item'>
-        <img src={props.seed.image} alt={props.seed.name}></img>
-      </div>
-      Would you like to harvest or destroy {props.seed.name} Plant?
-      <div className='harvest-details'>
-        <span>Days Left to Mature: </span>
-        <span>{daysLeft}</span>
-        <span>Essence from Harvest: </span>
-        <span>{seedPrice}</span>
-      </div>
-      <div className='harvest-options-btns'>
-        <button className='harvest-btn' onClick={harvest}>Harvest</button>
-        <button className='destroy-btn' onClick={destroy}>Destroy</button>
-      </div>
+    <h3>Harvest Fruit</h3>
+    <div className='garden-slot item'>
+      <img src={props.seed.image} alt={props.seed.name}></img>
     </div>
+    Would you like to harvest or destroy {props.seed.name} Plant?
+    <div className='harvest-details'>
+      <span>Days Left to Mature: </span>
+      <span>{daysLeft}</span>
+      <span>Essence from Harvest: </span>
+      <span>{seedPrice}</span>
+    </div>
+    <div className='harvest-options-btns'>
+      <button className='harvest-btn' onClick={harvest}>Harvest</button>
+      <button className='destroy-btn' onClick={destroy}>Destroy</button>
+    </div>
+  </div>
   )
+
 }
 
 export default HarvestOptions

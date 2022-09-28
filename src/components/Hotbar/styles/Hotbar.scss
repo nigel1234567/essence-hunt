@@ -155,13 +155,15 @@
     .options-popup {
       position: fixed;
       top: 20%;
-      left: 35%;
+      left: 30%;
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 2;
       .plant-options {
         padding: 2rem;
+        padding-bottom: 4rem;
+        margin-left: 7rem;
         display: flex;
         flex-direction: column;
         align-items: center;

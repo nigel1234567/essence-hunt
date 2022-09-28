@@ -40,7 +40,6 @@ const App = () => {
 
   // Refresh
   useEffect(() => {
-    console.log(player)
     setInventory(player.inventory)
     setLog(player.log)
   }, [player])

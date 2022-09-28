@@ -239,7 +239,7 @@
 .garden-main .garden-grid .options-popup {
   position: fixed;
   top: 20%;
-  left: 35%;
+  left: 30%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -254,6 +254,8 @@
 
 .garden-main .garden-grid .options-popup .plant-options {
   padding: 2rem;
+  padding-bottom: 4rem;
+  margin-left: 7rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

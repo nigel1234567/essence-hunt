@@ -18,21 +18,19 @@ const GardenSlot = (props) => {
   }
 
   const [slot, setSlot] = useState(<button className='garden-slot' onClick={gardenOptions}></button>)
-  let daysLeft
-  let status
+  const [daysLeft, setDaysLeft] = useState(0)
+  const [status, setStatus] = useState('Growing')
   
   // Update daysLeft and status
   useEffect(() => {
-    console.log(props.item)
     if (props.item !== undefined && props.item.matureDay > player.day) {
-      daysLeft = props.item.matureDay - player.day
-      status = 'Growing'
+      setDaysLeft(props.item.matureDay - player.day)
+      setStatus('Growing')
     } else {
-      daysLeft = 0
-      status = 'Fully Grown'
+      setDaysLeft(0)
+      setStatus('Fully Grown')
     }
-    
-  }, [player.garden])
+  })
 
 
   useEffect(() => {
@@ -53,7 +51,7 @@ const GardenSlot = (props) => {
     } else {
       setSlot(<button className='garden-slot' onClick={gardenOptions}></button>)
     }
-  }, [props])
+  }, [props, daysLeft, status])
 
 
   return (

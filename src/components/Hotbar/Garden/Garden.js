@@ -26,7 +26,6 @@ const Garden = () => {
     for (let i=0; i < gardenLevel; i++) {
       for (let j=0; j < rowCells; j++) {
         if (garden[gardenPosition] !== undefined) {
-          console.log(garden[gardenPosition])
           // Push slot with item as props
           gardenGridArray.push(<GardenSlot key={gardenPosition} item={garden[gardenPosition]} position={gardenPosition}/>)
         } else {
@@ -36,7 +35,6 @@ const Garden = () => {
         gardenPosition += 1
       }
     }
-    console.log(gardenGridArray)
     setGardenGrid(gardenGridArray)
   }, [garden])
 

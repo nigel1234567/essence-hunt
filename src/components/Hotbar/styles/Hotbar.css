@@ -456,6 +456,11 @@
   visibility: visible;
 }
 
+.garden-main .garden-grid .mature {
+  background-color: lightgreen;
+  border: 3px solid darkgreen;
+}
+
 .market-main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -637,5 +642,6 @@
   transition: 0.2s;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
+  z-index: 2;
 }
 /*# sourceMappingURL=Hotbar.css.map */

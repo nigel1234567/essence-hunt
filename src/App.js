@@ -24,36 +24,40 @@ const App = () => {
   const [inventory, setInventory] = useState(player.inventory)
   const [inventoryLevel, setInventoryLevel] = useState(player.inventoryLevel)
   const [log, setLog] = useState(player.log)
+  const [day, setDay] = useState(player.day)
   let updatedPlayer = {...player}
   let updatedLog = [...log]
 
+    // Refresh
+    useEffect(() => {
+      setInventory(player.inventory)
+      setLog(player.log)
+      setDay(player.day)
+    }, [player])
+
   // Starting new day
   useEffect(() => {
-    updatedLog = []
-    updatedLog.push(`Started a new day! It is now Day ${player.day}.`)
+    // If day 1
+    if (day === 1) {
+      updatedLog.push(`Started new week! It is Week 1.`)
+    }
+    updatedLog.push(`Started a new day! It is now Day ${day}.`)
     // Set prices of seeds (after day 1)
-    if (player.day !== 1) {
+    if (day !== 1) {
       priceListSetter(seedPriceList)
     }
 
     // Check if garden has any fully grown plants
     for (let i=0; i < player.garden.length; i++) {
-
       // Run check through garden array for fully grown plants
-      if (player.garden[i].matureDay === player.day) {
+      if (player.garden[i].matureDay === day) {
         updatedLog.push(`${player.garden[i].name} is fully grown!`)
       }
-
-      updatedPlayer.log = updatedLog
-      setPlayer(updatedPlayer)
     }
-  },[player.day])
+    updatedPlayer.log = updatedLog
+    setPlayer(updatedPlayer)
+  },[day])
 
-  // Refresh
-  useEffect(() => {
-    setInventory(player.inventory)
-    setLog(player.log)
-  }, [player])
 
 
   // Check if inventory is full

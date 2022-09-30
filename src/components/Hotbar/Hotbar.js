@@ -8,7 +8,7 @@ const Hotbar = () => {
   const [log, setLog] = useState(player.log)
   const [popup, setPopup] = useState(null)
   const [day, setDay] = useState(player.day)
-  const [week, setWeek] = useState(0)
+  const [week, setWeek] = useState(1)
   const [essence, setEssence] = useState(player.essence)
 
   let updatedLog = [...log]
@@ -18,6 +18,7 @@ const Hotbar = () => {
     setDay(player.day)
     setLog(player.log)
     setEssence(player.essence)
+    updatedLog = [...log]
   }, [player])
 
   // Update week

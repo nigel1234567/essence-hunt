@@ -28,30 +28,51 @@ const GardenSlot = (props) => {
       console.log()
       setDaysLeft(props.item.matureDay - player.day)
       setStatus('Growing')
-    } else {
+    } else if (props.item !== undefined && props.item.matureDay <= player.day) {
       setDaysLeft(0)
       setStatus('Fully Grown')
     }
 
-  })
+  }, [player.day])
 
+  // Update slot after fruit matures
+  useEffect(() => {
+
+  }, [status])
 
   useEffect(() => {
     // If slot has seed
     if (props.item !== undefined) {
-      setSlot(
-        <button className='garden-slot item' onClick={gardenOptions}>
-          <img src={props.item.image} alt={props.item.name}></img>
-          <div className='tooltip'>
-            <span className='item-name'><strong>{props.item.name}</strong></span>
-            <strong className={props.item.rarity}>{props.item.rarity}</strong>
-            <span><strong>Type: </strong>{props.item.type}</span>
-            <span><strong>Days Left: </strong>{daysLeft}</span>
-            <span><strong>Status: </strong>{status}</span>
-          </div>
-        </button>
-      )
-    } else {
+      // If fully grown
+      if (status === 'Fully Grown') {
+        setSlot(
+          <button className='garden-slot item mature' onClick={gardenOptions}>
+            <img src={props.item.image} alt={props.item.name}></img>
+            <div className='tooltip'>
+              <span className='item-name'><strong>{props.item.name}</strong></span>
+              <strong className={props.item.rarity}>{props.item.rarity}</strong>
+              <span><strong>Type: </strong>{props.item.type}</span>
+              <span><strong>Days Left: </strong>{daysLeft}</span>
+              <span><strong>Status: </strong>{status}</span>
+            </div>
+          </button>
+        )
+      } else {
+        setSlot(
+          <button className='garden-slot item' onClick={gardenOptions}>
+            <img src={props.item.image} alt={props.item.name}></img>
+            <div className='tooltip'>
+              <span className='item-name'><strong>{props.item.name}</strong></span>
+              <strong className={props.item.rarity}>{props.item.rarity}</strong>
+              <span><strong>Type: </strong>{props.item.type}</span>
+              <span><strong>Days Left: </strong>{daysLeft}</span>
+              <span><strong>Status: </strong>{status}</span>
+            </div>
+          </button>
+        )
+      }
+    } 
+    else {
       setSlot(<button className='garden-slot' onClick={gardenOptions}></button>)
     }
 

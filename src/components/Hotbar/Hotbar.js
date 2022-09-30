@@ -5,14 +5,32 @@ import { PlayerContext } from '../Contexts/PlayerContext'
 
 const Hotbar = () => {
   let {player, setPlayer} = useContext(PlayerContext)
+  const [log, setLog] = useState(player.log)
   const [popup, setPopup] = useState(null)
   const [day, setDay] = useState(player.day)
+  const [week, setWeek] = useState(0)
   const [essence, setEssence] = useState(player.essence)
+
+  let updatedLog = [...log]
+  let updatedPlayer ={...player}
 
   useEffect(() => {
     setDay(player.day)
+    setLog(player.log)
     setEssence(player.essence)
   }, [player])
+
+  // Update week
+  useEffect(() => {
+    setWeek(Math.ceil(day / 7))
+  }, [day])
+
+  // Update log for new week
+  useEffect(() => {
+    updatedLog.push(`Started new week! It is Week ${week}.`)
+    updatedPlayer.log = updatedLog
+    setPlayer(updatedPlayer)
+  }, [week])
 
   const showMarket = () => {
     setPopup('market')
@@ -39,6 +57,7 @@ const Hotbar = () => {
       <Popup trigger={popup} setTrigger={setPopup}></Popup>
       <div className='info'>
         <div>Day: {day}</div>
+        <div>Week: {week}</div>
         <div>Essence: {essence}</div>
       </div>
       <div className='main'>

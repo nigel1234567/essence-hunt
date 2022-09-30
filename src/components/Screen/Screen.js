@@ -11,8 +11,11 @@ import './styles/Screen.css'
 const Screen = () => {
   // Equipment
 
-  // Map info
+  // Level info
   const [level, setLevel] = useState(1)
+  const [prevLevelDay, setPrevLevelDay] = useState(1)
+
+  // Map info
   const [startingSeed, setStartingSeed] = useState()
   const [seeds, setSeeds] = useState([])
   const [seedSlots, setSeedSlots] = useState()
@@ -25,6 +28,8 @@ const Screen = () => {
   const [currentEnergy, setCurrentEnergy] = useState(player.currentEnergy)
   const [loot, setLoot] = useState([])
   const [day, setDay] = useState(player.day)
+
+
 
 
   // Functions
@@ -141,10 +146,13 @@ const Screen = () => {
     )
   }, [seeds])
 
-  // Increase level
-  const increaseLevel = () => {
-    setLevel(level+1)
-  }
+  // Increase stage level after every 7 days
+  useEffect(() => {
+    if (day - prevLevelDay === 7) {
+      setLevel(level+1)
+      setPrevLevelDay(day)
+    }
+  }, [day])
 
   return (
     <div className='screen'>
@@ -172,7 +180,6 @@ const Screen = () => {
               </div>
             </div>
         </LootContext.Provider>
-        <button onClick={increaseLevel}>Increase Level</button>
       </div>
       <div className='column log'>
         <h3>Log</h3>

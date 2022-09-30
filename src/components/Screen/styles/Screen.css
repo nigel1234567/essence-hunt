@@ -85,6 +85,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: white;
+  max-height: 60vh;
 }
 
 .screen .log .log-display .log-entry {

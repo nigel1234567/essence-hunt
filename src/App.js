@@ -29,13 +29,24 @@ const App = () => {
 
   // Starting new day
   useEffect(() => {
-    updatedPlayer.log = [`Started a new day! It is now Day ${player.day}.`]
-    setPlayer(updatedPlayer)
+    updatedLog = []
+    updatedLog.push(`Started a new day! It is now Day ${player.day}.`)
     // Set prices of seeds (after day 1)
     if (player.day !== 1) {
       priceListSetter(seedPriceList)
     }
-    
+
+    // Check if garden has any fully grown plants
+    for (let i=0; i < player.garden.length; i++) {
+
+      // Run check through garden array for fully grown plants
+      if (player.garden[i].matureDay === player.day) {
+        updatedLog.push(`${player.garden[i].name} is fully grown!`)
+      }
+
+      updatedPlayer.log = updatedLog
+      setPlayer(updatedPlayer)
+    }
   },[player.day])
 
   // Refresh

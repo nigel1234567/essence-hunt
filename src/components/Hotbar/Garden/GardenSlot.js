@@ -5,6 +5,7 @@ import { PlayerContext } from '../../Contexts/PlayerContext'
 const GardenSlot = (props) => {
   const [popup, setPopup] = useState(null)
   const {player, setPlayer} = useContext(PlayerContext)
+  const [log, setLog] = useState(player.log)
 
   const gardenOptions = () => {
     // For slots containing seed, open HarvestOptions
@@ -24,12 +25,14 @@ const GardenSlot = (props) => {
   // Update daysLeft and status
   useEffect(() => {
     if (props.item !== undefined && props.item.matureDay > player.day) {
+      console.log()
       setDaysLeft(props.item.matureDay - player.day)
       setStatus('Growing')
     } else {
       setDaysLeft(0)
       setStatus('Fully Grown')
     }
+
   })
 
 
@@ -51,6 +54,7 @@ const GardenSlot = (props) => {
     } else {
       setSlot(<button className='garden-slot' onClick={gardenOptions}></button>)
     }
+
   }, [props, daysLeft, status])
 
 

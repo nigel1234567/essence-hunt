@@ -41,7 +41,7 @@ const Shop = () => {
     // Initial opening of shop
     useEffect(() => {
       // Set equipment and upgrade buttons
-      setEquipmentButton(<button onClick={equipmentOption} className='focus'>Equipment</button>)
+      setEquipmentButton(<button onClick={equipmentOption} className='focus'>Consumables</button>)
       setUpgradeButton(<button onClick={upgradeOption} className=''>Upgrade</button>)
       // Set as equipment
       let equipmentArray = []

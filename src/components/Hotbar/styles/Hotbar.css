@@ -641,12 +641,6 @@
   color: darkgreen;
 }
 
-.shop-main .shop-details .shop-slot .shop-buttons .sell {
-  background-color: lightcoral;
-  border: 3px solid maroon;
-  color: maroon;
-}
-
 .shop-main .shop-details .shop-slot .shop-buttons .max {
   background-color: white;
   color: darkgoldenrod;

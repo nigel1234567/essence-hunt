@@ -28,7 +28,8 @@ const Screen = () => {
   const [currentEnergy, setCurrentEnergy] = useState(player.currentEnergy)
   const [loot, setLoot] = useState([])
   const [day, setDay] = useState(player.day)
-
+  const [equipment, setEquipment] = useState(player.equipment)
+  const [equipmentGrid, setEquipmentGrid] = useState([])
 
 
 
@@ -53,7 +54,21 @@ const Screen = () => {
     setCurrentEnergy(player.currentEnergy)
     setStartingEnergy(player.startingEnergy)
     setDay(player.day)
+    setEquipment(player.equipment)
   }, [player])
+
+  // Equipment
+  useEffect(() => {
+    let equipmentArray = []
+    for (let i=0; i < 3; i++) {
+      if (equipment[i] !== null) {
+        equipmentArray.push(<EquipmentSlot key={i} item={equipment[i]} position={i}/>)
+      } else {
+        equipmentArray.push(<EquipmentSlot item={null}/>)
+      }
+    }
+    setEquipmentGrid(equipmentArray)
+  }, [equipment])
 
   // Items array
   // Levels
@@ -157,11 +172,9 @@ const Screen = () => {
   return (
     <div className='screen'>
       <div className='column equipment'>
-        <h3>Equipment</h3>
+        <h3>Consumables</h3>
         <div className='equipment-slots'>
-          <EquipmentSlot/>
-          <EquipmentSlot/>
-          <EquipmentSlot/>
+          {equipmentGrid}
         </div>
       </div>
       <div className='column map'>

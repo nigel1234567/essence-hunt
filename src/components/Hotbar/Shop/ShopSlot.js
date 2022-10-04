@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { PlayerContext } from '../../Contexts/PlayerContext'
-import { upgradeList } from './ShopItems'
 
 const ShopSlot = (props) => {
   const {player, setPlayer} = useContext(PlayerContext)
@@ -16,6 +15,7 @@ const ShopSlot = (props) => {
   // Updated values
   let updatedPlayer = {...player}
   let updatedLog = [...player.log]
+  let updatedEquipment = [...player.equipment]
 
   // Check category and set level
   useEffect(() => {
@@ -31,6 +31,31 @@ const ShopSlot = (props) => {
   }, [props, player])
 
   // Buy / Upgrades functions
+  // Buy
+  const buy = () => {
+    // Check if equipment slots full (max 3)
+    if (player.equipment.length < 3) {
+      // Check if enough essence
+      if (player.essence >= props.item.price) {
+      // Add item into equipment slots
+      updatedEquipment.push(props.item)
+      updatedPlayer.equipment = updatedEquipment
+      // Update log
+      updatedLog.push(`Bought ${props.item.name}!`)
+      updatedPlayer.log = updatedLog
+      // Update essence
+      updatedPlayer.essence -= props.item.price
+      // Update player
+      setPlayer(updatedPlayer)
+      } else {
+        alert('You do not have enough essence!')
+      }
+    } else {
+      alert('Your consumables slots are full!')
+    }
+
+  }
+
   // Upgrade
   const upgrade = () => {
     // Check first if player has enough essence
@@ -81,8 +106,7 @@ const ShopSlot = (props) => {
             <span><strong>Description: </strong>{props.item.description}</span>
           </div>
         <div className='shop-buttons'>
-          <button className='shop-button buy'>Buy</button>
-          <button className='shop-button sell'>Sell</button>
+          <button className='shop-button buy' onClick={buy}>Buy</button>
         </div>
       </div>
       )

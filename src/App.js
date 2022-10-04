@@ -8,7 +8,7 @@ import { priceList, priceListSetter } from './components/Hotbar/Market/SeedPrice
 
 const App = () => {
   const [player, setPlayer] = useState({
-    essence: 100000,
+    essence: 1000,
     inventory: [],
     inventoryLevel: 1,
     inventoryFull: false,
@@ -17,7 +17,8 @@ const App = () => {
     day: 1,
     log: [],
     garden: [],
-    gardenLevel: 1
+    gardenLevel: 1,
+    equipment: []
   })
 
   const [seedPriceList, setSeedPriceList] = useState(priceList)
@@ -27,6 +28,7 @@ const App = () => {
   const [day, setDay] = useState(player.day)
   let updatedPlayer = {...player}
   let updatedLog = [...log]
+  let updatedEquipment = [...player.equipment]
 
     // Refresh
     useEffect(() => {
@@ -54,6 +56,14 @@ const App = () => {
         updatedLog.push(`${player.garden[i].name} is fully grown!`)
       }
     }
+
+    // Remove crosses
+    for (let i=0; i < player.equipment.length; i++) {
+      if (player.equipment[i].name === 'Used Slot') {
+        updatedEquipment.splice(i, 1)
+      }
+    }
+    updatedPlayer.equipment = updatedEquipment
     updatedPlayer.log = updatedLog
     setPlayer(updatedPlayer)
   },[day])

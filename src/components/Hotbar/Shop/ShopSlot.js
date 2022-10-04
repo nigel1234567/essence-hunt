@@ -37,23 +37,31 @@ const ShopSlot = (props) => {
     if (player.equipment.length < 3) {
       // Check if enough essence
       if (player.essence >= props.item.price) {
-      // Add item into equipment slots
-      updatedEquipment.push(props.item)
-      updatedPlayer.equipment = updatedEquipment
-      // Update log
-      updatedLog.push(`Bought ${props.item.name}!`)
-      updatedPlayer.log = updatedLog
-      // Update essence
-      updatedPlayer.essence -= props.item.price
-      // Update player
-      setPlayer(updatedPlayer)
+        // Check if more than 1 Magic Eye in equipment
+        if (player.purchasedEye === true || props.item.name === 'Magic Eye' && player.equipment.includes(props.item)) {
+          alert('You cannot purchase / own more than 1 Magic Eye per day!')
+        } else {
+          // Add item into equipment slots
+          updatedEquipment.push(props.item)
+          updatedPlayer.equipment = updatedEquipment
+          // Update log
+          updatedLog.push(`Bought ${props.item.name}!`)
+          updatedPlayer.log = updatedLog
+          // Update essence
+          updatedPlayer.essence -= props.item.price
+          // Set purchasedEye as true if purchased Magic Eye
+          if (props.item.name === 'Magic Eye') {
+            updatedPlayer.purchasedEye = true
+          }
+          // Update player
+          setPlayer(updatedPlayer)
+        }
       } else {
         alert('You do not have enough essence!')
       }
     } else {
       alert('Your consumables slots are full!')
     }
-
   }
 
   // Upgrade

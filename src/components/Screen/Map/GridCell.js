@@ -11,18 +11,24 @@ const GridCell = (props) => {
   const [inventory, setInventory] = useState(player.inventory)
   const [preview, setPreview] = useState()
   const [alert, setAlert] = useState(false)
+  const [gridClass, setGridClass] = useState('grid-cell closed')
   let currentEnergy = player.currentEnergy
 
-  // Refresh player object
+  // Refresh player object when player updates
   useEffect(() => {
     setLog(player.log)
     setInventory(player.inventory)
     setInventoryFull(player.inventoryFull)
+
+    // For cells that are scanned
+    if (player.scannedGrid.includes(props.position)) {
+      setGridClass('grid-cell scanned')
+    }
   }, [player])
 
   const handleChange = (e) => {
     // Check if sufficient energy and className is closed
-    if (currentEnergy > 0 && e.target.className === 'grid-cell closed') {
+    if (currentEnergy > 0 && e.target.className === 'grid-cell closed' || currentEnergy > 0 && e.target.className === 'grid-cell scanned' ) {
       // When cell is clicked to dig
       let updatedLoot = [...loot]
       let updatedInventory = [...inventory]
@@ -62,7 +68,7 @@ const GridCell = (props) => {
 
   return (
     <>
-      <button onClick={handleChange} className='grid-cell closed'>{preview}</button>
+      <button onClick={handleChange} className={gridClass}>{preview}</button>
       <LootAlert trigger={alert} setTrigger={setAlert} loot={props.item}/>
     </>
   )

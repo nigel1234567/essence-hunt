@@ -19,7 +19,9 @@ const App = () => {
     garden: [],
     gardenLevel: 1,
     equipment: [],
-    grid: []
+    grid: [],
+    scannedGrid: [],
+    purchasedEye: false
   })
 
   const [seedPriceList, setSeedPriceList] = useState(priceList)
@@ -39,6 +41,7 @@ const App = () => {
 
   // Starting new day
   useEffect(() => {
+
     // If day 1
     if (day === 1) {
       updatedLog.push(`Started new week! It is Week 1.`)
@@ -47,6 +50,18 @@ const App = () => {
     // Set prices of seeds (after day 1)
     if (day !== 1) {
       priceListSetter(seedPriceList)
+    }
+
+    // Refresh scannedGrid and purchasedEye
+    updatedPlayer.scannedGrid = []
+    let eyeCheck = false
+    for (let i=0; i < updatedPlayer.equipment.length; i++) {
+      if (updatedPlayer.equipment[i].name === 'Magic Eye') {
+        eyeCheck = true
+      }
+    }
+    if (eyeCheck === false) {
+      updatedPlayer.purchasedEye = false
     }
 
     // Check if garden has any fully grown plants

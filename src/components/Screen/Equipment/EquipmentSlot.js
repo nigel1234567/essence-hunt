@@ -63,11 +63,20 @@ const EquipmentSlot = (props) => {
           }
       }
       // Populate empty cells into scanArray
-      for (let j=0; j < cellsToScan; j++) {
+      for (let i=0; i < cellsToScan; i++) {
         updateEmpty()
       }
       console.log(scanArray)
-
+      // Update player scannedGrid
+      updatedPlayer.scannedGrid = scanArray
+      // Update log
+      updatedLog.push(`Scanned ${scanArray.length} cells.`)
+      for (let i=0; i < scanArray.length; i++) {
+        updatedLog.push(`Scanned position ${scanArray[i]}.`)
+      }
+      // Remove equipment and update with new object
+      updatedEquipment[props.position] = placeholder
+      updatedPlayer.equipment = updatedEquipment
     }
     // Magic Dust
     else if (props.item.name === 'Magic Seed Dust') {

@@ -308,8 +308,18 @@
           transition-timing-function: ease-in-out;
 }
 
-.grid .grid-row .grid-cell:hover {
+.grid .grid-row .closed:hover {
   background-color: lightgrey;
+  cursor: pointer;
+}
+
+.grid .grid-row .scanned {
+  background-color: goldenrod;
+  border: 3px solid darkgoldenrod;
+}
+
+.grid .grid-row .scanned:hover {
+  background-color: lightgoldenrodyellow;
   cursor: pointer;
 }
 

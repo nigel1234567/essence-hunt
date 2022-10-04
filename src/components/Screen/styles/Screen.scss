@@ -190,8 +190,18 @@
       font-size: 100%;
       transition: 0.2s;
       transition-timing-function: ease-in-out;
+    }
+    .closed {
       &:hover {
         background-color: lightgrey;
+        cursor: pointer;
+      }
+    }
+    .scanned {
+      background-color: goldenrod;
+      border: 3px solid darkgoldenrod;
+      &:hover {
+        background-color: lightgoldenrodyellow;
         cursor: pointer;
       }
     }

@@ -14,7 +14,6 @@ const SeedSlot = (props) => {
 
   return (
     <div className='seed-item'>
-      <div>{props.seed.key}</div>
       {preview}
     </div>
   )

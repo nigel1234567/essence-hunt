@@ -163,6 +163,7 @@ const Screen = () => {
       return (
         <SeedSlot
           seed={item}
+          key={item.key}
           />
         )
       })
@@ -192,8 +193,6 @@ const Screen = () => {
             <div className='player-info'>
               <div><strong>Energy: </strong>{currentEnergy}</div>
               <div><strong>Level: </strong>{level}</div>
-              <button onClick={showPlayer}>Player</button>
-              <button onClick={showGrid}>Grid</button>
             </div>
             <div className='seed-info'>
               <div className='loot-title'>Loot</div>

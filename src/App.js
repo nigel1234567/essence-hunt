@@ -8,7 +8,7 @@ import { priceList, priceListSetter } from './components/Hotbar/Market/SeedPrice
 
 const App = () => {
   const [player, setPlayer] = useState({
-    essence: 1000,
+    essence: 0,
     inventory: [],
     inventoryLevel: 1,
     inventoryFull: false,

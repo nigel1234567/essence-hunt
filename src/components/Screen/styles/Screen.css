@@ -211,6 +211,154 @@
   visibility: visible;
 }
 
+.equipment .equipment-slots .equipment-item .options-popup {
+  font-size: 1.5rem;
+  color: white;
+  position: fixed;
+  top: 20%;
+  left: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 2;
+}
+
+.equipment .equipment-slots .equipment-item .options-popup .plant-options {
+  padding: 2rem;
+  padding-bottom: 4rem;
+  margin-left: 7rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 16px;
+  background-color: var(--theme-primary);
+  border: 3px solid var(--theme-secondary);
+}
+
+.equipment .equipment-slots .equipment-item .options-popup .plant-options .plant-grid {
+  max-width: 50rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+}
+
+.equipment .equipment-slots .equipment-item .options-popup .plant-options .plant-grid .inventory-slot {
+  border: 3px solid var(--theme-secondary);
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 16px;
+  background-color: slategray;
+  color: white;
+  font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+}
+
+.equipment .equipment-slots .equipment-item .options-popup .plant-options .plant-grid .plant {
+  border: 3px solid var(--theme-secondary);
+}
+
+.equipment .equipment-slots .equipment-item .options-popup .plant-options .plant-grid .item {
+  background-color: white;
+  color: var(--theme-secondary);
+}
+
+.equipment .equipment-slots .equipment-item .options-popup .plant-options .plant-grid .item .item-name {
+  font-size: 1.2rem;
+}
+
+.equipment .equipment-slots .equipment-item .options-popup .plant-options .plant-grid .item .Common {
+  color: yellow;
+}
+
+.equipment .equipment-slots .equipment-item .options-popup .plant-options .plant-grid .item .Uncommon {
+  color: greenyellow;
+}
+
+.equipment .equipment-slots .equipment-item .options-popup .plant-options .plant-grid .item .Rare {
+  color: cyan;
+}
+
+.equipment .equipment-slots .equipment-item .options-popup .plant-options .plant-grid .item .Mythical {
+  color: violet;
+}
+
+.equipment .equipment-slots .equipment-item .options-popup .plant-options .plant-grid .item .tooltip {
+  visibility: hidden;
+  max-width: 12rem;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  /* Position the tooltip */
+  position: absolute;
+  top: 80%;
+  z-index: 1;
+}
+
+.equipment .equipment-slots .equipment-item .options-popup .plant-options .plant-grid .item:hover {
+  cursor: pointer;
+  background-color: var(--subtheme-2);
+  color: black;
+}
+
+.equipment .equipment-slots .equipment-item .options-popup .plant-options .plant-grid .item:hover .tooltip {
+  visibility: visible;
+}
+
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: darkslategray;
+  color: white;
+  font-weight: bold;
+}
+
+.close-btn:hover {
+  cursor: pointer;
+  background-color: lightslategray;
+  color: black;
+}
+
 .map {
   display: -webkit-box;
   display: -ms-flexbox;

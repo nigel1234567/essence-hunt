@@ -5,9 +5,9 @@ import magicEye_img from '../../../images/magiceye.png'
 import magicDust_img from '../../../images/magicdust.png'
 
 // Equipment items
-let energyBar = new Equipment('Energy Bar', 100, energyBar_img, 'Gain 1 energy.')
-let magicEye = new Equipment('Magic Eye', 300, magicEye_img, 'Reveal 20% of possible cells with loot (Max 1 per day).')
-let magicDust = new Equipment('Magic Seed Dust', 500, magicDust_img, 'Change an existing seed in your inventory to another random seed.')
+let energyBar = new Equipment('Energy Bar', 200, energyBar_img, 'Gain 1 energy.')
+let magicEye = new Equipment('Magic Eye', 500, magicEye_img, 'Reveal 20% of possible cells with chance of 1 loot (Max 1 per day).')
+let magicDust = new Equipment('Magic Seed Dust', 1000, magicDust_img, 'Change an existing seed in your inventory to a random seed.')
 
 // Shop List (Equipment)
 const equipmentList = [

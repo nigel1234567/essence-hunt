@@ -132,7 +132,110 @@
           }
         }
       }
+      .options-popup {
+        font-size: 1.5rem;
+        color: white;
+        position: fixed;
+        top: 20%;
+        left: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+        .plant-options {
+          padding: 2rem;
+          padding-bottom: 4rem;
+          margin-left: 7rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 16px;
+          background-color: var(--theme-primary);
+          border: 3px solid var(--theme-secondary);
+          .plant-grid {
+            max-width: 50rem;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            .inventory-slot {
+              border: 3px solid var(--theme-secondary);
+              width: 4.5rem;
+              height: 4.5rem;
+              border-radius: 16px;
+              background-color: slategray;
+              color: white;
+              font-size: 16px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              transition: 0.2s;
+              transition-timing-function: ease-in-out;
+            }
+            .plant {
+              border: 3px solid var(--theme-secondary);
+            }
+            .item {
+              background-color: white;
+              color: var(--theme-secondary);
+              .item-name {
+                font-size: 1.2rem;
+              }
+              .Common {
+                color: yellow;
+              }
+              .Uncommon {
+                color: greenyellow;
+              }
+              .Rare {
+                color: cyan;
+              }
+              .Mythical {
+                color: violet;
+              }
+              .tooltip {
+                visibility: hidden;
+                max-width: 12rem;
+                background-color: black;
+                color: #fff;
+                text-align: center;
+                border-radius: 6px;
+                padding: 5px;
+                display: flex;
+                flex-direction: column;
+              
+                /* Position the tooltip */
+                position: absolute;
+                top: 80%;
+                z-index: 1;
+              }
+              &:hover {
+                cursor: pointer;
+                background-color: var(--subtheme-2);
+                color: black;
+                .tooltip {
+                  visibility: visible;
+                }
+              }
+            }
+          }
+        }
+      }
     }
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: darkslategray;
+  color: white;
+  font-weight: bold;
+  &:hover {
+    cursor: pointer;
+    background-color: lightslategray;
+    color: black;
   }
 }
 

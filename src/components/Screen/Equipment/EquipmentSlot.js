@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { PlayerContext } from '../../Contexts/PlayerContext'
 import cross from '../../../images/cross.png'
+import PopupOptions from '../../Hotbar/Shop/PopupOptions'
 
 const EquipmentSlot = (props) => {
   const {player, setPlayer} = useContext(PlayerContext)
   const [slot, setSlot] = useState()
+  const [popup, setPopup] = useState(null)
+
 
   let updatedPlayer = {...player}
   let updatedEquipment = [...player.equipment]
@@ -80,10 +83,20 @@ const EquipmentSlot = (props) => {
     }
     // Magic Dust
     else if (props.item.name === 'Magic Seed Dust') {
-
+      // Check if there are seeds in inventory
+      if (player.inventory.length !== 0) {
+        updatedLog.push(`Used Magic Dust!`)
+        setPopup('dust')
+        updatedPlayer.log = updatedLog
+        setPlayer(updatedPlayer)
+    
+        // Remove equipment and update with new object
+        updatedEquipment[props.position] = placeholder
+        updatedPlayer.equipment = updatedEquipment
+      } else {
+        alert("You don't have any seeds in your inventory!")
+      }
     }
-    updatedPlayer.log = updatedLog
-    setPlayer(updatedPlayer)
   }
 
   // Set slot
@@ -106,6 +119,7 @@ const EquipmentSlot = (props) => {
   return (
     <div className='equipment-item'>
       {slot}
+      <PopupOptions seed={props.item} trigger={popup} position={props.position} setTrigger={setPopup}></PopupOptions>
     </div>
   )
 }

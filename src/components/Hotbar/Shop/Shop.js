@@ -6,20 +6,15 @@ import { equipmentList, upgradeList } from './ShopItems'
 const Shop = () => {
   const {player, setPlayer} = useContext(PlayerContext)
   const [shopGrid, setShopGrid] = useState([])
-
-  // Initial opening of shop
-  useEffect(() => {
-    // Set as equipment
-    let equipmentArray = []
-    for (let i=0; i < equipmentList.length; i++) {
-      equipmentArray.push(<ShopSlot key={i} type='equipment' item={equipmentList[i]}/>)
-    }
-
-    setShopGrid(equipmentArray)
-  }, [])
+  const [equipmentButton, setEquipmentButton] = useState()
+  const [upgradeButton, setUpgradeButton] = useState()
 
   // Choosing equipment category
   const equipmentOption = () => {
+    // Set equipment and upgrade buttons
+    setEquipmentButton(<button onClick={equipmentOption} className='focus'>Equipment</button>)
+    setUpgradeButton(<button onClick={upgradeOption} className=''>Upgrade</button>)
+    
     let equipmentArray = []
     for (let i=0; i < equipmentList.length; i++) {
       equipmentArray.push(<ShopSlot key={i} type='equipment' item={equipmentList[i]}/>)
@@ -30,6 +25,11 @@ const Shop = () => {
 
     // Choosing upgrades category
   const upgradeOption = () => {
+    // Set equipment and upgrade buttons
+    setEquipmentButton(<button onClick={equipmentOption} className=''>Equipment</button>)
+    setUpgradeButton(<button onClick={upgradeOption} className='focus'>Upgrade</button>)
+
+    // Update shop display
     let upgradeArray = []
     for (let i=0; i < upgradeList.length; i++) {
       upgradeArray.push(<ShopSlot key={i} type='upgrade' item={upgradeList[i]}/>)
@@ -38,12 +38,26 @@ const Shop = () => {
     setShopGrid(upgradeArray)
   }
 
+    // Initial opening of shop
+    useEffect(() => {
+      // Set equipment and upgrade buttons
+      setEquipmentButton(<button onClick={equipmentOption} className='focus'>Equipment</button>)
+      setUpgradeButton(<button onClick={upgradeOption} className=''>Upgrade</button>)
+      // Set as equipment
+      let equipmentArray = []
+      for (let i=0; i < equipmentList.length; i++) {
+        equipmentArray.push(<ShopSlot key={i} type='equipment' item={equipmentList[i]}/>)
+      }
+  
+      setShopGrid(equipmentArray)
+    }, [])
+
   return (
     <div className='shop-main'>
       <h3>Shop</h3>
       <div className='shop-options'>
-        <button onClick={equipmentOption}>Equipment</button>
-        <button onClick={upgradeOption}>Upgrade</button>
+        {equipmentButton}
+        {upgradeButton}
       </div>
       <div className='shop-details'>
         {shopGrid}

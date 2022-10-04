@@ -25,7 +25,6 @@ const GardenSlot = (props) => {
   // Update daysLeft and status
   useEffect(() => {
     if (props.item !== undefined && props.item.matureDay > player.day) {
-      console.log()
       setDaysLeft(props.item.matureDay - player.day)
       setStatus('Growing')
     } else if (props.item !== undefined && props.item.matureDay <= player.day) {
@@ -33,12 +32,7 @@ const GardenSlot = (props) => {
       setStatus('Fully Grown')
     }
 
-  }, [player.day])
-
-  // Update slot after fruit matures
-  useEffect(() => {
-
-  }, [status])
+  }, [props, player.day])
 
   useEffect(() => {
     // If slot has seed

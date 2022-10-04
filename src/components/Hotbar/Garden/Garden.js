@@ -40,7 +40,7 @@ const Garden = () => {
 
   return (
     <div className='garden-main'>
-      <h3>Garden</h3>
+      <h3>Garden (Level {gardenLevel})</h3>
       <div>Click on a slot to plant / harvest a fruit!</div>
       <div className='garden-grid'>
         {gardenGrid}

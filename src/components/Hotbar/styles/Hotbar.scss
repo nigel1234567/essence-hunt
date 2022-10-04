@@ -363,14 +363,14 @@
       font-weight: bold;
       &:hover{
         cursor: pointer;
-        background-color: slategray;
-        color: white;
+        background-color: lightgray;
+        color: darkslategray;
       }
-      &:focus {
-        cursor: pointer;
-        background-color: slategray;
-        color: white;
-      }
+    }
+    .focus {
+      cursor: pointer;
+      background-color: slategray;
+      color: white;
     }
   }
   .shop-details {
@@ -424,6 +424,11 @@
           background-color: lightcoral;
           border: 3px solid maroon;
           color: maroon;
+        }
+        .max {
+          background-color: white;
+          color: darkgoldenrod;
+          border: 3px solid darkgoldenrod;
         }
       }
     }

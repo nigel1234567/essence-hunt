@@ -1,4 +1,5 @@
 import Equipment from "./Equipment";
+import Upgrade from "./Upgrade";
 import energyBar_img from '../../../images/energybar.png'
 import magicEye_img from '../../../images/magiceye.png'
 import magicDust_img from '../../../images/magicdust.png'
@@ -15,4 +16,16 @@ const equipmentList = [
   magicDust
 ]
 
-export {equipmentList}
+// Upgrades
+let inventory = new Upgrade('Inventory', 2, [1000, 2500, 5000, 8000], 5)
+let garden = new Upgrade('Garden', 2, [2500, 5000, 10000, 20000], 5)
+let energy = new Upgrade('Energy', 2, [400, 800, 1200, 2000, 2800, 3800, 4800, 6000, 8000, 10000] )
+
+// Shop List (Upgrades)
+const upgradeList = [
+  inventory,
+  garden,
+  energy
+]
+
+export {equipmentList, upgradeList}

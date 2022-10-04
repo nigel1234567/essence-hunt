@@ -342,6 +342,93 @@
   }
 }
 
+// Shop
+.shop-main {
+  display: flex;
+  flex-direction: column;
+  max-height: 70vh;
+  gap: 8px;
+  align-items: center;
+  background-color: darkgoldenrod;
+  .shop-options {
+    display: flex;
+    gap: 1.5rem;
+    button {
+      font-size: 1.5rem;
+      border-radius: 16px;
+      padding: 1rem;
+      border: 3px solid darkslategray;
+      background-color: white;
+      color: darkslategray;
+      font-weight: bold;
+      &:hover{
+        cursor: pointer;
+        background-color: slategray;
+        color: white;
+      }
+      &:focus {
+        cursor: pointer;
+        background-color: slategray;
+        color: white;
+      }
+    }
+  }
+  .shop-details {
+    background-color: goldenrod;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    .shop-slot {
+      display: grid;
+      grid-template-columns: 1fr 4fr 1fr;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid darkgoldenrod;
+      padding: 1rem;
+      margin-bottom: -3px;
+      .shop-image {
+        background-color: white;
+        border: 3px solid darkgoldenrod;
+        border-radius: 8px;
+        padding: 1rem;
+      }
+      .shop-item-details {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        font-weight: lighter;
+      }
+      .shop-buttons {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+        justify-content: flex-end;
+        .shop-button {
+          font-size: 1.5rem;
+          padding: 1rem;
+          border-radius: 1.5rem;
+          font-weight: bold;
+          &:hover {
+            cursor: pointer;
+            background-color: white;
+            color: darkgoldenrod;
+            border: 3px solid darkgoldenrod;
+          }
+        } 
+        .buy {
+          background-color: lightgreen;
+          border: 3px solid green;
+          color: darkgreen;
+        }
+        .sell {
+          background-color: lightcoral;
+          border: 3px solid maroon;
+          color: maroon;
+        }
+      }
+    }
+  }
+}
 
 // Other buttons
 .end {

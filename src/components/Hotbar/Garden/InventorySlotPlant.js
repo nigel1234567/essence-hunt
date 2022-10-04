@@ -10,6 +10,7 @@ const InventorySlotPlant = (props) => {
     let updatedGarden = [...player.garden]
     let updatedInventory = [...player.inventory]
     let updatedPlayer = {...player}
+    let updatedLog = [...player.log]
     // Add maturity day to seed object
     props.item.matureDay = player.day + props.item.days
     // Push updated seed into updatedGarden array
@@ -19,6 +20,9 @@ const InventorySlotPlant = (props) => {
     // Update updatedPlayer's garden and inventory
     updatedPlayer.garden = updatedGarden
     updatedPlayer.inventory = updatedInventory
+    // Update log
+    updatedLog.push(`You planted ${props.item.name}.`)
+    updatedPlayer.log = updatedLog
     // Update player context
     setPlayer(updatedPlayer)
     // Close window

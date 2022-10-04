@@ -516,6 +516,137 @@
   border-radius: 8px;
 }
 
+.shop-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-height: 70vh;
+  gap: 8px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: darkgoldenrod;
+}
+
+.shop-main .shop-options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.shop-main .shop-options button {
+  font-size: 1.5rem;
+  border-radius: 16px;
+  padding: 1rem;
+  border: 3px solid darkslategray;
+  background-color: white;
+  color: darkslategray;
+  font-weight: bold;
+}
+
+.shop-main .shop-options button:hover {
+  cursor: pointer;
+  background-color: slategray;
+  color: white;
+}
+
+.shop-main .shop-options button:focus {
+  cursor: pointer;
+  background-color: slategray;
+  color: white;
+}
+
+.shop-main .shop-details {
+  background-color: goldenrod;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1rem;
+}
+
+.shop-main .shop-details .shop-slot {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 4fr 1fr;
+      grid-template-columns: 1fr 4fr 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 3px solid darkgoldenrod;
+  padding: 1rem;
+  margin-bottom: -3px;
+}
+
+.shop-main .shop-details .shop-slot .shop-image {
+  background-color: white;
+  border: 3px solid darkgoldenrod;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.shop-main .shop-details .shop-slot .shop-item-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.5rem;
+  font-weight: lighter;
+}
+
+.shop-main .shop-details .shop-slot .shop-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.shop-main .shop-details .shop-slot .shop-buttons .shop-button {
+  font-size: 1.5rem;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  font-weight: bold;
+}
+
+.shop-main .shop-details .shop-slot .shop-buttons .shop-button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: darkgoldenrod;
+  border: 3px solid darkgoldenrod;
+}
+
+.shop-main .shop-details .shop-slot .shop-buttons .buy {
+  background-color: lightgreen;
+  border: 3px solid green;
+  color: darkgreen;
+}
+
+.shop-main .shop-details .shop-slot .shop-buttons .sell {
+  background-color: lightcoral;
+  border: 3px solid maroon;
+  color: maroon;
+}
+
 .end {
   -webkit-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
           box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;

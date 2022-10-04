@@ -1,26 +1,53 @@
 import React, { useState, useContext, useEffect } from 'react'
 import ShopSlot from './ShopSlot'
 import { PlayerContext } from '../../Contexts/PlayerContext'
-import { equipmentList } from './ShopItems'
+import { equipmentList, upgradeList } from './ShopItems'
 
 const Shop = () => {
   const {player, setPlayer} = useContext(PlayerContext)
-  const [equipmentShopGrid, setEquipmentShopGrid] = useState([])
+  const [shopGrid, setShopGrid] = useState([])
 
+  // Initial opening of shop
   useEffect(() => {
+    // Set as equipment
     let equipmentArray = []
-    let equipmentPosition = 0
     for (let i=0; i < equipmentList.length; i++) {
-      equipmentArray.push(<ShopSlot key={i} item={equipmentList[i]}/>)
+      equipmentArray.push(<ShopSlot key={i} type='equipment' item={equipmentList[i]}/>)
     }
 
-    setEquipmentShopGrid(equipmentArray)
-  }, [equipmentList])
+    setShopGrid(equipmentArray)
+  }, [])
+
+  // Choosing equipment category
+  const equipmentOption = () => {
+    let equipmentArray = []
+    for (let i=0; i < equipmentList.length; i++) {
+      equipmentArray.push(<ShopSlot key={i} type='equipment' item={equipmentList[i]}/>)
+    }
+
+    setShopGrid(equipmentArray)
+  }
+
+    // Choosing upgrades category
+  const upgradeOption = () => {
+    let upgradeArray = []
+    for (let i=0; i < upgradeList.length; i++) {
+      upgradeArray.push(<ShopSlot key={i} type='upgrade' item={upgradeList[i]}/>)
+    }
+
+    setShopGrid(upgradeArray)
+  }
 
   return (
     <div className='shop-main'>
       <h3>Shop</h3>
-      {equipmentShopGrid}
+      <div className='shop-options'>
+        <button onClick={equipmentOption}>Equipment</button>
+        <button onClick={upgradeOption}>Upgrade</button>
+      </div>
+      <div className='shop-details'>
+        {shopGrid}
+      </div>
     </div>
   )
 }

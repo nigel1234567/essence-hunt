@@ -16,6 +16,7 @@ const HarvestOptions = (props) => {
   // Updated values of player
   let updatedGarden = [...player.garden]
   let updatedPlayer = {...player}
+  let updatedLog = [...player.log]
 
   // Update days left
   useEffect(() => {
@@ -49,6 +50,9 @@ const HarvestOptions = (props) => {
         updatedGarden.splice(props.position, 1)
         // Update player garden
         updatedPlayer.garden = updatedGarden
+        // Update player log
+        updatedLog.push(`Harvested ${props.seed.name} for ${seedPrice} essence!`)
+        updatedPlayer.log = updatedLog
         // Set updated player
         setPlayer(updatedPlayer)
         // Inform player
@@ -66,6 +70,9 @@ const HarvestOptions = (props) => {
       updatedGarden.splice(props.position, 1)
       // Update player garden
       updatedPlayer.garden = updatedGarden
+      // Update player log
+      updatedLog.push(`Destroyed ${props.seed.name}!`)
+      updatedPlayer.log = updatedLog
       // Set updated player
       setPlayer(updatedPlayer)
       // Inform player

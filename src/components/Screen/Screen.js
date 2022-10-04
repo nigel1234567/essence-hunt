@@ -31,12 +31,17 @@ const Screen = () => {
   const [equipment, setEquipment] = useState(player.equipment)
   const [equipmentGrid, setEquipmentGrid] = useState([])
 
-
+  let updatedPlayer = {...player}
 
   // Functions
   // Show player
   const showPlayer = () => {
     console.log(player)
+  }
+
+  // Show grid
+  const showGrid = () => {
+    console.log(gridItemsArray)
   }
 
   // Durstenfeld shuffle
@@ -136,6 +141,9 @@ const Screen = () => {
   // Set Grid
   useEffect(() => {
     setGrid(<Grid level={level} items={gridItemsArray}/>)
+    // Update player grid
+    updatedPlayer.grid = gridItemsArray
+    setPlayer(updatedPlayer)
   }, [seeds, day])
 
   // Set SeedSlot components
@@ -185,6 +193,7 @@ const Screen = () => {
               <div><strong>Energy: </strong>{currentEnergy}</div>
               <div><strong>Level: </strong>{level}</div>
               <button onClick={showPlayer}>Player</button>
+              <button onClick={showGrid}>Grid</button>
             </div>
             <div className='seed-info'>
               <div className='loot-title'>Loot</div>

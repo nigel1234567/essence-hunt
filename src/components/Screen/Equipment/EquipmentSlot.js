@@ -13,6 +13,11 @@ const EquipmentSlot = (props) => {
   // Placeholder equipment
   const placeholder = {name:'Used Slot', image: cross}
 
+  // Function to get random int
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
   // Use equipment
   const useItem = () => {
     // Energy bar
@@ -23,6 +28,50 @@ const EquipmentSlot = (props) => {
       // Remove equipment and update with new object
       updatedEquipment[props.position] = placeholder
       updatedPlayer.equipment = updatedEquipment
+    }
+    // Magic eye
+    else if (props.item.name === 'Magic Eye') {
+      // Get 10% of total number of cells
+      let scanArray = []
+      let cellsToScan = Math.ceil(0.2 * player.grid.length)
+      // Get positions of loot in grid
+      let lootPositionArray = []
+      let emptyPositionArray = []
+      for (let i=0; i < player.grid.length; i++) {
+        if (player.grid[i] !== 'empty') {
+          lootPositionArray.push(i)
+        } else {
+          emptyPositionArray.push(i)
+        }
+      }
+      // Choose a random position for loot and push into scanArray
+      let chosenPosition = getRandomInt(lootPositionArray.length)
+      scanArray.push(lootPositionArray[chosenPosition])
+      cellsToScan -= 1
+      // Choose empty cells for remaining cells to scan
+      let memoryArray = []
+      let chosenEmpty
+      // Recursive function for updating empty cells into scanArray
+      const updateEmpty = () => {
+        // Choose random int
+          chosenEmpty = getRandomInt(emptyPositionArray.length)
+          if (memoryArray.includes(emptyPositionArray[chosenEmpty]) === false) {
+            scanArray.push(emptyPositionArray[chosenEmpty])
+            memoryArray.push(emptyPositionArray[chosenEmpty])
+          } else {
+            updateEmpty()
+          }
+      }
+      // Populate empty cells into scanArray
+      for (let j=0; j < cellsToScan; j++) {
+        updateEmpty()
+      }
+      console.log(scanArray)
+
+    }
+    // Magic Dust
+    else if (props.item.name === 'Magic Seed Dust') {
+
     }
     updatedPlayer.log = updatedLog
     setPlayer(updatedPlayer)

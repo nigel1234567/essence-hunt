@@ -18,7 +18,8 @@ const App = () => {
     log: [],
     garden: [],
     gardenLevel: 1,
-    equipment: []
+    equipment: [],
+    grid: []
   })
 
   const [seedPriceList, setSeedPriceList] = useState(priceList)

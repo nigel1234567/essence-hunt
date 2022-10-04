@@ -28,7 +28,6 @@ const App = () => {
   const [day, setDay] = useState(player.day)
   let updatedPlayer = {...player}
   let updatedLog = [...log]
-  let updatedEquipment = [...player.equipment]
 
     // Refresh
     useEffect(() => {
@@ -58,9 +57,10 @@ const App = () => {
     }
 
     // Remove crosses
+    let updatedEquipment = []
     for (let i=0; i < player.equipment.length; i++) {
-      if (player.equipment[i].name === 'Used Slot') {
-        updatedEquipment.splice(i, 1)
+      if (player.equipment[i].name !== 'Used Slot') {
+        updatedEquipment.push(player.equipment[i])
       }
     }
     updatedPlayer.equipment = updatedEquipment

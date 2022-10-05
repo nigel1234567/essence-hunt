@@ -4,25 +4,27 @@ import Hotbar from './components/Hotbar/Hotbar'
 import Screen from './components/Screen/Screen'
 import { PlayerContext } from './components/Contexts/PlayerContext'
 import { SeedContext } from './components/Contexts/SeedContext'
-import { priceList, priceListSetter } from './components/Hotbar/Market/SeedPrice'
+import { priceList } from './components/Hotbar/Market/SeedPrice'
 
 const App = () => {
-  const [player, setPlayer] = useState({
-    essence: 0,
-    inventory: [],
-    inventoryLevel: 1,
-    inventoryFull: false,
-    startingEnergy: 5,
-    currentEnergy: 5,
-    day: 1,
-    log: [],
-    garden: [],
-    gardenLevel: 1,
-    equipment: [],
-    grid: [],
-    scannedGrid: [],
-    purchasedEye: false
-  })
+    const defaultPlayer = {
+      essence: 0,
+      inventory: [],
+      inventoryLevel: 1,
+      inventoryFull: false,
+      startingEnergy: 5,
+      currentEnergy: 5,
+      day: 1,
+      log: [],
+      garden: [],
+      gardenLevel: 1,
+      equipment: [],
+      grid: [],
+      scannedGrid: [],
+      purchasedEye: false
+    }
+
+  const [player, setPlayer] = useState(defaultPlayer)
 
   const [seedPriceList, setSeedPriceList] = useState(priceList)
   const [inventory, setInventory] = useState(player.inventory)
@@ -49,7 +51,10 @@ const App = () => {
     updatedLog.push(`Started a new day! It is now Day ${day}.`)
     // Set prices of seeds (after day 1)
     if (day !== 1) {
-      priceListSetter(seedPriceList)
+      // Save player and seedPriceList object
+      window.localStorage.setItem('player', JSON.stringify(player))
+      window.localStorage.setItem('seedPriceList', JSON.stringify(seedPriceList))
+      updatedLog.push(`Your game has been saved.`)
     }
 
     // Refresh scannedGrid and purchasedEye

@@ -27,7 +27,7 @@
       border: 3px solid darkslategray;
       border-radius: 16px;
       padding: 1rem;
-      width: 15rem;
+      width: 10rem;
       font-size: 1.5rem;
       background-color: slategray;
       color: white;
@@ -522,4 +522,74 @@
     transition-timing-function: ease-in-out;
     z-index: 2;
   }
+}
+
+.options-btn {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  border-radius: 1.5rem;
+  padding: 1rem;
+  width: 8rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: 0.2s;
+  transition-timing-function: ease-in-out;
+  &:hover {
+    cursor: pointer;
+    background-color: white;
+    border: 3px solid darkslategray;
+    color: darkslategray;
+  }
+  &:focus {
+    background-color: white;
+    border: 3px solid darkslategray;
+    color: darkslategray;
+  }
+}
+.restart {
+  background-color: red;
+  color: white;
+  border: 3px solid maroon;
+}
+.load {
+  background-color: darkcyan;
+  color: white;
+  border: 3px solid darkgreen;
+}
+
+.options-main {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .options-choice {
+    padding: 1rem;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    .choice-btn {
+      font-size: 24px;
+      font-weight: bold;
+      border: 3px solid var(--grey-2);
+      background-color: var(--grey-1);
+      color: white;
+      border-radius: 8px;
+      padding: 8px;
+      width: 8rem;
+      &:hover {
+        cursor: pointer;
+        background-color: var(--grey-2);
+        color: white;
+      }
+    }
+  }
+}
+
+.load-option {
+  background-color: darkcyan;
+}
+
+.restart-option {
+  background-color: darkred;
 }

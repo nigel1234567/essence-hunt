@@ -4,6 +4,8 @@ import Inventory from './Inventory/Inventory'
 import Garden from './Garden/Garden'
 import Shop from './Shop/Shop'
 import End from './End'
+import Restart from './Restart'
+import Load from './Load'
 
 const Popup = (props) => {
   const [currentPopup, setCurrentPopup] = useState()
@@ -23,6 +25,12 @@ const Popup = (props) => {
     }
     else if (props.trigger === 'end') {
       setCurrentPopup(<End trigger = {props.trigger} setTrigger={props.setTrigger}/>)
+    }
+    else if (props.trigger === 'restart') {
+      setCurrentPopup(<Restart trigger={props.trigger} setTrigger={props.setTrigger}/>)
+    }
+    else if (props.trigger === 'load') {
+      setCurrentPopup(<Load trigger={props.trigger} setTrigger={props.setTrigger}/>)
     }
   }, [props.trigger])
 

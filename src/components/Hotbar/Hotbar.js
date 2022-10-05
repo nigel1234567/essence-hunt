@@ -53,6 +53,18 @@ const Hotbar = () => {
     setPopup('end')
   }
 
+  const restart = () => {
+    setPopup('restart')
+  }
+
+  const load = () => {
+    setPopup('load')
+  }
+
+  const instructions = () => {
+    setPopup('instructions')
+  }
+
   return (
     <div className='hotbar'>
       <Popup trigger={popup} setTrigger={setPopup}></Popup>
@@ -67,7 +79,9 @@ const Hotbar = () => {
         <button className='btn garden' onClick={showGarden}>Garden</button>
         <button className='btn shop' onClick={showShop}>Shop</button>
         <button className='end' onClick={endDay}>End Day</button>
-        <button className='question'>?</button>
+        <button className='options-btn restart' onClick={restart}>Restart</button>
+        <button className='options-btn load' onClick={load}>Load</button>
+        <button className='question' onClick={instructions}>?</button>
       </div>
     </div>
   )

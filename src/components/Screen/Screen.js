@@ -178,6 +178,10 @@ const Screen = () => {
     }
   }, [day])
 
+  const showLocalStorage = () => {
+    console.log(window.localStorage)
+  }
+
   return (
     <div className='screen'>
       <div className='column equipment'>
@@ -193,6 +197,8 @@ const Screen = () => {
             <div className='player-info'>
               <div><strong>Energy: </strong>{currentEnergy}</div>
               <div><strong>Level: </strong>{level}</div>
+              <button onClick={showLocalStorage}>Storage</button>
+              <button onClick={showPlayer}>Player</button>
             </div>
             <div className='seed-info'>
               <div className='loot-title'>Loot</div>

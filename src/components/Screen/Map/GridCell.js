@@ -60,6 +60,7 @@ const GridCell = (props) => {
       currentEnergy -= 1
       updatedPlayer.currentEnergy = currentEnergy
       updatedPlayer.log = updatedLog
+      updatedPlayer.newDay = false
       // Update Player Object
       setPlayer(updatedPlayer)
     }

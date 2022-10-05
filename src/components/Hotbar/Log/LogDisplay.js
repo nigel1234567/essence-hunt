@@ -19,7 +19,7 @@ const LogDisplay = () => {
       return <LogEntry key={logNum} entry={entry} position={logNum}/>
     })
     setLogEntries(logArray)
-  }, [log])
+  }, [log, player.load])
 
   return (
     <div className='log-display'>

@@ -17,6 +17,7 @@ const End = (props) => {
       // Increase day
       let updatedDay = day + 1
       updatedPlayer.day = updatedDay
+      updatedPlayer.newDay = true
       // Refresh energy
       updatedPlayer.currentEnergy = startingEnergy
       // Refresh log

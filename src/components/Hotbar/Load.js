@@ -7,21 +7,14 @@ const Load = (props) => {
   const {player, setPlayer} = useContext(PlayerContext)
   const {seedPriceList, setSeedPriceList} = useContext(SeedContext)
 
+  let updatedPlayer = {...player}
+
   useEffect(() => {
     if (choice === 'yes') {
       // Check if localStorage is present
       if (window.localStorage.length !== 0) {
-        // Get player object
-        let savedPlayer = window.localStorage.getItem("player")
-        savedPlayer = JSON.parse(savedPlayer)
-        setPlayer(savedPlayer)
-        // Get seedPriceList
-        let savedPrices = window.localStorage.getItem("seedPriceList")
-        savedPrices = JSON.parse(savedPrices)
-        setSeedPriceList(savedPrices)
-        // Close window
-        props.setTrigger(null)
-        setChoice(null)
+        updatedPlayer.load = true
+        setPlayer(updatedPlayer)
       } else {
         alert('You do not have a save file!')
         // Close window
@@ -35,6 +28,23 @@ const Load = (props) => {
       setChoice(null)
     }
   }, [choice])
+
+  // Once player load === true
+  useEffect(() => {
+    if (player.load === true) {
+      // Get player object
+      let savedPlayer = window.localStorage.getItem("player")
+      savedPlayer = JSON.parse(savedPlayer)
+      setPlayer(savedPlayer)
+      // Get seedPriceList
+      let savedPrices = window.localStorage.getItem("seedPriceList")
+      savedPrices = JSON.parse(savedPrices)
+      setSeedPriceList(savedPrices)
+      // Close window
+      props.setTrigger(null)
+      setChoice(null)
+    }
+  }, [player.load])
 
   const choiceYes = () => {
     setChoice('yes')

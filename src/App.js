@@ -21,7 +21,8 @@ const App = () => {
       equipment: [],
       grid: [],
       scannedGrid: [],
-      purchasedEye: false
+      purchasedEye: false,
+      load: false
     }
 
   const [player, setPlayer] = useState(defaultPlayer)

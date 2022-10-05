@@ -37,7 +37,7 @@ const Restart = (props) => {
     <div className='options-main restart-option'>
       <h2>Restart</h2>
       <div className='options-inner'>
-        <span>Do you want to restart your progress?</span>
+        <span>Do you want to restart your progress and delete your saved file?</span>
         <div className="options-choice">
           <button className='choice-btn' onClick={() => setChoice('yes')}>Yes</button>
           <button className='choice-btn' onClick={() => setChoice('no')}>No</button>

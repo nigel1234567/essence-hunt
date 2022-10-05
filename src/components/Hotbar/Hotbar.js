@@ -26,13 +26,6 @@ const Hotbar = () => {
     setWeek(Math.ceil(day / 7))
   }, [day])
 
-  // Update log for new week
-  useEffect(() => {
-    updatedLog.push(`Started new week! It is Week ${week}.`)
-    updatedPlayer.log = updatedLog
-    setPlayer(updatedPlayer)
-  }, [week])
-
   const showMarket = () => {
     setPopup('market')
   }

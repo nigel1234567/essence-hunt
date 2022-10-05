@@ -34,6 +34,7 @@ const App = () => {
   const [inventoryLevel, setInventoryLevel] = useState(player.inventoryLevel)
   const [log, setLog] = useState(player.log)
   const [day, setDay] = useState(player.day)
+  const [week, setWeek] = useState(0)
   let updatedPlayer = {...player}
   let updatedLog = [...log]
 
@@ -63,12 +64,15 @@ const App = () => {
 
   // Starting new day
   useEffect(() => {
+    // Set week
+    setWeek(Math.ceil(day / 7))
 
-    // If day 1
-    if (day === 1) {
-      updatedLog.push(`Started new week! It is Week 1.`)
-    }
+    // New day message
     updatedLog.push(`Started a new day! It is now Day ${day}.`)
+    // New week message
+    if ( (day - 1) % 7 === 0) {
+      updatedLog.push(`Started new week! It is Week ${week + 1}.`)
+    }
     // Set prices of seeds (after day 1)
     if (day !== 1) {
       // Save player and seedPriceList object
@@ -97,7 +101,25 @@ const App = () => {
       }
     }
 
-    // Remove crosses
+    // Check for mature gem plants to produce essence
+    for (let i=0; i < player.garden.length; i++) {
+      let currentSeed = player.garden[i]
+      let currentSeedPrice
+      // Run check through garden array for fully grown plants
+      if (currentSeed.type === 'Gem' && currentSeed.matureDay <= day) {
+        // Find price of seed in seedPriceList
+        for (let j=0; j < seedPriceList.length; j++) {
+          if (seedPriceList[j].name === currentSeed.name) {
+            currentSeedPrice = seedPriceList[j].price
+          }
+        }
+        let currentSeedReturns = Math.ceil(currentSeedPrice * 0.1)
+        updatedPlayer.essence += currentSeedReturns
+        updatedLog.push(`${currentSeed.name} has provided you with ${currentSeedReturns} essence!`)
+      }
+    }
+
+    // Remove crosses (placeholders)
     let updatedEquipment = []
     for (let i=0; i < player.equipment.length; i++) {
       if (player.equipment[i].name !== 'Used Slot') {
@@ -108,7 +130,6 @@ const App = () => {
     updatedPlayer.log = updatedLog
     setPlayer(updatedPlayer)
   },[day])
-
 
 
   // Check if inventory is full

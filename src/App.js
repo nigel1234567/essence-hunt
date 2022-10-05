@@ -22,7 +22,9 @@ const App = () => {
       grid: [],
       scannedGrid: [],
       purchasedEye: false,
-      load: false
+      load: false,
+      win: false,
+      winDay: 0
     }
 
   const [player, setPlayer] = useState(defaultPlayer)
@@ -40,7 +42,24 @@ const App = () => {
       setInventory(player.inventory)
       setLog(player.log)
       setDay(player.day)
+
+      // Check if essence is 1mil
+      if (player.win === false && player.essence >= 1000000) {
+        alert(`Congratulations! You have achieved 1 million essence in ${player.day} days!`)
+        updatedPlayer.winDay = player.day
+        updatedPlayer.win = true
+        setPlayer(updatedPlayer)
+      }
     }, [player])
+
+    // Win message
+    useEffect(() => {
+      if (player.win === true) {
+        updatedLog.push(`You won! You have completed the game on Day ${player.winDay}!`)
+        updatedPlayer.log = updatedLog
+        setPlayer(updatedPlayer)
+      }
+    }, [player.win, day])
 
   // Starting new day
   useEffect(() => {
@@ -111,6 +130,7 @@ const App = () => {
       <SeedContext.Provider value={{seedPriceList, setSeedPriceList}}>
           <Screen />
           <Hotbar />
+          <span className='watermark'>© nigel1234567</span>
       </SeedContext.Provider>
     </PlayerContext.Provider>
     </>

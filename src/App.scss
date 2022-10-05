@@ -71,3 +71,11 @@ img {
   font-size: 18px;
   padding: 16px;
 }
+
+.watermark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--theme-primary);
+  font-weight: bold;
+}

@@ -6,7 +6,7 @@ import { PlayerContext } from '../Contexts/PlayerContext'
 const Hotbar = () => {
   let {player, setPlayer} = useContext(PlayerContext)
   const [log, setLog] = useState(player.log)
-  const [popup, setPopup] = useState(null)
+  const [popup, setPopup] = useState('instructions')
   const [day, setDay] = useState(player.day)
   const [week, setWeek] = useState(1)
   const [essence, setEssence] = useState(player.essence)
@@ -81,7 +81,7 @@ const Hotbar = () => {
         <button className='end' onClick={endDay}>End Day</button>
         <button className='options-btn restart' onClick={restart}>Restart</button>
         <button className='options-btn load' onClick={load}>Load</button>
-        <button className='question' onClick={instructions}>?</button>
+        <button className='instructions' onClick={instructions}>?</button>
       </div>
     </div>
   )

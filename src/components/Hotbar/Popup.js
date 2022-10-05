@@ -6,6 +6,7 @@ import Shop from './Shop/Shop'
 import End from './End'
 import Restart from './Restart'
 import Load from './Load'
+import Instructions from './Instructions'
 
 const Popup = (props) => {
   const [currentPopup, setCurrentPopup] = useState()
@@ -31,6 +32,10 @@ const Popup = (props) => {
     }
     else if (props.trigger === 'load') {
       setCurrentPopup(<Load trigger={props.trigger} setTrigger={props.setTrigger}/>)
+    }
+    else if (props.trigger === 'instructions') {
+      setCurrentPopup(<Instructions trigger={props.trigger} setTrigger={props.setTrigger}/>)
+
     }
   }, [props.trigger])
 

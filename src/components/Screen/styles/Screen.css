@@ -1,8 +1,8 @@
 .screen {
   border: 3px solid var(--theme-secondary);
   background-color: white;
-  margin: 16px;
-  height: 80vh;
+  margin: 8px;
+  height: 78vh;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 2fr 1fr;

@@ -4,7 +4,7 @@
   font-size: 1.5rem;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
-  margin: 16px;
+  margin: 8px;
   height: 15vh;
   display: grid;
   grid-template-columns: 1fr 4fr;
@@ -485,7 +485,7 @@
   }
 }
 
-.question {
+.instructions {
   font-size: 2rem;
   font-weight: bold;
   background-color: var(--theme-secondary);
@@ -592,4 +592,53 @@
 
 .restart-option {
   background-color: darkred;
+}
+
+// Instructions
+.instructions-main {
+  background-color: var(--theme-primary);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  .messages {
+    font-size: 1.2rem;
+    background-color: var(--theme-secondary);
+    border: 3px solid var(--subtheme-1);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 30vh;
+    .message {
+      background-color: var(--theme-secondary);
+      border: 3px solid var(--subtheme-1);
+      margin: -3px;
+      display: grid;
+      grid-template-columns: 2fr 8fr;
+      .message-item {
+        border: 3px solid var(--subtheme-1);
+        padding: 1rem;
+        margin: -3px;
+      }
+    }
+  }
+  .confirm-btn {
+    font-size: 24px;
+    font-weight: bold;
+    border: 3px solid var(--grey-2);
+    background-color: var(--grey-1);
+    color: white;
+    border-radius: 8px;
+    padding: 8px;
+    width: 8rem;
+    &:hover {
+      cursor: pointer;
+      background-color: var(--grey-2);
+      color: white;
+    }
+  }
 }

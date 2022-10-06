@@ -19,7 +19,10 @@ const equipmentList = [
 // Upgrades
 let inventory = new Upgrade('Inventory', [1000, 2500, 5000, 8000], 5)
 let garden = new Upgrade('Garden', [2500, 5000, 10000, 20000], 5)
-let energy = new Upgrade('Energy', [400, 800, 1200, 2000, 2800, 3800, 4800, 6000, 8000, 10000], 11 )
+let energy = new Upgrade('Energy', [400, 800, 1000, 1200, 1400, 
+                                    1800, 2200, 2600, 3000, 3400, 
+                                    4000, 4600, 5200, 5800, 6400, 
+                                    7200, 8000, 8800, 9600, 10000], 21)
 
 // Shop List (Upgrades)
 const upgradeList = [

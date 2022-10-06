@@ -7,7 +7,7 @@ const Grid = (props) => {
   const [gridDisplay, setGridDisplay] = useState()
   const {player, setPlayer} = useContext(PlayerContext)
   const [day, setDay] = useState(player.day)
-  const maxLevel = 10
+  const maxLevel = 8
 
   // Update day when player object changes
   useEffect(() => {

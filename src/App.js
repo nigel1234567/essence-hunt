@@ -136,7 +136,7 @@ const App = () => {
 
     // Set level
     useEffect(() => {
-      if (player.level < 8) {
+      if (player.level < 6) {
         updatedPlayer.level = week
         setPlayer(updatedPlayer)
       }

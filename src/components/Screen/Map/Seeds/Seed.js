@@ -8,7 +8,7 @@ class Seed {
     this.price = price;
     this.days = daysToGrow;
     this.risePotential = risePotential; // Potential % rise
-    this.fallPotential = fallPotential; // Potential % rise
+    this.fallPotential = fallPotential; // Potential % fall
     this.riseChance = chanceToRise; // Chance to rise each day
   }
 }

@@ -75,7 +75,7 @@ const Screen = () => {
   // Items array
   // Levels
   let currentLevel = level + 2
-  const maxLevel = 10
+  const maxLevel = 8
   useEffect(()=>{
     // Set currentLevel (limited by maxLevel)
     if (level < maxLevel - 2) {
@@ -88,9 +88,9 @@ const Screen = () => {
   // Set starting seed
   useEffect(() => {
     // Reset startingSeed and seedArray
-    // Max seed = 10
-    if (level > 8) {
-      setStartingSeed(10)
+    // Max seed = 6
+    if (level > 6) {
+      setStartingSeed(8)
     } else {
       setStartingSeed(level + 2)
     }

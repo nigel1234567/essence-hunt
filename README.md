@@ -33,3 +33,6 @@ Most of the information are in the game guide, which is indicated by a '?' butto
 
 ### Bugs
 There are still a few minor bugs that I had discovered, but should not impact your gameplay too greatly. If you discover any gamebreaking bugs, do reach out to me at my email stated above.
+
+1. Save and Load features not working very well. May cause grid to display wrong number of cells or not updating. Minimise usage if possible.
+2. UI not compatible with mobile web browsers.

@@ -30,7 +30,7 @@ const Instructions = (props) => {
         </div>
         <div className='message'>
           <span className='message-item'>Level</span>
-          <span className='message-item'>The number of cells and loot in the hunting ground depends on the level. The level will increase by 1 every week.</span>
+          <span className='message-item'>The number of cells and loot in the hunting ground depends on the level. The level will increase by 1 every week (Max 8).</span>
         </div>
         <div className='message'>
           <span className='message-item'>Day / Week</span>

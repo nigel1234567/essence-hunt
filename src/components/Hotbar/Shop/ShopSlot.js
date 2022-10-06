@@ -38,7 +38,7 @@ const ShopSlot = (props) => {
       // Check if enough essence
       if (player.essence >= props.item.price) {
         // Check if more than 1 Magic Eye in equipment
-        if (player.purchasedEye === true || (props.item.name === 'Magic Eye' && player.equipment.includes(props.item))) {
+        if ((player.purchasedEye === true && props.item.name === 'Magic Eye') || (props.item.name === 'Magic Eye' && player.equipment.includes(props.item))) {
           alert('You cannot purchase / own more than 1 Magic Eye per day!')
         } else {
           // Add item into equipment slots

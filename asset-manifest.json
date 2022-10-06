@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/essence-hunt/static/css/main.cf882b95.css",
+    "main.js": "/essence-hunt/static/js/main.ce6a58ac.js",
+    "index.html": "/essence-hunt/index.html",
+    "main.cf882b95.css.map": "/essence-hunt/static/css/main.cf882b95.css.map",
+    "main.ce6a58ac.js.map": "/essence-hunt/static/js/main.ce6a58ac.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cf882b95.css",
+    "static/js/main.ce6a58ac.js"
+  ]
+}

@@ -69,7 +69,6 @@ const EquipmentSlot = (props) => {
       for (let i=0; i < cellsToScan; i++) {
         updateEmpty()
       }
-      console.log(scanArray)
       // Update player scannedGrid
       updatedPlayer.scannedGrid = scanArray
       // Update log
@@ -97,6 +96,7 @@ const EquipmentSlot = (props) => {
         alert("You don't have any seeds in your inventory!")
       }
     }
+    setPlayer(updatedPlayer)
   }
 
   // Set slot

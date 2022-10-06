@@ -198,6 +198,7 @@ const Screen = () => {
               <div><strong>Energy: </strong>{currentEnergy}</div>
               <div><strong>Max Energy: </strong>{startingEnergy}</div>
               <div><strong>Level: </strong>{level}</div>
+              <button onClick={showPlayer}>Player</button>
             </div>
             <div className='seed-info'>
               <div className='loot-title'>Loot</div>

@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# Essence Hunt - A Web Game Project About Managing Your Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
+Welcome to Essence Hunt! I created this web game as an upgrade to my previous capstone project, Treasure Hunt. 
 
-## Available Scripts
+This project was meant to be a challenge for myself to build my own fully functional game, applying what I learnt about JavaScript and React from The Odin Project (https://www.theodinproject.com/).
 
-In the project directory, you can run:
+The total time spent on this project is about 55+ hours, which included the time to ideate, plan, build and test. In this 55 hours, I have learnt so much and became more comfortable about working with React.
 
-### `npm start`
+Please try out the game and help me improve it by letting me know your feedback! You can reach out to me at my email: nigelyyz@yahoo.com.sg.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Game Information
+### Purpose
+The game is supposed to mimic what it's like managing a financial portfolio, with different seeds and plants representing different types of investments. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The differences are that you don't need to use real money and you don't actually purchase the investment because you will need to find them (opportunities).
 
-### `npm test`
+Ultimately, the outcome of this game depends highly on both luck and skill. It doesn't necessarily make you an 'expert' if you manage to complete the game faster than others, because what matters is how you play it.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Most importantly, I do hope that you have fun and enjoy playing the game!
 
-### `npm run build`
+### Objective
+The objective of this game is to earn as much essence, which serves as currency as well as indication of your progress, as much as possible.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Win condition
+I have added a win condition of 1 million essence as a benchmark, but you can still continue beyond that if you wish!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Strategy
+You can either stick to a single strategy or just experiment around to find out what kind of strategy is best for you! At the end of the day, even though the game relies mostly on luck, a little strategising might help you go a long way!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Instructions & Help
+Most of the information are in the game guide, which is indicated by a '?' button at the bottom right of the screen.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Bugs
+There are still a few minor bugs that I had discovered, but should not impact your gameplay too greatly. If you discover any gamebreaking bugs, do reach out to me at my email stated above.

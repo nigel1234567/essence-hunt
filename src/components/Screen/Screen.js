@@ -167,7 +167,9 @@ const Screen = () => {
   // Increase stage level after every 7 days
   useEffect(() => {
     if (day - prevLevelDay === 7) {
-      setLevel(level+1)
+      if (level < 8) {
+        setLevel(level+1)
+      }
       setPrevLevelDay(day)
     }
   }, [day])

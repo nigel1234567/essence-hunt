@@ -35,7 +35,7 @@ const App = () => {
   const [inventoryLevel, setInventoryLevel] = useState(player.inventoryLevel)
   const [log, setLog] = useState(player.log)
   const [day, setDay] = useState(player.day)
-  const [week, setWeek] = useState(1)
+  const [week, setWeek] = useState(0)
   let updatedPlayer = {...player}
   let updatedLog = [...log]
 

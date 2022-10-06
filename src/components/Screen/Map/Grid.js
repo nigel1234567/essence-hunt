@@ -26,7 +26,7 @@ const Grid = (props) => {
     } else {
       currentLevel = maxLevel
     }
-  }, [props.level, day])
+  }, [props.level, day, player])
 
   // Show grid display
   useEffect(() => {
@@ -64,7 +64,7 @@ const Grid = (props) => {
         )
       }))
 
-  }, [currentLevel, props.items, day])
+  }, [currentLevel, props.items, day, player])
 
 
   return (

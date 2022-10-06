@@ -8,7 +8,7 @@ import { priceList } from './components/Hotbar/Market/SeedPrice'
 
 const App = () => {
     const defaultPlayer = {
-      essence: 10000,
+      essence: 0,
       inventory: [],
       inventoryLevel: 1,
       inventoryFull: false,
@@ -24,7 +24,8 @@ const App = () => {
       purchasedEye: false,
       load: false,
       win: false,
-      winDay: 0
+      winDay: 0,
+      level: 1
     }
 
   const [player, setPlayer] = useState(defaultPlayer)
@@ -34,7 +35,7 @@ const App = () => {
   const [inventoryLevel, setInventoryLevel] = useState(player.inventoryLevel)
   const [log, setLog] = useState(player.log)
   const [day, setDay] = useState(player.day)
-  const [week, setWeek] = useState(0)
+  const [week, setWeek] = useState(1)
   let updatedPlayer = {...player}
   let updatedLog = [...log]
 
@@ -133,9 +134,17 @@ const App = () => {
   },[day])
 
 
+    // Set level
+    useEffect(() => {
+      if (player.level < 8) {
+        updatedPlayer.level = week
+        setPlayer(updatedPlayer)
+      }
+    }, [week])
+
+
   // Check if inventory is full
   useEffect(() => {
-    console.log(inventoryLevel)
     if (inventory.length === inventoryLevel * 5) {
       updatedPlayer.inventoryFull = true
       updatedLog.push('Your inventory is full!')

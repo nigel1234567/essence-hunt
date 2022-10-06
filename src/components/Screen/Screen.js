@@ -9,10 +9,17 @@ import { LootContext } from '../Contexts/LootContext'
 import './styles/Screen.css'
 
 const Screen = () => {
-  // Equipment
+    // Player info
+    const {player, setPlayer} = useContext(PlayerContext)
+    const [startingEnergy, setStartingEnergy] = useState(player.startingEnergy)
+    const [currentEnergy, setCurrentEnergy] = useState(player.currentEnergy)
+    const [loot, setLoot] = useState([])
+    const [day, setDay] = useState(player.day)
+    const [equipment, setEquipment] = useState(player.equipment)
+    const [equipmentGrid, setEquipmentGrid] = useState([])
 
   // Level info
-  const [level, setLevel] = useState(1)
+  const [level, setLevel] = useState(player.level)
   const [prevLevelDay, setPrevLevelDay] = useState(1)
 
   // Map info
@@ -21,15 +28,6 @@ const Screen = () => {
   const [seedSlots, setSeedSlots] = useState()
   const [gridItemsArray, setGridItemsArray] = useState([])
   const [grid, setGrid] = useState()
-
-  // Player info
-  const {player, setPlayer} = useContext(PlayerContext)
-  const [startingEnergy, setStartingEnergy] = useState(player.startingEnergy)
-  const [currentEnergy, setCurrentEnergy] = useState(player.currentEnergy)
-  const [loot, setLoot] = useState([])
-  const [day, setDay] = useState(player.day)
-  const [equipment, setEquipment] = useState(player.equipment)
-  const [equipmentGrid, setEquipmentGrid] = useState([])
 
   let updatedPlayer = {...player}
 
@@ -58,6 +56,7 @@ const Screen = () => {
     setStartingEnergy(player.startingEnergy)
     setDay(player.day)
     setEquipment(player.equipment)
+    setLevel(player.level)
   }, [player])
 
   // Equipment
@@ -146,7 +145,7 @@ const Screen = () => {
     // Update player grid
     updatedPlayer.grid = gridItemsArray
     setPlayer(updatedPlayer)
-  }, [seeds, day])
+  }, [seeds, day, player.level])
 
   // Set SeedSlot components
   useEffect(() => {
@@ -172,16 +171,6 @@ const Screen = () => {
     )
   }, [seeds])
 
-  // Increase stage level after every 7 days
-  useEffect(() => {
-    if (day - prevLevelDay === 7) {
-      if (level < 8) {
-        setLevel(level+1)
-      }
-      setPrevLevelDay(day)
-    }
-  }, [day])
-
   return (
     <div className='screen'>
       <div className='column equipment'>
@@ -198,7 +187,7 @@ const Screen = () => {
               <div><strong>Energy: </strong>{currentEnergy}</div>
               <div><strong>Max Energy: </strong>{startingEnergy}</div>
               <div><strong>Level: </strong>{level}</div>
-              <button onClick={showPlayer}>Player</button>
+              {/* <button onClick={showPlayer}>Player</button> */}
             </div>
             <div className='seed-info'>
               <div className='loot-title'>Loot</div>

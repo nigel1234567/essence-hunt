@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/essence-hunt/static/css/main.cf882b95.css",
-    "main.js": "/essence-hunt/static/js/main.17673129.js",
+    "main.js": "/essence-hunt/static/js/main.c1d1bf63.js",
     "index.html": "/essence-hunt/index.html",
     "main.cf882b95.css.map": "/essence-hunt/static/css/main.cf882b95.css.map",
-    "main.17673129.js.map": "/essence-hunt/static/js/main.17673129.js.map"
+    "main.c1d1bf63.js.map": "/essence-hunt/static/js/main.c1d1bf63.js.map"
   },
   "entrypoints": [
     "static/css/main.cf882b95.css",
-    "static/js/main.17673129.js"
+    "static/js/main.c1d1bf63.js"
   ]
 }

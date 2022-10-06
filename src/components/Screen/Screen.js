@@ -38,6 +38,10 @@ const Screen = () => {
     console.log(player)
   }
 
+  const showGarden = () => {
+    console.log(player.garden)
+  }
+
   // Durstenfeld shuffle
   function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -102,7 +106,11 @@ const Screen = () => {
       // Add in the loot on the first row
       if (i < currentLevel) {
         let loot = seedGenerator()
-        gridItems.push(loot)
+        // Create a deep copy of loot
+        let lootCopy = JSON.parse(JSON.stringify(loot))
+        // Create unique id (uid)
+        lootCopy.uid = `${player.day}-${i}`
+        gridItems.push(lootCopy)
       } else {
         // Add in empty for remaining rows
         gridItems.push('empty')
@@ -190,6 +198,8 @@ const Screen = () => {
               <div><strong>Energy: </strong>{currentEnergy}</div>
               <div><strong>Max Energy: </strong>{startingEnergy}</div>
               <div><strong>Level: </strong>{level}</div>
+              <button onClick={showGarden}>Garden</button>
+              <button onClick={showPlayer}>Player</button>
             </div>
             <div className='seed-info'>
               <div className='loot-title'>Loot</div>

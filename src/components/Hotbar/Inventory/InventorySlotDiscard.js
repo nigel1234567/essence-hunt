@@ -25,7 +25,6 @@ const InventorySlot = (props) => {
     // Push new loot into inventory
     updatedInventory.push(props.loot)
     updatedPlayer.inventory = updatedInventory
-    console.log(updatedInventory)
 
     // Update log after replacing item
     updatedLog.push(`Discarded ${props.item.name} for ${props.loot.name}.`)

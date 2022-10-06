@@ -22,8 +22,12 @@ const InventorySlotDust = (props) => {
     // Randomly choose a seed
     let dustOption = getRandomInt(seedList.length)
     let chosenSeed = seedList[dustOption]
+    // Create deep copy
+    let chosenSeedCopy = JSON.parse(JSON.stringify(chosenSeed))
+    // Create unique id (uid)
+    chosenSeedCopy.uid = updatedInventory[props.position].uid
     // Update inventory
-    updatedInventory[props.position] = chosenSeed
+    updatedInventory[props.position] = chosenSeedCopy
     // Update log
     updatedLog.push(`Successfully transformed ${props.item.name} to ${chosenSeed.name}!`)
     // Inform player

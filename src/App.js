@@ -8,7 +8,7 @@ import { priceList } from './components/Hotbar/Market/SeedPrice'
 
 const App = () => {
     const defaultPlayer = {
-      essence: 0,
+      essence: 1000,
       inventory: [],
       inventoryLevel: 1,
       inventoryFull: false,

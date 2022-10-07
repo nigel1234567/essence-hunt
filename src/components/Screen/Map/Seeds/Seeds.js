@@ -17,10 +17,10 @@ import airfruit_img from '../../../../images/airfruit.png'
 
 // Seeds Data
 // Gem seeds
-let apple = new Seed('Opple', 'Gem', 'Common', opple_img, 200, 3, 0.03, 0.02, 0.6)
-let pear = new Seed('Pearmerald', 'Gem', 'Uncommon', pearmerald_img, 400, 4, 0.05, 0.03, 0.6)
+let apple = new Seed('Opple', 'Gem', 'Common', opple_img, 200, 3, 0.03, 0.02, 0.7)
+let pear = new Seed('Pearmerald', 'Gem', 'Uncommon', pearmerald_img, 400, 4, 0.05, 0.03, 0.65)
 let strawberry = new Seed('Strawruby', 'Gem', 'Rare', strawruby_img, 600, 5, 0.07, 0.04, 0.6)
-let melon = new Seed('Diamelon', 'Gem', 'Mythical', diamelon_img, 1000, 6, 0.1, 0.05, 0.6)
+let melon = new Seed('Diamelon', 'Gem', 'Mythical', diamelon_img, 1000, 6, 0.1, 0.05, 0.55)
 
 // Swamp seeds
 let mud = new Seed('Mud Fruit', 'Swamp', 'Common', mudfruit_img, 50, 1, 0.8, 0.6, 0.5)
@@ -29,10 +29,10 @@ let swamp = new Seed('Swamproot', 'Swamp', 'Rare', swamproot_img, 200, 1, 1, 0.8
 let monsoon = new Seed('Monsoon Berry', 'Swamp', 'Mythical', monsoonberry_img, 500, 1, 1.2, 0.9, 0.5)
 
 // Elemental Seeds
-let water = new Seed('Water Fruit', 'Elemental', 'Common', waterfruit_img, 10, 5, 0.25, 0.05, 0.8)
-let earth = new Seed('Earth Fruit', 'Elemental', 'Uncommon', earthfruit_img, 10, 5, 0.3, 0.1, 0.8)
+let water = new Seed('Water Fruit', 'Elemental', 'Common', waterfruit_img, 10, 5, 0.25, 0.05, 0.95)
+let earth = new Seed('Earth Fruit', 'Elemental', 'Uncommon', earthfruit_img, 10, 5, 0.3, 0.1, 0.85)
 let fire = new Seed('Fire Fruit', 'Elemental', 'Rare', firefruit_img, 10, 5, 0.4, 0.15, 0.8)
-let air = new Seed('Air Fruit', 'Elemental', 'Mythical', airfruit_img, 10, 5, 0.5, 0.2, 0.8)
+let air = new Seed('Air Fruit', 'Elemental', 'Mythical', airfruit_img, 10, 5, 0.5, 0.2, 0.75)
 
 // Function to get random int
 function getRandomInt(max) {
@@ -49,11 +49,11 @@ function seedGenerator() {
   // Choose random number
   let typeNumber = getRandomInt(99)
 
-  // Types (Gem (50%), Swamp (40%), Elemental (10%))
+  // Types (Gem (55%), Swamp (40%), Elemental (5%))
   const types = {
-    'Gem': 100, // 51 - 100
-    'Swamp': 50, // 11 - 50
-    'Elemental': 10 // 0 - 9
+    'Gem': 100, // 46 - 100
+    'Swamp': 45, // 6 - 45
+    'Elemental': 5 // 0 - 9
   }
 
   // Seed Rarity (Common (50%), Uncommon (30%), Rare (15%), Mythical (5%))

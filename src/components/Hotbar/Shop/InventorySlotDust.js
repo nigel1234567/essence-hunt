@@ -2,6 +2,7 @@ import React, {useContext, useEffect, useState} from 'react'
 import { PlayerContext } from '../../Contexts/PlayerContext'
 import { SeedContext } from '../../Contexts/SeedContext'
 import { seedList } from '../../Screen/Map/Seeds/Seeds'
+import { seedGenerator } from '../../Screen/Map/Seeds/Seeds'
 
 const InventorySlotDust = (props) => {
   const [slot, setSlot] = useState(<button className='inventory-slot plant'></button>)
@@ -12,16 +13,10 @@ const InventorySlotDust = (props) => {
   let updatedPlayer = {...player}
   let updatedInventory = [...player.inventory]
   let updatedLog = [...player.log]
-
-    // Function to get random int
-    function getRandomInt(max) {
-      return Math.floor(Math.random() * max);
-    }
   
   const dust = () => {
     // Randomly choose a seed
-    let dustOption = getRandomInt(seedList.length)
-    let chosenSeed = seedList[dustOption]
+    let chosenSeed = seedGenerator()
     // Create deep copy
     let chosenSeedCopy = JSON.parse(JSON.stringify(chosenSeed))
     // Create unique id (uid)

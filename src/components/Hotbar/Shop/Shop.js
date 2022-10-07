@@ -12,7 +12,7 @@ const Shop = () => {
   // Choosing equipment category
   const equipmentOption = () => {
     // Set equipment and upgrade buttons
-    setEquipmentButton(<button onClick={equipmentOption} className='focus'>Equipment</button>)
+    setEquipmentButton(<button onClick={equipmentOption} className='focus'>Consumables</button>)
     setUpgradeButton(<button onClick={upgradeOption} className=''>Upgrade</button>)
     
     let equipmentArray = []

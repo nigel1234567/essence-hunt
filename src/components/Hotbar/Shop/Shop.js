@@ -26,7 +26,7 @@ const Shop = () => {
     // Choosing upgrades category
   const upgradeOption = () => {
     // Set equipment and upgrade buttons
-    setEquipmentButton(<button onClick={equipmentOption} className=''>Equipment</button>)
+    setEquipmentButton(<button onClick={equipmentOption} className=''>Consumables</button>)
     setUpgradeButton(<button onClick={upgradeOption} className='focus'>Upgrade</button>)
 
     // Update shop display

@@ -7,11 +7,14 @@ const HarvestOptions = (props) => {
   const {seedPriceList, setSeedPriceList} = useContext(SeedContext)
   const [seedPrice, setSeedPrice] = useState(0)
   const [daysLeft, setDaysLeft] = useState()
+  const [confirmation, setConfirmation] = useState(null)
+  const [confirmationPopup, setConfirmationPopup] = useState(<></>)
   const [seedImage, setSeedImage] = useState(    
   <div className='garden-slot item'>
     <img src={props.seed.image} alt={props.seed.name}></img>
   </div>
 )
+
 
   // Updated values of player
   let updatedGarden = [...player.garden]
@@ -43,42 +46,15 @@ const HarvestOptions = (props) => {
     if (daysLeft > 0) {
       alert('The fruit plant is not matured yet!')
     } else {
-      if (window.confirm(`Are you sure you want to harvest ${props.seed.name}?`)) {
-        // Add essence
-        updatedPlayer.essence += seedPrice
-        // Remove seed from garden
-        updatedGarden.splice(props.position, 1)
-        // Update player garden
-        updatedPlayer.garden = updatedGarden
-        // Update player log
-        updatedLog.push(`Harvested ${props.seed.name} for ${seedPrice} essence!`)
-        updatedPlayer.log = updatedLog
-        // Set updated player
-        setPlayer(updatedPlayer)
-        // Inform player
-        alert(`Successfully harvested ${props.seed.name} for ${seedPrice} essence!`)
-        props.setTrigger(null)
-      }
+      // Setup harvest confirmation
+      setConfirmation('harvest')
     }
   }
 
   // Destroy button
   const destroy = () => {
-    let destroyText = `Are you sure you want to destroy ${props.seed.name}?`
-    if (window.confirm(destroyText)) {
-      // Remove seed from garden
-      updatedGarden.splice(props.position, 1)
-      // Update player garden
-      updatedPlayer.garden = updatedGarden
-      // Update player log
-      updatedLog.push(`Destroyed ${props.seed.name}!`)
-      updatedPlayer.log = updatedLog
-      // Set updated player
-      setPlayer(updatedPlayer)
-      // Inform player
-      alert(`You destroyed ${props.seed.name}!`)
-      props.setTrigger(null)
-    }
+    // Setup destroy confirmation
+    setConfirmation('destroy')
   }
 
   // Update image slot
@@ -98,6 +74,77 @@ const HarvestOptions = (props) => {
     }
   },[daysLeft])
 
+  // Popup to confirm harvest / destroy
+  useEffect(() => {
+    // If harvest
+    if (confirmation === 'harvest') {
+      setConfirmationPopup(
+      <div className='confirm harvest'>
+        <h3>Are you sure you want to harvest {props.seed.name}?</h3>
+        <div className='confirm-buttons'>
+          <button onClick={confirmHarvest} className='yes'>Yes</button>
+          <button onClick={cancelButton} className='no'>No</button>
+        </div>
+      </div>
+      )
+    }
+    // If destroy
+    else if (confirmation === 'destroy') {
+      setConfirmationPopup(
+        <div className='confirm destroy'>
+          <h3>Are you sure you want to destroy {props.seed.name}?</h3>
+          <div className='confirm-buttons'>
+            <button onClick={confirmDestroy} className='yes'>Yes</button>
+            <button onClick={cancelButton} className='no'>No</button>
+          </div>
+        </div>
+        )
+    }
+    // Default null state
+    else {
+      setConfirmationPopup(<></>)
+    }
+  }, [confirmation])
+
+  // Button functions
+
+  // Confirm harvest
+  const confirmHarvest = () => {
+    // Add essence
+    updatedPlayer.essence += seedPrice
+    // Remove seed from garden
+    updatedGarden.splice(props.position, 1)
+    // Update player garden
+    updatedPlayer.garden = updatedGarden
+    // Update player log
+    updatedLog.push(`Harvested ${props.seed.name} for ${seedPrice} essence!`)
+    updatedPlayer.log = updatedLog
+    // Set updated player
+    setPlayer(updatedPlayer)
+    props.setTrigger(null)
+  }
+
+  // Confirm destroy
+  const confirmDestroy = () => {
+    // Remove seed from garden
+    updatedGarden.splice(props.position, 1)
+    // Update player garden
+    updatedPlayer.garden = updatedGarden
+    // Update player log
+    updatedLog.push(`Destroyed ${props.seed.name}!`)
+    updatedPlayer.log = updatedLog
+    // Set updated player
+    setPlayer(updatedPlayer)
+    props.setTrigger(null)
+  }
+
+  // Cancel button
+  const cancelButton = () => {
+    setConfirmation(null)
+  }
+
+
+
   return (
     <div className='harvest-options'>
     <h3>Harvest Fruit</h3>
@@ -113,6 +160,7 @@ const HarvestOptions = (props) => {
       <button className='harvest-btn' onClick={harvest}>Harvest</button>
       <button className='destroy-btn' onClick={destroy}>Destroy</button>
     </div>
+    {confirmationPopup}
   </div>
   )
 

@@ -254,6 +254,51 @@
             }
           }
         }
+
+        .confirm {
+          padding: 2rem;
+          position: fixed;
+          top: 40%;
+          display: flex;
+          flex-direction: column;
+          border: 3px solid var(--grey-2);
+          .confirm-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+            button {
+              font-size: 24px;
+              padding: 8px;
+              border-radius: 16px;
+              font-weight: bold;
+              color: white;
+              width: 5rem;
+              cursor: pointer;
+            }
+            .yes {
+              background-color: greenyellow;
+              border: 3px solid darkolivegreen;
+              color: darkolivegreen;
+              &:hover {
+                background-color: yellow;
+              }
+            }
+            .no {
+              background-color: maroon;
+              border: 3px solid rgb(83, 2, 2);
+              &:hover {
+                background-color: red;
+              }
+            }
+          }
+        }
+        .harvest {
+          background-color: seagreen;
+        }
+        .destroy {
+          background-color: orangered;
+        }
       }
     }
 

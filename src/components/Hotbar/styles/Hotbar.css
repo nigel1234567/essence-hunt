@@ -400,6 +400,70 @@
   background-color: red;
 }
 
+.garden-main .garden-grid .options-popup .harvest-options .confirm {
+  padding: 2rem;
+  position: fixed;
+  top: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 3px solid var(--grey-2);
+}
+
+.garden-main .garden-grid .options-popup .harvest-options .confirm .confirm-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.garden-main .garden-grid .options-popup .harvest-options .confirm .confirm-buttons button {
+  font-size: 24px;
+  padding: 8px;
+  border-radius: 16px;
+  font-weight: bold;
+  color: white;
+  width: 5rem;
+  cursor: pointer;
+}
+
+.garden-main .garden-grid .options-popup .harvest-options .confirm .confirm-buttons .yes {
+  background-color: greenyellow;
+  border: 3px solid darkolivegreen;
+  color: darkolivegreen;
+}
+
+.garden-main .garden-grid .options-popup .harvest-options .confirm .confirm-buttons .yes:hover {
+  background-color: yellow;
+}
+
+.garden-main .garden-grid .options-popup .harvest-options .confirm .confirm-buttons .no {
+  background-color: maroon;
+  border: 3px solid #530202;
+}
+
+.garden-main .garden-grid .options-popup .harvest-options .confirm .confirm-buttons .no:hover {
+  background-color: red;
+}
+
+.garden-main .garden-grid .options-popup .harvest-options .harvest {
+  background-color: seagreen;
+}
+
+.garden-main .garden-grid .options-popup .harvest-options .destroy {
+  background-color: orangered;
+}
+
 .garden-main .garden-grid .item {
   background-color: darkorange;
   color: var(--theme-secondary);
